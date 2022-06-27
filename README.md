@@ -1,43 +1,70 @@
-<div align=center>
+# Getting Started with Create React App
 
-  # 🐾 유기묘 무료 분양 플랫폼 사지마켓 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<img src="https://images.unsplash.com/photo-1542741065-3c98eaf187b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80">
-<br/>
+## Available Scripts
 
-</div>
+In the project directory, you can run:
 
-<br/>
+### `npm start`
 
-  
-# :mega: 소개
-🐱 사지마켓은 전국의 지자체 유기동물 보호센터와 연계하여 운영되는 유기묘 무료 분양 플랫폼입니다. 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-😿 코로나로 입양이 늘던 유기동물들이, 우리가 일상을 되찾은 이후 월평균 유기동물수가 다시 증가하고있습니다. 
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-👥 우리는 턱없이 낮은 유기동물 입양률을 해결하기 위해 유기동물 보호소의 접근성을 높이는데 집중하고자 합니다.
+### `npm test`
 
-💪🏻 보호센터가 책정한 책임비는 재파양과 유기 등 악용 사례를 방지하기 위함이고, 유기묘 캠페인에 사용됩니다. 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-💬 채팅 기능을 통해 보호센터와 간편하게 문의가 가능합니다.
+### `npm run build`
 
-😻 입양된 냥이들의 귀여운 일상 모습을 자랑하는 SNS 기능도 있답니다!
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-# 👩‍👩‍👧‍👧 팀원
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-|                                                         **FE 최수빈**                                                         |                                                               **FE 김시아**                                                               |                                                  **FE 조윤희**                                                   |                                                    **FE 허지현**                                                     |
-| :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
-|                     <img src="https://avatars.githubusercontent.com/u/89335150?v=4" height=180 width=180>                     |                           <img src="https://avatars.githubusercontent.com/u/90305737?v=4" height=180 width=180>                           |              <img src="https://avatars.githubusercontent.com/u/102465469?v=4" height=180 width=180>               |                <img src="https://avatars.githubusercontent.com/u/95600994?v=4" height=180 width=180>                 |
-|  **blog**: [samkong.log](https://velog.io/@samkong) </br> **github**: [subincdev](https://github.com/subincdev)  |                  **github**: [Sia kim](https://github.com/mrbrightsiide)                 |       **github**: [unidagit](https://github.com/unidagit)       |      **Youtube**: [Front-end School](https://www.youtube.com/channel/UCFk1UTFYVBn0oFzP9eGCN5A) </br> **github**: [Jihyun Heo](https://github.com/Koreanhamster)       |
-| ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Team%20leader](https://img.shields.io/badge/-Team%20leader-green) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Functional%20Design](https://img.shields.io/badge/Functional%20Design-f8b62d) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Design](https://img.shields.io/badge/-Design-orange) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Planning](https://img.shields.io/badge/-Planning-f67280) |
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-# 👩🏻‍💻 기술
-<div align="center">
-  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"> 
-<img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
- <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"> 
-</div>
-<br/>
-- FrontEnd : React, React-router, Hooks, Styled-components<br/>
-- BackEnd : 제공된 API 사용 <br/>
+### `npm run eject`
 
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
