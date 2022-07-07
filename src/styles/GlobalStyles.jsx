@@ -17,7 +17,6 @@ const GlobalStyles = createGlobalStyle`
     }
     body{
         font-family: 'Pretendard', sans-serif;
-        font-size: 10px;
     }
     img{
         width: 100%;
