@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 export const A11yHidden = styled.div`
   position: absolute;
   width: 1px;
