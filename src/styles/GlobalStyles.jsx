@@ -1,6 +1,6 @@
-import "./font.css";
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import './font.css';
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
@@ -11,6 +11,9 @@ const GlobalStyles = createGlobalStyle`
     }
     *{
         box-sizing:border-box;
+    }
+    html {
+        font-size: 10px;
     }
     body{
         font-family: 'Pretendard', sans-serif;
