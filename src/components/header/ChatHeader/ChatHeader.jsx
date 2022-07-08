@@ -13,7 +13,7 @@ export default function ChatHeader() {
       <button onClick={handleGoPrev}>
         <img src={IconArrowLeft} alt="뒤로가기" />
       </button>
-      <S.HeaderTitle>애월읍 위니브 감귤농장</S.HeaderTitle>
+      <S.UserName>애월읍 위니브 감귤농장</S.UserName>
       <button>
         <img src={IconMoreVertical} alt="더보기" />
       </button>

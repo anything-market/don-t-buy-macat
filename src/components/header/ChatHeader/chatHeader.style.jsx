@@ -10,7 +10,7 @@ export const BasicHeaderLayout = styled.header`
   padding: 0 1.2rem 0 1.6rem;
 `;
 
-export const HeaderTitle = styled.h2`
+export const UserName = styled.h2`
   font-size: 1.4rem;
   margin: 0 auto 0 1rem;
 `;
