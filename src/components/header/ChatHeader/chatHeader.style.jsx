@@ -10,6 +10,9 @@ export const BasicHeaderLayout = styled.header`
   top: 0;
   height: 4.8rem;
   padding: 0 1.2rem 0 1.6rem;
+  & > * {
+    flex-shrink: 0;
+  }
 `;
 export const ArrowLeftIcon = styled.img.attrs({
   src: iconArrowLeft,
