@@ -28,6 +28,7 @@ export const FormBox = styled.div`
 
   & > label {
     font-size: 1.2rem;
+    margin-bottom: 0.7rem;
     color: ${(props) => props.theme.palette['darkGray']};
   }
 
@@ -42,5 +43,6 @@ export const FormBox = styled.div`
   & > img {
     margin-top: 1.4rem;
     margin-bottom: 2.1rem;
+    cursor: pointer;
   }
 `;
