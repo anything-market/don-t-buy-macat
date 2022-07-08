@@ -1,18 +1,18 @@
 // ${(props) => props.theme.palette['']};
 
 const palette = {
-  main: '#FADF53',
-  white: '#ffffff',
+  primary: '#FADF53', //main
+  disabled: '#FFED9F', //btnDisabled
   point: '#05704A',
-  dotIcon: '#C4C4C4',
-  searchBar: '#F2F2F2',
-  btnDisabled: '#FFED9F',
-  profileTxtGray: '#616161',
+  white: '#ffffff',
+  background: '#F2F2F2', //searchbar
   border: '#DBDBDB',
-  darkGray: '#767676',
+  lightGray: '#C4C4C4', //dotIcon
+  mediumGray: '#767676', //darkGray
+  darkGray: '#616161', //profileTxtGray
+  black: '#000000',
   kakao: '#F2C94C',
   facebook: '#2D9CDB',
-  black: '#000000',
 };
 
 const theme = {
