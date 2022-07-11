@@ -22,14 +22,14 @@ export const ProfileImgWrap = styled.img`
 
 export const AuthorName = styled.article`
   font-weight: 500;
-  font-size: 14px;
-  line-height: 16.71px;
+  font-size: 1.4rem;
+  line-height: 1.671rem;
   margin-bottom: 2px;
 `;
 
 export const AuthorId = styled.article`
   font-weight: 900;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
   color: ${(props) => props.theme.palette['mediumGray']};
 `;

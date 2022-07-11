@@ -6,8 +6,8 @@ export const PostContent = styled.section`
 
 export const PostTxt = styled.p`
   font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
   margin-bottom: 16px;
   word-break: break-all;
 `;
@@ -25,8 +25,8 @@ export const PostImg = styled.img`
 export const PostIconsWrap = styled.div`
   display: flex;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
   margin-bottom: 16px;
   align-items: center;
 `;
