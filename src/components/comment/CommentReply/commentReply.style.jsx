@@ -36,5 +36,8 @@ export const CommentSubmitButton = styled.button`
   width: 7rem;
   font-weight: 500;
   font-size: 1.4rem;
-  color: ${(props) => props.theme.palette['border']};
+  color: ${(props) => props.theme.palette['point']};
+  &:disabled {
+    color: ${(props) => props.theme.palette['border']};
+  }
 `;
