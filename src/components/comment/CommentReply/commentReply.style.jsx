@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import basicProfile from '../../assets/basic-profile.svg';
 
-export const CommentWrapper = styled.section`
+export const CommentReplyWrapper = styled.section`
   display: flex;
   align-items: center;
   position: fixed;
@@ -12,7 +12,7 @@ export const CommentWrapper = styled.section`
   padding: 1.2rem 1.6rem;
 `;
 
-export const CommentContainer = styled.form`
+export const CommentReplyContainer = styled.form`
   display: flex;
   width: 100%;
 `;

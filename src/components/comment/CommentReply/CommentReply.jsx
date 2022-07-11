@@ -1,21 +1,21 @@
 import React from 'react';
 import {
-  CommentWrapper,
-  CommentContainer,
+  CommentReplyWrapper,
+  CommentReplyContainer,
   ProfileImg,
   CommentInput,
   CommentSubmitButton,
-} from './comment.style';
+} from './commentReply.style';
 
 function Comment() {
   return (
-    <CommentWrapper>
-      <CommentContainer>
+    <CommentReplyWrapper>
+      <CommentReplyContainer>
         <ProfileImg />
         <CommentInput type="text" placeholder="댓글 입력하기..." />
         <CommentSubmitButton>게시</CommentSubmitButton>
-      </CommentContainer>
-    </CommentWrapper>
+      </CommentReplyContainer>
+    </CommentReplyWrapper>
   );
 }
 
