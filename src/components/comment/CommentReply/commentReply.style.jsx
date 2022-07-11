@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import basicProfile from '../../assets/basic-profile.svg';
+import basicProfile from '../../../assets/basic-profile.svg';
 
 export const CommentReplyWrapper = styled.section`
   display: flex;
