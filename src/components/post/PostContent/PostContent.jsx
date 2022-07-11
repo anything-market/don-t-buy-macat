@@ -34,13 +34,13 @@ const PostContent = () => {
         <S.PostIconBtn onClick={handleLike}>
           <HeartIcon
             fill={isLiked ? '#05704A' : '#fff'}
-            style={{ 'margin-right': '6px' }}
+            style={{ marginRight: '6px' }}
           />
           <span>{heartCount}</span>
         </S.PostIconBtn>
         <a>
           <S.PostIconBtn onClick={handleComment}>
-            <img src={CommentIcon} alt="" style={{ 'margin-right': '6px' }} />
+            <img src={CommentIcon} alt="" style={{ marginRight: '6px' }} />
             <span>{commentCount}</span>
           </S.PostIconBtn>
         </a>
