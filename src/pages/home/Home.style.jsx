@@ -6,7 +6,6 @@ export const PostWrap = styled.main`
   align-items: center;
   padding: 20px 16px 0;
   height: calc(100% - 108px);
-  overflow-y: scroll;
 `;
 
 export const FeedEmptyWrap = styled.div`
