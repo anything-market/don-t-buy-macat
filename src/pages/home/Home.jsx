@@ -45,7 +45,6 @@ const Home = () => {
 
   return (
     <>
-      {console.log(userFeedData)}
       {userFeedData && userFeedData.length > 0 ? (
         <>
           <BasicHeader />
@@ -64,7 +63,9 @@ const Home = () => {
             >
               피드나가기
             </button>
-            <PostCard />
+            {userFeedData.map((post) => {
+              return <PostCard key={post.id} data={post} />;
+            })}
           </S.PostWrap>
         </>
       ) : (

@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './PostCard.style';
 import PostContent from '../PostContent/PostContent';
 import PostAuthor from './../PostAuthor/PostAuthor';
 
-const PostCard = () => {
+const PostCard = (data) => {
+  const [authorData, setAuthorData] = useState();
+  const [postData, setPostData] = useState();
+
+  useEffect(() => {
+    setAuthorData(data.data.author);
+    setPostData(data.data);
+  }, [data]);
+
   return (
     <S.ProfileWrap>
-      <PostAuthor />
-      <PostContent />
+      {authorData && <PostAuthor data={authorData} />}
+      {postData && <PostContent data={postData} />}
     </S.ProfileWrap>
   );
 };
