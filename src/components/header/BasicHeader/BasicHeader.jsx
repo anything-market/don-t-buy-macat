@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import HeaderModal from '../../modal/HeaderModal/HeaderModal';
+import Modal from '../../modal/Modal/Modal';
+import LogoutAlert from '../../modal/HeaderModal/LogoutAlert/LogoutAlert';
 import * as S from './basicHeader.style';
 
 export default function BasicHeader() {
@@ -8,10 +9,19 @@ export default function BasicHeader() {
   const handleGoPrev = () => {
     navigate(-1);
   };
+  //모달열기
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const outSection = useRef();
   const handleOpenModal = () => {
     setIsOpenModal(true);
+  };
+  //alert창 열기
+  const [isOpenAlert, setIsOpenAlert] = useState(false);
+  const handleOpenAlert = () => {
+    setIsOpenAlert(true);
+  };
+
+  const handleCloseAlert = () => {
+    setIsOpenAlert(false);
   };
   return (
     <>
@@ -24,18 +34,20 @@ export default function BasicHeader() {
         </button>
       </S.BasicHeaderLayout>
       {isOpenModal && (
-        <article>
-          <S.Background
-            ref={outSection}
-            onClick={(e) => {
-              if (outSection.current === e.target) {
-                setIsOpenModal(false);
-              }
-            }}
+        <>
+          <Modal
+            setIsOpenModal={setIsOpenModal}
+            setIsOpenAlert={setIsOpenAlert}
           >
-            <HeaderModal />
-          </S.Background>
-        </article>
+            <li>
+              <button>설정 및 개인정보</button>
+            </li>
+            <li>
+              <button onClick={handleOpenAlert}>로그아웃</button>
+            </li>
+          </Modal>
+          {isOpenAlert && <LogoutAlert handleCloseAlert={handleCloseAlert} />}
+        </>
       )}
     </>
   );
