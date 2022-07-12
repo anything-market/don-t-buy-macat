@@ -6,30 +6,23 @@ import axios from 'axios';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const url = 'https://mandarin.api.weniv.co.kr/';
-  const reqPath = 'user/login';
 
   async function login() {
     try {
-      await axios(url + reqPath, {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({
+      const res = await axios.post(
+        'https://mandarin.api.weniv.co.kr/user/login',
+        {
+          headers: {
+            'Content-type': 'application/json',
+          },
           user: {
             email: email,
             password: password,
           },
-        }),
-      }).then(function (response) {
-        console.log(response.data);
-        console.log(response.status);
-        console.log(response.statusText);
-        console.log(response.headers);
-        console.log(response.config);
-      });
-      console.log('성공');
+        },
+      );
+      console.log(res);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
