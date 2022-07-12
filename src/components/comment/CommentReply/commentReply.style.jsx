@@ -10,6 +10,7 @@ export const CommentReplyWrapper = styled.section`
   min-width: 3.9rem;
   border-top: 0.5px solid ${(props) => props.theme.palette['border']};
   padding: 1.2rem 1.6rem;
+  background-color: ${(props) => props.theme.palette['white']};
 `;
 
 export const CommentReplyContainer = styled.form`
