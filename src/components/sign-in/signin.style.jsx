@@ -33,6 +33,7 @@ export const FormBox = styled.div`
   }
 
   & > input {
+    width: 32.2rem;
     border: none;
     outline: none;
     font-size: 1.4rem;
@@ -43,10 +44,16 @@ export const FormBox = styled.div`
       border-bottom: 0.1rem solid ${(props) => props.theme.palette['point']};
     }
   }
+`;
 
-  & > img {
-    margin-top: 1.4rem;
-    margin-bottom: 2.1rem;
-    cursor: pointer;
-  }
+export const Button = styled.div`
+  margin-top: 1.6rem;
+  background-color: ${(props) => props.theme.palette['disabled']};
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 1.3rem 0 1.4rem 0;
+  text-align: center;
+  border-radius: 44px;
+  margin-bottom: 2.1rem;
+  cursor: pointer;
 `;

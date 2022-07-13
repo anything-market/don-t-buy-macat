@@ -1,6 +1,5 @@
 import React from 'react';
 import * as S from './signin.style';
-import LoginButton from './../../assets/Login-button.svg';
 
 function SignIn() {
   return (
@@ -12,7 +11,7 @@ function SignIn() {
           <input type="text" id="email" name="email" />
           <label htmlFor="password">비밀번호</label>
           <input type="password" id="passWord" name="password" />
-          <img src={LoginButton} alt="login button" />
+          <S.Button>다음</S.Button>
         </S.FormBox>
       </form>
     </S.Wrapper>
