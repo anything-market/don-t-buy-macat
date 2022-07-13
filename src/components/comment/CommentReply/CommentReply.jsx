@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
@@ -9,13 +10,12 @@ import {
   CommentSubmitButton,
 } from './commentReply.style';
 
-function CommentReply() {
+function CommentReply({ getComments }) {
   const [comment, setComment] = useState('');
   const [isValid, setIsValid] = useState(false);
   const token =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2I4N2FhODJmZGNjNzEyZjQzODJhNCIsImV4cCI6MTY2MjY4OTcyMSwiaWF0IjoxNjU3NTA1NzIxfQ.eBZXMW7UGe1CCX23sZSf1qtIqnD-lCeIHsySOUdCJCg';
   const postId = '62cb8b2882fdcc712f4382bb';
-  const commentTxt = '우와 양천향교 폐관수련이다';
 
   const handleInput = (e) => {
     e.preventDefault;
@@ -38,16 +38,14 @@ function CommentReply() {
       },
       data: {
         comment: {
-          content: `${commentTxt}`,
+          content: `${comment}`,
         },
       },
-    })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+    }).then((response) => {
+      console.log(response.data.result);
+      setComment('');
+      getComments();
+    });
   };
 
   return (
