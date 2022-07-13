@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CommentList from './CommentList/CommentList';
 import CommentReply from './CommentReply/CommentReply';
 
@@ -26,6 +26,10 @@ function CommentView() {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    getComments();
+  }, []);
 
   return (
     <div className="CommentView">
