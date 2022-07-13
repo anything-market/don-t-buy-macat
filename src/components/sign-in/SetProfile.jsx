@@ -2,8 +2,15 @@ import React from 'react';
 import basicProfile from '../../assets/basic-profile-img-.svg';
 import uploadFile from '../../assets/upload-file.svg';
 import * as S from './setProfile.style';
+import { useLocation } from 'react-router-dom';
 
 function SetProfile() {
+  const location = useLocation();
+
+  const email = location.state.email;
+  const password = location.state.password;
+  console.log(email, password);
+
   return (
     <S.Wrapper>
       <h1>프로필 설정</h1>
