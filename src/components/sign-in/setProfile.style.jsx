@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     font-size: 2.4rem;
     font-weight: 500;
     margin-top: 3.1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 1.2rem;
   }
 
   & > p {

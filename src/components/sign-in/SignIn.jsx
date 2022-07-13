@@ -8,9 +8,19 @@ function SignIn() {
       <form action="#">
         <S.FormBox>
           <label htmlFor="name">이메일</label>
-          <input type="text" id="email" name="email" />
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="이메일 주소를 입력해 주세요."
+          />
           <label htmlFor="password">비밀번호</label>
-          <input type="password" id="passWord" name="password" />
+          <input
+            type="password"
+            id="passWord"
+            name="password"
+            placeholder="비밀번호를 설정해 주세요."
+          />
           <S.Button>다음</S.Button>
         </S.FormBox>
       </form>
