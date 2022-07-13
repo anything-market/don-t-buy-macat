@@ -11,7 +11,7 @@ function CommentView() {
   const postId = '62cb8b2882fdcc712f4382bb';
   const getComments = () => {
     axios({
-      url: `https://mandarin.api.weniv.co.kr/post/${postId}/comments?limit=10`,
+      url: `http://146.56.183.55:5050/post/${postId}/comments?limit=10`,
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,

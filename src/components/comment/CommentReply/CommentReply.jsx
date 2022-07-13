@@ -30,7 +30,7 @@ function CommentReply({ getComments }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios({
-      url: `https://mandarin.api.weniv.co.kr/post/${postId}/comments`,
+      url: `http://146.56.183.55:5050/post/${postId}/comments`,
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
