@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 import {
@@ -10,19 +11,25 @@ import {
   Toggleimg,
 } from './commentList.style';
 
-function CommentList() {
+function CommentList({ comments }) {
+  console.log(comments);
   return (
     <CommentListWrapper>
       <CommentListContainer>
-        <CommentListLi>
-          <ProfileImg />
-          <InformationBox>
-            <span>아이디</span>
-            <small>날짜</small>
-          </InformationBox>
-          <CommentText></CommentText>
-          <Toggleimg />
-        </CommentListLi>
+        {comments &&
+          comments.map((data) => {
+            return (
+              <CommentListLi key={data.id}>
+                <ProfileImg />
+                <InformationBox>
+                  <span>{data.author.username}</span>
+                  <small>{new Date(data.createdAt).toLocaleDateString()}</small>
+                </InformationBox>
+                <CommentText>{data.content}</CommentText>
+                <Toggleimg />
+              </CommentListLi>
+            );
+          })}
       </CommentListContainer>
     </CommentListWrapper>
   );
