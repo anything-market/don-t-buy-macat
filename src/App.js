@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <GlobalStyles />
+        <App />
       </BrowserRouter>
     </div>
   );
