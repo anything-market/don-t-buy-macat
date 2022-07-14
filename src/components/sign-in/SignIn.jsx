@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import * as S from './signin.style';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function SignIn() {
   const navigate = useNavigate();
@@ -9,50 +11,75 @@ function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [emailMessage, setEamilMessage] = useState('');
-  const [passwordMessage, setpasswordMessage] = useState('');
+  const [emailMessage, setEmailMessage] = useState('');
+  const [passwordMessage, setPasswordMessage] = useState('');
 
   const [isValidatedEmail, setIsValidatedEmail] = useState(false);
   const [isValidatedPassword, setIsValidatedPassword] = useState(false);
 
-  const sendDataToSetProfile = function () {
-    // 서버통신 통과하면 이메일/패스워드 정보 넘겨주기
-    if (isValidatedEmail && isValidatedPassword) {
+  //집에가서 validate 하나로 합치기
+
+  const sendDataToSetProfile = async function () {
+    const res = await axios.post('http://146.56.183.55:5050/user/emailvalid', {
+      user: {
+        email: email,
+      },
+    });
+
+    console.log(res.data.message);
+
+    if (res.data.message === '사용 가능한 이메일 입니다.') {
+      setIsValidatedEmail(true);
       navigate('/join/setprofile', {
         state: {
           email: email,
           password: password,
         },
       });
+    } else if (res.data.message === '이미 가입된 이메일 주소 입니다.') {
+      setIsValidatedEmail(false);
+      setEmailMessage('*이미 가입된 이메일 주소 입니다.');
     } else {
-      console.log('아디비번 제대로치삼');
+      setIsValidatedEmail(false);
+      alert('잘못된 접근');
     }
-    // 안되면 메세지 출력
   };
 
-  // 이메일 정규식 통과 못할시 메세지 설정, false
+  // 이메일 유효성 검사
   const validateEmail = () => {
     const regexEmail =
       /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     if (!regexEmail.test(email) && email !== '') {
       setIsValidatedEmail(false);
-      setEamilMessage('*올바른 이메일 형식이 아닙니다.');
+      setEmailMessage('*올바른 이메일 형식이 아닙니다.');
     } else {
       setIsValidatedEmail(true);
-      setEamilMessage('');
+      setEmailMessage('');
     }
   };
 
-  // 비밀번호 6자리 이상 아닐 시 메세지 설정, false
+  useEffect(() => {
+    if (email && password) {
+      setIsValidatedEmail(true);
+    } else {
+      setIsValidatedEmail(false);
+      setIsValidatedPassword(false);
+    }
+  }, [email, password]);
+
+  // 패스워드 유효성 검사
   const validatePassword = () => {
     if (password.length < 6 && password !== '') {
-      setpasswordMessage('*비밀번호는 6자 이상이어야 합니다.');
+      setPasswordMessage('*비밀번호는 6자 이상이어야 합니다.');
       setIsValidatedPassword(false);
     } else {
-      setpasswordMessage('');
+      setPasswordMessage('');
       setIsValidatedPassword(true);
     }
   };
+
+  const passed = isValidatedEmail && isValidatedPassword;
+  console.log(passed, 'email:', isValidatedEmail, 'pw:', isValidatedPassword);
 
   return (
     <S.Wrapper>
@@ -86,7 +113,8 @@ function SignIn() {
           <p className="message">{passwordMessage}</p>
           <S.Button
             disabled={
-              isValidatedEmail && setIsValidatedEmail ? 'disabled' : null
+              // 유효성 검사한거 이메일/비밀번호 둘중에 하나라도 false면 disabled되게하기
+              passed ? null : 'disabled'
             }
             onClick={sendDataToSetProfile}
           >

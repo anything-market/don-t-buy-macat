@@ -89,7 +89,8 @@ export const FormBox = styled.div`
   }
 `;
 
-export const Button = styled.div`
+export const Button = styled.button.attrs({ type: 'button' })`
+  color: black;
   margin-top: 1.6rem;
   background-color: ${(props) => props.theme.palette['disabled']};
   font-size: 1.4rem;
