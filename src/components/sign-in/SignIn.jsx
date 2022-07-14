@@ -7,6 +7,7 @@ function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [message, setMessage] = useState('');
 
   const nextHandler = function () {
     navigate('/join/setprofile', {
@@ -15,6 +16,16 @@ function SignIn() {
         password: password,
       },
     });
+  };
+
+  const validateEmail = () => {
+    const regexEmail =
+      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if (!regexEmail.test(email) && email !== '') {
+      setMessage('*올바른 이메일 형식이 아닙니다.');
+    } else {
+      setMessage('');
+    }
   };
 
   return (
@@ -31,8 +42,11 @@ function SignIn() {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            onBlur={validateEmail}
           />
-          <label htmlFor="password">비밀번호</label>
+          <p className="message">{message}</p>
+
+          <label htmlFor="password"></label>
           <input
             type="password"
             id="passWord"

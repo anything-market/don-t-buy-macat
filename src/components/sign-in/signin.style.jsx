@@ -74,6 +74,19 @@ export const FormBox = styled.div`
       color: ${(props) => props.theme.palette['border']};
     }
   }
+
+  .message {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.6rem;
+    margin-top: -1rem;
+    color: ${(props) => props.theme.palette['point']};
+  }
+
+  .ErrorMessage {
+    border: 3px solid red;
+    background-color: blue;
+  }
 `;
 
 export const Button = styled.div`
