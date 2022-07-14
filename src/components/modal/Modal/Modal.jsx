@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import ReactDOM from 'react-dom';
 import * as S from './modal.style';
-const Modal = ({ children, setIsOpenModal, setIsOpenAlert }) => {
+const Modal = ({ children, setIsOpenModal }) => {
   const outSection = useRef();
   return ReactDOM.createPortal(
     <article>
@@ -16,7 +16,6 @@ const Modal = ({ children, setIsOpenModal, setIsOpenAlert }) => {
         onClick={(e) => {
           if (outSection.current === e.target) {
             setIsOpenModal(false);
-            setIsOpenAlert(false);
           }
         }}
       />
