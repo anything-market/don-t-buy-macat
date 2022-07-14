@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from './postDeleteAlert.style';
+import * as S from '../commonAlert.style';
 export default function PostDeleteAlert({ handleOpenAlert }) {
   return (
     <S.AlertContainer>

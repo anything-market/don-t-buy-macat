@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as S from './logoutAlert.style';
+import * as S from '../commonAlert.style';
 export default function LogoutAlert({ handleOpenAlert }) {
   const navigate = useNavigate();
   const handleLogout = () => {
