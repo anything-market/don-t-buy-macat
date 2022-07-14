@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 // import ProductDeleteAlert from '../HeaderModal/LogoutAlert/LogoutAlert';
-import PostDeleteAlert from '../alert/PostDeleteAlert/PostDeleteAlert';
+import PostDeleteAlert from '../../alert/PostDeleteAlert/PostDeleteAlert';
 export default function ProductModalContent() {
   //alert창 열기
   const [isOpenAlert, setIsOpenAlert] = useState(false);
   const handleOpenAlert = () => {
-    setIsOpenAlert(!isOpenAlert);
+    setIsOpenAlert(true);
   };
-
+  const handleCloseAlert = () => {
+    setIsOpenAlert(false);
+  };
   return (
     <>
       <li>
@@ -16,7 +18,7 @@ export default function ProductModalContent() {
       <li>
         <button>수정</button>
       </li>
-      {isOpenAlert && <PostDeleteAlert handleOpenAlert={handleOpenAlert} />}
+      {isOpenAlert && <PostDeleteAlert handleCloseAlert={handleCloseAlert} />}
     </>
   );
 }
