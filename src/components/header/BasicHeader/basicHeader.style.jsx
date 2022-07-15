@@ -10,6 +10,9 @@ export const BasicHeaderLayout = styled.header`
   top: 0;
   height: 4.8rem;
   padding: 0 1.2rem 0 1.6rem;
+  & > * {
+    flex-shrink: 0;
+  }
 `;
 
 export const ArrowLeftIcon = styled.img.attrs({
@@ -21,3 +24,12 @@ export const MoreIcon = styled.img.attrs({
   src: iconMoreVertical,
   alt: '더보기',
 })``;
+
+export const Background = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+`;
