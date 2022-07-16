@@ -100,4 +100,8 @@ export const Button = styled.button.attrs({ type: 'button' })`
   border-radius: 44px;
   margin-bottom: 2.1rem;
   cursor: pointer;
+
+  .ableToClick {
+    background-color: ${(props) => props.theme.palette['primary']};
+  }
 `;
