@@ -92,16 +92,16 @@ export const FormBox = styled.div`
 export const Button = styled.button.attrs({ type: 'button' })`
   color: black;
   margin-top: 1.6rem;
-  background-color: ${(props) => props.theme.palette['disabled']};
+  background-color: ${(props) =>
+    props.disabled === 'disabled'
+      ? props.theme.palette['disabled']
+      : props.theme.palette['primary']};
   font-size: 1.4rem;
   font-weight: 500;
   padding: 1.3rem 0 1.4rem 0;
   text-align: center;
   border-radius: 44px;
   margin-bottom: 2.1rem;
-  cursor: pointer;
-
-  .ableToClick {
-    background-color: ${(props) => props.theme.palette['primary']};
-  }
+  cursor: ${(props) =>
+    props.disabled === 'disabled' ? 'not-allowed' : 'pointer'};
 `;
