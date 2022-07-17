@@ -20,12 +20,16 @@ function Login() {
           password: password,
         },
       });
+      console.log(res);
 
       if (res.data.message === '이메일 또는 비밀번호가 일치하지 않습니다.') {
+        console.log(res.data.message);
         setMessage('이메일 또는 비밀번호가 일치하지 않습니다.');
+      } else {
+        setMessage('');
+        console.log(res.data.user.token);
+        localStorage.setItem('Access Token', res.data.user.token);
       }
-      console.log(res);
-      console.log(res.data.message);
     } catch (error) {
       console.log(error);
     }
