@@ -78,7 +78,7 @@ function Login() {
           </S.Button>
         </S.FormBox>
       </form>
-      <p>이메일로 회원가입</p>
+      <S.StyledLink to={'/signin'}>이메일로 회원가입</S.StyledLink>
     </S.Wrapper>
   );
 }
