@@ -9,18 +9,15 @@ function Login() {
 
   async function login() {
     try {
-      const res = await axios.post(
-        'https://mandarin.api.weniv.co.kr/user/login',
-        {
-          headers: {
-            'Content-type': 'application/json',
-          },
-          user: {
-            email: email,
-            password: password,
-          },
+      const res = await axios.post('http://146.56.183.55:5050/user/login', {
+        headers: {
+          'Content-type': 'application/json',
         },
-      );
+        user: {
+          email: email,
+          password: password,
+        },
+      });
       console.log(res);
       console.log(res.data);
     } catch (error) {
