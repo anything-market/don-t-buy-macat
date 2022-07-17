@@ -41,6 +41,7 @@ export const FormBox = styled.div`
 
   & > input {
     width: 32.2rem;
+    line-height: 2.5rem;
     border: none;
     outline: none;
     font-size: 1.4rem;
