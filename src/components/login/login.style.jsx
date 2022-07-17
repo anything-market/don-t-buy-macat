@@ -33,6 +33,7 @@ export const FormBox = styled.div`
   }
 
   & > input {
+    width: 32.2rem;
     border: none;
     outline: none;
     font-size: 1.4rem;
@@ -40,11 +41,11 @@ export const FormBox = styled.div`
     border-bottom: 0.1rem solid ${(props) => props.theme.palette['border']};
   }
 
-  & > img {
+  /* & > img {
     margin-top: 1.4rem;
     margin-bottom: 2.1rem;
     cursor: pointer;
-  }
+  } */
 
   .message {
     font-size: 1.2rem;
@@ -53,4 +54,20 @@ export const FormBox = styled.div`
     margin-top: -1rem;
     color: ${(props) => props.theme.palette['point']};
   }
+`;
+
+export const Button = styled.div`
+  margin-top: 1.6rem;
+  background-color: ${(props) =>
+    props.ableToClick === true
+      ? props.theme.palette['primary']
+      : props.theme.palette['disabled']};
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 1.3rem 0 1.4rem 0;
+  text-align: center;
+  border-radius: 44px;
+  margin-bottom: 2.1rem;
+  cursor: ${(props) =>
+    props.ableToClick === true ? 'pointer' : 'not-allowed'};
 `;
