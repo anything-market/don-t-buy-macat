@@ -7,6 +7,8 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [message, setMessage] = useState('');
+
   async function login() {
     try {
       const res = await axios.post('http://146.56.183.55:5050/user/login', {
@@ -18,8 +20,12 @@ function Login() {
           password: password,
         },
       });
+
+      if (res.data.message === '이메일 또는 비밀번호가 일치하지 않습니다.') {
+        setMessage('이메일 또는 비밀번호가 일치하지 않습니다.');
+      }
       console.log(res);
-      console.log(res.data);
+      console.log(res.data.message);
     } catch (error) {
       console.log(error);
     }
@@ -39,11 +45,12 @@ function Login() {
           />
           <label htmlFor="password">비밀번호</label>
           <input
-            type="text"
+            type="password"
             id="passWord"
             name="password"
             onChange={(e) => setPassword(e.target.value)}
           />
+          <p className="message">{message}</p>
           <img src={LoginButton} alt="login button" onClick={login} />
         </S.FormBox>
       </form>

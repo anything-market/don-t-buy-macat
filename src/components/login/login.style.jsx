@@ -45,4 +45,12 @@ export const FormBox = styled.div`
     margin-bottom: 2.1rem;
     cursor: pointer;
   }
+
+  .message {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.6rem;
+    margin-top: -1rem;
+    color: ${(props) => props.theme.palette['point']};
+  }
 `;
