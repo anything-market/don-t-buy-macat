@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import * as S from './login.style';
 import LoginButton from './../../assets/Login-Disabled-button.svg';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -29,6 +32,7 @@ function Login() {
         setMessage('');
         console.log(res.data.user.token);
         localStorage.setItem('Access Token', res.data.user.token);
+        navigate('/home');
       }
     } catch (error) {
       console.log(error);
