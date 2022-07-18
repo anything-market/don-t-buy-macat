@@ -51,9 +51,10 @@ function PostUpload() {
             placeholder={'게시글 입력하기...'}
           />
           <S.PostFormContainer>
-            {imageUrl && (
-              <S.PreviewImage src={imageUrl} alt="이미지 미리보기" />
-            )}
+            {imageUrl &&
+              imageUrl.map((index, key) => (
+                <S.PreviewImage key={key} src={index} alt="" />
+              ))}
             <S.UploadImg className="A11yHidden">
               게시글 이미지 업로드
             </S.UploadImg>
