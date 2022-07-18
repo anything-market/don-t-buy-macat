@@ -34,6 +34,8 @@ export const ImageBox = styled.div`
     align-items: center;
     width: 110px;
     height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
   }
 
   .fileUploadButton {
