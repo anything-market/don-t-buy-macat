@@ -17,7 +17,9 @@ function SetProfile() {
   const [userID, setUserID] = useState('');
   const [userIntro, setUserIntro] = useState('');
 
-  const [isValidatedUserName, setIsValidatedUserName] = useState(false);
+  const [isUserName, setIsUserName] = useState(false);
+  const [iseUserID, setIsUserID] = useState(false);
+  const [isUserIntro, setIsUserIntro] = useState(false);
 
   const [userNameWarningMessage, setUserNameWarningMessage] = useState('');
   const [userIDWarningMessage, setUserIDWarningMessage] = useState('');
@@ -75,12 +77,12 @@ function SetProfile() {
     console.log(userName.length);
     if (userName.length > 10 || (userName.length < 2 && userName !== '')) {
       setUserNameWarningMessage('2자~10자 이내여야 합니다.');
-      setIsValidatedUserName(false);
+      setIsUserName(false);
     } else if (userName === '') {
-      setIsValidatedUserName(false);
+      setIsUserName(false);
     } else {
       setUserNameWarningMessage();
-      setIsValidatedUserName(true);
+      setIsUserName(true);
     }
   }, [userName]);
 
@@ -90,8 +92,12 @@ function SetProfile() {
       setUserIDWarningMessage(
         '영문, 숫자, 밑줄 및 마침표만 사용할 수 있습니다.',
       );
+      setIsUserID(false);
+    } else if (userID !== '') {
+      setIsUserID(false);
     } else {
       setUserIDWarningMessage('');
+      setIsUserID(true);
     }
   }, [userID]);
 
