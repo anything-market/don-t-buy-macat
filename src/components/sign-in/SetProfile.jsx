@@ -27,33 +27,42 @@ function SetProfile() {
 
   const imageFileHandler = (e) => {
     const Blob = e.target.files[0];
+    console.log(Blob.type);
 
-    // 이미지가 undefined면 바로 함수 종료
+    // 이미지가 undefined면 함수 종료
     if (Blob === undefined) return;
 
-    // 이미지 preview를 위한 DataURL변환과정
-    const reader = new FileReader();
-    reader.readAsDataURL(Blob);
+    // 이미지 type이 'image'로 시작하지 않으면 함수 종료
+    if (Blob.type.substr(0, 5) !== 'image') {
+      alert('image만 업로드가 가능합니다');
+      return;
+      // 이미지 type이 'image'로 시작하면 1.preveiw이미지로 넣어주기 2.서버에 이미지 보내서 filename받아오기
+      // 두가지 일을 같이 하는게 맞는건가?
+    } else if (Blob.type.substr(0, 5) === 'image') {
+      // 이미지 preview를 위한 DataURL변환과정
+      const reader = new FileReader();
+      reader.readAsDataURL(Blob);
 
-    return new Promise((resolve) => {
-      reader.onload = async () => {
-        // 선택한 이미지 서버로 formData형태로 넣어줄 예정
-        let formData = new FormData();
-        formData.append('image', Blob);
+      return new Promise((resolve) => {
+        reader.onload = async () => {
+          // 선택한 이미지 서버로 formData형태로 넣어줄 예정
+          let formData = new FormData();
+          formData.append('image', Blob);
 
-        const res = await axios.post(
-          'http://146.56.183.55:5050/image/uploadfiles',
-          formData,
-        );
-        console.log(res);
-        console.log(res.data[0].filename);
-        // 서버에 전송할 이미지 파일 proFileImage에 넣어주기
-        setProfileImage(`http://146.56.183.55:5050/${res.data[0].filename}`);
-        // 이미지(Blob) DataRUL로 변경한 결과 preview에 넣어주기
-        setPreview(reader.result);
-        resolve();
-      };
-    });
+          const res = await axios.post(
+            'http://146.56.183.55:5050/image/uploadfiles',
+            formData,
+          );
+          // console.log(res);
+          console.log(res.data[0].filename);
+          // 서버에 전송할 이미지 파일 proFileImage에 넣어주기
+          setProfileImage(`http://146.56.183.55:5050/${res.data[0].filename}`);
+          // 이미지(Blob) DataRUL로 변경한 결과 preview에 넣어주기
+          setPreview(reader.result);
+          resolve();
+        };
+      });
+    }
   };
 
   const signInHandler = async function () {
