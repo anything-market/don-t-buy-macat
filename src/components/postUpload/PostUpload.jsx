@@ -13,6 +13,23 @@ function PostUpload() {
     setText(e.target.value);
   };
 
+  //이미지 미리보기
+  const handleChangeFile = (e) => {
+    const Blob = e.target.files[0];
+    if (Blob === undefined) {
+      return;
+    }
+    const reader = new FileReader();
+    reader.readAsDataURL(Blob);
+    e.target.value = '';
+    return new Promise((resolve) => {
+      reader.onload = () => {
+        setImageUrl((imageUrl) => [...imageUrl, reader.result]);
+        resolve();
+      };
+    });
+  };
+
   return (
     <S.PostUploadWrapper>
       <UploadHeader />
@@ -34,7 +51,9 @@ function PostUpload() {
             placeholder={'게시글 입력하기...'}
           />
           <S.PostFormContainer>
-            <S.PreviewImage src="" alt="" />
+            {imageUrl && (
+              <S.PreviewImage src={imageUrl} alt="이미지 미리보기" />
+            )}
             <S.UploadImg className="A11yHidden">
               게시글 이미지 업로드
             </S.UploadImg>
@@ -43,7 +62,7 @@ function PostUpload() {
               ref={Upload_Input}
               type="file"
               accept="image/*"
-              // onChange={handleChangeFile}
+              onChange={handleChangeFile}
             />
             <S.ImgUploadBtn
               onClick={

@@ -39,6 +39,7 @@ export const PostForm = styled.article`
 `;
 
 export const PostFormContainer = styled.div`
+  display: flex;
   width: 100%;
   padding-top: 1.2rem;
 `;
@@ -62,7 +63,8 @@ export const ImgUploadBtn = styled.img.attrs({
 `;
 
 export const PreviewImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  margin: 10px 0 0 15px;
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
 `;
