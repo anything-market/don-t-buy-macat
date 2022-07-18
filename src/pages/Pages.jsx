@@ -10,8 +10,8 @@ function Pages() {
   return (
     <Routes>
       <Route path="/login" element={<Login />}></Route>
-      <Route path="/signin" element={<SignIn />}></Route>
-      <Route path="/setProfile" element={<SerProfile />}></Route>
+      <Route path="/join/signin" element={<SignIn />}></Route>
+      <Route path="/join/setprofile" element={<SerProfile />}></Route>
       <Route path="/home" element={<Home />}></Route>
       <Route path="/search" element={<Search />}></Route>
     </Routes>
