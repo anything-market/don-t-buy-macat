@@ -3,6 +3,13 @@ import * as S from './postUpload.style';
 import UploadHeader from '../header/UploadHeader/UploadHeader';
 
 function PostUpload() {
+  const [text, setText] = useState(''); //입력텍스트
+
+  //입력창에 글을 쓰면 이벤트발생
+  const handleChangeText = (e) => {
+    setText(e.target.value);
+  };
+
   return (
     <S.PostUploadWrapper>
       <UploadHeader />
@@ -19,7 +26,7 @@ function PostUpload() {
             name="postTxt"
             id="postTxt"
             type="text"
-            // onChange={handleChangeText}
+            onChange={handleChangeText}
             maxLength="200"
             placeholder={'게시글 입력하기...'}
           />
