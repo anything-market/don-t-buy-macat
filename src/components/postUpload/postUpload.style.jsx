@@ -47,17 +47,18 @@ export const UploadImg = styled.h4``;
 
 export const UploadInput = styled.input``;
 
-export const UploadImgIcon = styled.label`
+export const ImgUploadBtn = styled.img.attrs({
+  src: uploadIcon,
+  alt: '이미지 업로드',
+})`
   position: fixed;
   bottom: 1.6rem;
   right: 1.6rem;
   width: 5rem;
   height: 5rem;
-  background-image: url(${uploadIcon});
-  background-position: center;
-  background-size: cover;
+  border-radius: 50%;
+  margin-right: 1.2rem;
   cursor: pointer;
-  z-index: 100;
 `;
 
 export const PreviewImage = styled.img`

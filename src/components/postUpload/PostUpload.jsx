@@ -30,11 +30,12 @@ function PostUpload() {
             </S.UploadImg>
             <S.UploadInput
               className="A11yHidden"
-              ref={Upload_Input}
+              // ref={Upload_Input}
               type="file"
               accept="image/*"
               // onChange={handleChangeFile}
             />
+            <S.ImgUploadBtn />
           </S.PostFormContainer>
         </S.PostForm>
       </S.PostUploadFieldSet>
