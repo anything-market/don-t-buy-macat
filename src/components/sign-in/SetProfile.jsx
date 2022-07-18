@@ -17,6 +17,10 @@ function SetProfile() {
   const [userID, setUserID] = useState('');
   const [userIntro, setUserIntro] = useState('');
 
+  const [userNameWarningMessage, setUserNameWarningMessage] = useState('');
+  const [userIDWarningMessage, setUserIDWarningMessage] = useState('');
+  const [userIntroWarningMessage, setUserIntroWarningMessage] = useState('');
+
   const [profileImage, setProfileImage] = useState('');
   const [preview, setPreview] = useState('');
 
@@ -48,6 +52,7 @@ function SetProfile() {
           // 선택한 이미지 서버로 formData형태로 넣어줄 예정
           let formData = new FormData();
           formData.append('image', Blob);
+          setPreview(reader.result);
 
           const res = await axios.post(
             'http://146.56.183.55:5050/image/uploadfiles',
@@ -58,12 +63,20 @@ function SetProfile() {
           // 서버에 전송할 이미지 파일 proFileImage에 넣어주기
           setProfileImage(`http://146.56.183.55:5050/${res.data[0].filename}`);
           // 이미지(Blob) DataRUL로 변경한 결과 preview에 넣어주기
-          setPreview(reader.result);
           resolve();
         };
       });
     }
   };
+
+  useEffect(() => {
+    console.log(userName.length);
+    if (userName.length > 10 || (userName.length < 2 && userName !== '')) {
+      setUserNameWarningMessage('2자~10자 이내여야 합니다.');
+    } else {
+      setUserNameWarningMessage('');
+    }
+  }, [userName]);
 
   const signInHandler = async function () {
     try {
@@ -121,6 +134,7 @@ function SetProfile() {
               setUserName(e.target.value);
             }}
           />
+          <p className="message">{userNameWarningMessage}</p>
           <label htmlFor="userID">계정 ID</label>
           <input
             type="text"
@@ -131,6 +145,7 @@ function SetProfile() {
               setUserID(e.target.value);
             }}
           />
+          <p className="message">{userIDWarningMessage}</p>
           <label htmlFor="userAbout">소개</label>
           <input
             type="text"
@@ -141,6 +156,7 @@ function SetProfile() {
               setUserIntro(e.target.value);
             }}
           />
+          <p className="message">{userIntroWarningMessage}</p>
           <S.Button onClick={signInHandler}>사지마캣 시작하기</S.Button>
         </S.FormBox>
       </form>
