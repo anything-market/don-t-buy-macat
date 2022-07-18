@@ -47,25 +47,6 @@ export const UploadImg = styled.h4``;
 
 export const UploadInput = styled.input``;
 
-export const PreviewImageList = styled.ul`
-  display: flex;
-  width: 100%;
-  gap: 1.2rem;
-  overflow-x: scroll;
-  overflow-y: hidden;
-`;
-
-export const PreviewImageItem = styled.li`
-  position: relative;
-  border-radius: 10px;
-  min-width: 30.4rem;
-  width: 30.4rem;
-  height: 22.8rem;
-  overflow: hidden;
-  border: 0.5px solid ${(props) => props.theme.palette['border']};
-  margin-right: 0.5rem;
-`;
-
 export const UploadImgIcon = styled.label`
   position: fixed;
   bottom: 1.6rem;

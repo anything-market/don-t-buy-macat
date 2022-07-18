@@ -1,7 +1,6 @@
 import React from 'react';
 import * as S from './postUpload.style';
 import UploadHeader from '../header/UploadHeader/UploadHeader';
-import { A11yHidden } from '../../styles/common.style';
 
 function PostUpload() {
   return (
@@ -25,11 +24,7 @@ function PostUpload() {
             placeholder={'게시글 입력하기...'}
           />
           <S.PostFormContainer>
-            <S.PreviewImageList>
-              <S.PreviewImageItem>
-                <S.PreviewImage src="" alt="" />
-              </S.PreviewImageItem>
-            </S.PreviewImageList>
+            <S.PreviewImage src="" alt="" />
             <S.UploadImg className="A11yHidden">
               게시글 이미지 업로드
             </S.UploadImg>
