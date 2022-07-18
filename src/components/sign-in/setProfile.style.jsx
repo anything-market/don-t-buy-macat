@@ -28,7 +28,7 @@ export const ImageBox = styled.div`
   position: relative;
   margin-bottom: 3rem;
 
-  .basicProfile {
+  .defaultProfilePhoto {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@ export const ImageBox = styled.div`
     height: 110px;
   }
 
-  .uploadFile {
+  .fileUploadButton {
     position: absolute;
     width: 36px;
     height: 36px;

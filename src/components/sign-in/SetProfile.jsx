@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import basicProfile from '../../assets/basic-profile-img-.svg';
-import uploadFile from '../../assets/upload-file.svg';
+import defaultProfilePhoto from '../../assets/basic-profile-img-.svg';
+import fileUploadButton from '../../assets/upload-file.svg';
 import * as S from './setProfile.style';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
@@ -23,7 +23,8 @@ function SetProfile() {
     fileInput.current.click();
   };
 
-  const handleChangeFile = (event) => {
+  // 이미지 변경시 실행되는 함수
+  const imageFileHandler = (event) => {
     setFile(event.target.files[0].name);
     console.log(event.target.files);
   };
@@ -54,18 +55,20 @@ function SetProfile() {
       <h1>프로필 설정</h1>
       <p>나중에 언제든지 변경할 수 있습니다.</p>
       <S.ImageBox>
-        <img src={basicProfile} alt="" className="basicProfile" />
+        {/* 디폴트사진 && onchange된 사진 ->onchange된 사진 없으면 default사진 나오게 하기 */}
+        <img src={defaultProfilePhoto} alt="" className="defaultProfilePhoto" />
+        {/* onchange시 미리보기하는 함수 실행 */}
         <img
-          src={uploadFile}
+          src={fileUploadButton}
           alt=""
-          className="uploadFile"
+          className="fileUploadButton"
           onClick={openInputFile}
         />
         <input
           type="file"
           ref={fileInput}
           style={{ display: 'none' }}
-          onChange={handleChangeFile}
+          onChange={imageFileHandler}
         />
       </S.ImageBox>
       <form action="#">
