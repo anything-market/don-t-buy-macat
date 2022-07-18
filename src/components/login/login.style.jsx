@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   width: 390px;
@@ -22,6 +23,12 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const StyledLink = styled(Link)`
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: ${(props) => props.theme.palette['darkGray']};
+`;
+
 export const FormBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,6 +40,8 @@ export const FormBox = styled.div`
   }
 
   & > input {
+    width: 32.2rem;
+    line-height: 2.5rem;
     border: none;
     outline: none;
     font-size: 1.4rem;
@@ -40,9 +49,27 @@ export const FormBox = styled.div`
     border-bottom: 0.1rem solid ${(props) => props.theme.palette['border']};
   }
 
-  & > img {
-    margin-top: 1.4rem;
-    margin-bottom: 2.1rem;
-    cursor: pointer;
+  .message {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.6rem;
+    margin-top: -1rem;
+    color: ${(props) => props.theme.palette['point']};
   }
+`;
+
+export const Button = styled.div`
+  margin-top: 1.6rem;
+  background-color: ${(props) =>
+    props.ableToClick === true
+      ? props.theme.palette['primary']
+      : props.theme.palette['disabled']};
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 1.3rem 0 1.4rem 0;
+  text-align: center;
+  border-radius: 44px;
+  margin-bottom: 2.1rem;
+  cursor: ${(props) =>
+    props.ableToClick === true ? 'pointer' : 'not-allowed'};
 `;
