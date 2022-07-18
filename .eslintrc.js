@@ -26,5 +26,6 @@ module.exports = {
     // ==, != 대신에 ===, !== 사용
     eqeqeq: 'error',
     'no-unused-vars': 0,
+    'react/prop-types': 'off',
   },
 };
