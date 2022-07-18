@@ -93,7 +93,7 @@ function SetProfile() {
         '영문, 숫자, 밑줄 및 마침표만 사용할 수 있습니다.',
       );
       setIsUserID(false);
-    } else if (userID !== '') {
+    } else if (userID === '') {
       setIsUserID(false);
     } else {
       setUserIDWarningMessage('');
