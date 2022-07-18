@@ -28,13 +28,28 @@ function SetProfile() {
   const imageFileHandler = (e) => {
     const Blob = e.target.files[0];
 
+    // 이미지가 undefined면 바로 함수 종료
     if (Blob === undefined) return;
 
+    // 이미지 preview를 위한 DataURL변환과정
     const reader = new FileReader();
     reader.readAsDataURL(Blob);
 
     return new Promise((resolve) => {
-      reader.onload = () => {
+      reader.onload = async () => {
+        // 선택한 이미지 서버로 formData형태로 넣어줄 예정
+        let formData = new FormData();
+        formData.append('image', Blob);
+
+        const res = await axios.post(
+          'http://146.56.183.55:5050/image/uploadfiles',
+          formData,
+        );
+        console.log(res);
+        console.log(res.data[0].filename);
+        // 서버에 전송할 이미지 파일 proFileImage에 넣어주기
+        setProfileImage(`http://146.56.183.55:5050/${res.data[0].filename}`);
+        // 이미지(Blob) DataRUL로 변경한 결과 preview에 넣어주기
         setPreview(reader.result);
         resolve();
       };
