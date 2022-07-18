@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function MainHeader() {
   const navigate = useNavigate();
   const handleGoSearch = () => {
-    navigate('user/searchuser');
+    navigate('/search');
   };
   return (
     <S.BasicHeaderLayout>
