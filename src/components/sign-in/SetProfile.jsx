@@ -18,7 +18,8 @@ function SetProfile() {
   const [userIntro, setUserIntro] = useState('');
 
   const [isUserName, setIsUserName] = useState(false);
-  const [iseUserID, setIsUserID] = useState(false);
+  const [isUserID, setIsUserID] = useState(false);
+  const passed = isUserName && isUserID;
 
   const [userNameWarningMessage, setUserNameWarningMessage] = useState('');
   const [userIDWarningMessage, setUserIDWarningMessage] = useState('');
@@ -71,6 +72,7 @@ function SetProfile() {
     }
   };
 
+  // userName 유효성 검사
   useEffect(() => {
     console.log(userName.length);
     if (userName.length > 10 || (userName.length < 2 && userName !== '')) {
@@ -84,6 +86,7 @@ function SetProfile() {
     }
   }, [userName]);
 
+  // userID 유효성 검사
   useEffect(() => {
     const regExp = /^[a-z0-9A-Z_.,()]{1,}$/;
     if (!regExp.test(userID) && userID !== '') {
@@ -177,7 +180,12 @@ function SetProfile() {
               setUserIntro(e.target.value);
             }}
           />
-          <S.Button onClick={signInHandler}>사지마캣 시작하기</S.Button>
+          <S.Button
+            onClick={signInHandler}
+            disabled={passed ? 'null' : 'disabled'}
+          >
+            사지마캣 시작하기
+          </S.Button>
         </S.FormBox>
       </form>
     </S.Wrapper>
