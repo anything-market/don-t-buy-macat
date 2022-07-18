@@ -42,7 +42,7 @@ function PostUpload() {
           <S.PostUploadLegendTxt className="A11yHidden">
             게시글을 입력하세요
           </S.PostUploadLegendTxt>
-          <textarea
+          <S.PostUploadTextarea
             name="postTxt"
             id="postTxt"
             type="text"

@@ -14,6 +14,10 @@ export const PostUploadFieldSet = styled.fieldset`
 
 export const PostUploadLegend = styled.legend``;
 
+export const PostUploadTextarea = styled.textarea`
+  margin-top: 1.2rem;
+`;
+
 export const PostUploadLegendTxt = styled.h4``;
 
 export const ProfileImage = styled.img.attrs({
