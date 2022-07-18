@@ -12,6 +12,10 @@ export const PostUploadFieldSet = styled.fieldset`
   flex-direction: row;
 `;
 
+export const PostUploadLegend = styled.legend``;
+
+export const PostUploadLegendTxt = styled.h4``;
+
 export const ProfileImage = styled.img.attrs({
   src: basicProfile,
   alt: '프로필 이미지',
@@ -38,6 +42,10 @@ export const PostFormContainer = styled.div`
   width: 100%;
   padding-top: 1.2rem;
 `;
+
+export const UploadImg = styled.h4``;
+
+export const UploadInput = styled.input``;
 
 export const PreviewImageList = styled.ul`
   display: flex;
