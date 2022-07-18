@@ -19,11 +19,9 @@ function SetProfile() {
 
   const [isUserName, setIsUserName] = useState(false);
   const [iseUserID, setIsUserID] = useState(false);
-  const [isUserIntro, setIsUserIntro] = useState(false);
 
   const [userNameWarningMessage, setUserNameWarningMessage] = useState('');
   const [userIDWarningMessage, setUserIDWarningMessage] = useState('');
-  const [userIntroWarningMessage, setUserIntroWarningMessage] = useState('');
 
   const [profileImage, setProfileImage] = useState('');
   const [preview, setPreview] = useState('');
@@ -179,7 +177,6 @@ function SetProfile() {
               setUserIntro(e.target.value);
             }}
           />
-          <p className="message">{userIntroWarningMessage}</p>
           <S.Button onClick={signInHandler}>사지마캣 시작하기</S.Button>
         </S.FormBox>
       </form>
