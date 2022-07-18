@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import defaultProfilePhoto from '../../assets/basic-profile-img-.svg';
 import fileUploadButton from '../../assets/upload-file.svg';
 import * as S from './setProfile.style';
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
 import axios from 'axios';
 
 function SetProfile() {
@@ -19,26 +18,27 @@ function SetProfile() {
   const [userIntro, setUserIntro] = useState('');
 
   const [profileImage, setProfileImage] = useState('');
+  const [preview, setPreview] = useState('');
 
   // file 인풋창 열어주는 함수
   const openInputFile = () => {
     fileInput.current.click();
   };
 
-  // file input창 onchange시 실행
   const imageFileHandler = (e) => {
-    const file = e.target.files[0];
-    // file이 있으면서 file type이 image일때만
-    if (file && file.type.substr(0, 5) === 'image') {
-      console.log(file.size);
-      console.log(file.type);
-      setProfileImage(file.name);
-    } else if (file.type.substr(0, 5) !== 'image') {
-      alert('image형태만 업로드가 가능합니다.');
-      setProfileImage('');
-    } else {
-      setProfileImage('');
-    }
+    const Blob = e.target.files[0];
+
+    if (Blob === undefined) return;
+
+    const reader = new FileReader();
+    reader.readAsDataURL(Blob);
+
+    return new Promise((resolve) => {
+      reader.onload = () => {
+        setPreview(reader.result);
+        resolve();
+      };
+    });
   };
 
   const signInHandler = async function () {
@@ -67,7 +67,11 @@ function SetProfile() {
       <h1>프로필 설정</h1>
       <p>나중에 언제든지 변경할 수 있습니다.</p>
       <S.ImageBox>
-        <img src={defaultProfilePhoto} alt="" className="defaultProfilePhoto" />
+        <img
+          src={preview ? preview : defaultProfilePhoto}
+          alt=""
+          className="defaultProfilePhoto"
+        />
         <img
           src={fileUploadButton}
           alt=""
