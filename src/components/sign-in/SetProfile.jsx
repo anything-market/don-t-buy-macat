@@ -4,14 +4,16 @@ import fileUploadButton from '../../assets/upload-file.svg';
 import * as S from './setProfile.style';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function SetProfile() {
   const location = useLocation();
   const fileInput = useRef();
+  const navigate = useNavigate();
 
   const email = location.state.email;
   const password = location.state.password;
-  // console.log(email, password);
+  console.log(email, password);
 
   const [userName, setUserName] = useState('');
   const [userID, setUserID] = useState('');
@@ -103,8 +105,9 @@ function SetProfile() {
   }, [userID]);
 
   const signInHandler = async function () {
+    console.log('되는거야?');
     try {
-      const res = await axios.post('https://mandarin.api.weniv.co.kr/user', {
+      const res = await axios.post('http://146.56.183.55:5050/user', {
         headers: {
           'Content-type': 'application/json',
         },
@@ -118,6 +121,7 @@ function SetProfile() {
         },
       });
       console.log(res.data);
+      navigate('/home');
     } catch (error) {
       console.log(error);
     }
@@ -182,7 +186,7 @@ function SetProfile() {
           />
           <S.Button
             onClick={signInHandler}
-            disabled={passed ? 'null' : 'disabled'}
+            disabled={passed ? null : 'disabled'}
           >
             사지마캣 시작하기
           </S.Button>
