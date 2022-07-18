@@ -4,6 +4,15 @@ import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
+    
+    .A11yHidden{
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: polygon(0 0, 0 0, 0, 0);
+    }
     a{
         text-decoration:none;
         cursor: pointer;
