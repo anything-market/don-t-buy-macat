@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import UploadHeader from '../header/UploadHeader/UploadHeader';
 import * as S from './adoptPost.style';
 export default function AdoptPost() {
+  //파일 input
+  const fileUploadBtn = useRef();
+
+  //파일 input 클릭
+  const handleOpenFile = () => {
+    fileUploadBtn.current.click();
+  };
   return (
     <>
       <UploadHeader />
       <S.Form id="adoptPost">
         <S.ImgLabel htmlFor="fileInput">이미지 등록</S.ImgLabel>
         <S.ImgPreview>
-          <S.ImgButton />
+          <S.ImgButton onClick={handleOpenFile} />
         </S.ImgPreview>
         <input
           type="file"
           className="A11yHidden"
           id="fileInput"
           accept="image/*"
+          ref={fileUploadBtn}
           requried
         />
         <S.TxtLabel htmlFor="name">이름</S.TxtLabel>
