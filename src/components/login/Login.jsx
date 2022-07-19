@@ -45,6 +45,7 @@ function Login() {
           setMessage('');
           console.log(res.data.user.token);
           localStorage.setItem('Access Token', res.data.user.token);
+          localStorage.setItem('Account Name', res.data.user.accountname);
           navigate('/home');
         }
       } catch (error) {
@@ -78,7 +79,7 @@ function Login() {
           </S.Button>
         </S.FormBox>
       </form>
-      <S.StyledLink to={'/signin'}>이메일로 회원가입</S.StyledLink>
+      <S.StyledLink to={'/join/signin'}>이메일로 회원가입</S.StyledLink>
     </S.Wrapper>
   );
 }
