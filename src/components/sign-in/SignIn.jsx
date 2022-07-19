@@ -36,6 +36,7 @@ function SignIn() {
       // 아무것도 안써놨으면 버튼 클릭 안되게 isValidated를 false로설정
     } else if (email === '') {
       setIsValidatedEmail(false);
+      setEmailMessage('');
       // 그 외 (뭐라도 썼으면서 유효성 검사 통과)는 메세지 없애고 isValidated true로 설정
     } else {
       setIsValidatedEmail(true);
@@ -75,6 +76,7 @@ function SignIn() {
     // post결과 반환받는 메세지에 따라서 처리
     if (res.data.message === '사용 가능한 이메일 입니다.') {
       setIsValidatedEmail(true);
+      // setprofile.jsx 에 이메일과 password 전달
       navigate('/join/setprofile', {
         state: {
           email: email,
