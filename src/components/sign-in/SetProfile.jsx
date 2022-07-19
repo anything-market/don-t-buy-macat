@@ -40,30 +40,25 @@ function SetProfile() {
 
     if (Blob === undefined) return;
 
-    if (Blob.type.substr(0, 5) !== 'image') {
-      alert('image만 업로드가 가능합니다');
-      return;
-    } else if (Blob.type.substr(0, 5) === 'image') {
-      const reader = new FileReader();
-      reader.readAsDataURL(Blob);
+    const reader = new FileReader();
+    reader.readAsDataURL(Blob);
 
-      return new Promise((resolve) => {
-        reader.onload = async () => {
-          setPreview(reader.result);
-          let formData = new FormData();
-          formData.append('image', Blob);
+    return new Promise((resolve) => {
+      reader.onload = async () => {
+        setPreview(reader.result);
+        let formData = new FormData();
+        formData.append('image', Blob);
 
-          const res = await axios.post(
-            'http://146.56.183.55:5050/image/uploadfiles',
-            formData,
-          );
+        const res = await axios.post(
+          'http://146.56.183.55:5050/image/uploadfiles',
+          formData,
+        );
 
-          console.log(res.data);
-          setProfileImage(`http://146.56.183.55:5050/${res.data[0].filename}`);
-          resolve();
-        };
-      });
-    }
+        console.log(res.data);
+        setProfileImage(`http://146.56.183.55:5050/${res.data[0].filename}`);
+        resolve();
+      };
+    });
   };
 
   // userName 유효성 검사
@@ -143,6 +138,7 @@ function SetProfile() {
         {/* 실제 file인풋버튼 -> 숨김처리 */}
         <input
           type="file"
+          accept=".jpg, .gif, .png, .jpeg, .bmp, .tif, .heic"
           ref={fileInput}
           style={{ display: 'none' }}
           onChange={imageFileHandler}
