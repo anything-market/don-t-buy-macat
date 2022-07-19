@@ -125,13 +125,13 @@ function SetProfile() {
         {/* 이미지 미리보기 -> preview사진 넣어준게 없으면 기본사진으로 지정 */}
         <img
           src={preview ? preview : defaultProfilePhoto}
-          alt=""
+          alt="프로필 사진 미리보기"
           className="defaultProfilePhoto"
         />
         {/* 가짜버튼 */}
         <img
           src={fileUploadButton}
-          alt=""
+          alt="버튼을 누르면 프로필사진을 선택하고 등록합니다"
           className="fileUploadButton"
           onClick={openInputFile}
         />
