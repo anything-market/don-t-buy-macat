@@ -12,6 +12,14 @@ export const PostUploadFieldSet = styled.fieldset`
   flex-direction: row;
 `;
 
+export const PostUploadLegend = styled.legend``;
+
+export const PostUploadTextarea = styled.textarea`
+  margin-top: 1.2rem;
+`;
+
+export const PostUploadLegendTxt = styled.h4``;
+
 export const ProfileImage = styled.img.attrs({
   src: basicProfile,
   alt: '프로필 이미지',
@@ -35,44 +43,32 @@ export const PostForm = styled.article`
 `;
 
 export const PostFormContainer = styled.div`
+  display: flex;
   width: 100%;
   padding-top: 1.2rem;
 `;
 
-export const PreviewImageList = styled.ul`
-  display: flex;
-  width: 100%;
-  gap: 1.2rem;
-  overflow-x: scroll;
-  overflow-y: hidden;
-`;
+export const UploadImg = styled.h4``;
 
-export const PreviewImageItem = styled.li`
-  position: relative;
-  border-radius: 10px;
-  min-width: 30.4rem;
-  width: 30.4rem;
-  height: 22.8rem;
-  overflow: hidden;
-  border: 0.5px solid ${(props) => props.theme.palette['border']};
-  margin-right: 0.5rem;
-`;
+export const UploadInput = styled.input``;
 
-export const UploadImgIcon = styled.label`
+export const ImgUploadBtn = styled.img.attrs({
+  src: uploadIcon,
+  alt: '이미지 업로드',
+})`
   position: fixed;
   bottom: 1.6rem;
   right: 1.6rem;
   width: 5rem;
   height: 5rem;
-  background-image: url(${uploadIcon});
-  background-position: center;
-  background-size: cover;
+  border-radius: 50%;
+  margin-right: 1.2rem;
   cursor: pointer;
-  z-index: 100;
 `;
 
 export const PreviewImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  margin: 10px 0 0 15px;
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
 `;
