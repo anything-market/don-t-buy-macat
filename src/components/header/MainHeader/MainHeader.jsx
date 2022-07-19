@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from './mainHeader.style';
+import { BasicHeaderLayout } from '../commonHeader.style';
 import { useNavigate } from 'react-router-dom';
 
 export default function MainHeader() {
@@ -8,11 +9,11 @@ export default function MainHeader() {
     navigate('/search');
   };
   return (
-    <S.BasicHeaderLayout>
+    <BasicHeaderLayout>
       <S.HeaderTitle>사지마켓 피드</S.HeaderTitle>
       <S.SearchBtn onClick={handleGoSearch}>
         <S.SearchIcon />
       </S.SearchBtn>
-    </S.BasicHeaderLayout>
+    </BasicHeaderLayout>
   );
 }
