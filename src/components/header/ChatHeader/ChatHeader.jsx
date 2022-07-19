@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './chatHeader.style';
+import { BasicHeaderLayout } from '../commonHeader.style';
 import ModalBtn from '../../modal/ModalBtn/ModalBtn';
 import ChatModalContent from '../../modal/modalContent/ChatModalContent/ChatModalContent';
 export default function ChatHeader() {
@@ -9,7 +10,7 @@ export default function ChatHeader() {
     navigate(-1);
   };
   return (
-    <S.BasicHeaderLayout>
+    <BasicHeaderLayout>
       <button onClick={handleGoPrev}>
         <S.ArrowLeftIcon />
       </button>
@@ -17,6 +18,6 @@ export default function ChatHeader() {
       <ModalBtn>
         <ChatModalContent />
       </ModalBtn>
-    </S.BasicHeaderLayout>
+    </BasicHeaderLayout>
   );
 }
