@@ -32,7 +32,6 @@ function PostUpload() {
 
   return (
     <S.PostUploadWrapper>
-      <UploadHeader />
       <S.PostUploadFieldSet>
         <S.PostUploadLegend className="A11yHidden">
           게시글 작성 페이지
