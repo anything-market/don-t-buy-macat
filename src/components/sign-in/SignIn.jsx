@@ -76,6 +76,7 @@ function SignIn() {
     // post결과 반환받는 메세지에 따라서 처리
     if (res.data.message === '사용 가능한 이메일 입니다.') {
       setIsValidatedEmail(true);
+      // setprofile.jsx 에 이메일과 password 전달
       navigate('/join/setprofile', {
         state: {
           email: email,
