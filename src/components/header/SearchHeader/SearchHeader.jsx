@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './searchHeader.style';
+import { BasicHeaderLayout } from '../commonHeader.style';
 
 export default function SearchHeader({ onTyping }) {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ export default function SearchHeader({ onTyping }) {
   };
 
   return (
-    <S.BasicHeaderLayout>
+    <BasicHeaderLayout>
       <button onClick={handleGoPrev}>
         <S.ArrowLeftIcon />
       </button>
@@ -18,6 +19,6 @@ export default function SearchHeader({ onTyping }) {
           onTyping(e.target.value);
         }}
       />
-    </S.BasicHeaderLayout>
+    </BasicHeaderLayout>
   );
 }
