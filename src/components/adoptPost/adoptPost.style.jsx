@@ -6,13 +6,19 @@ export const Form = styled.form`
   margin: 0 auto;
 `;
 
-export const ImgPreview = styled.div`
+export const ImgPreviewContainer = styled.div`
   width: 34.4rem;
   height: 20.4rem;
   position: relative;
   background-color: ${(props) => props.theme.palette['background']};
   border-radius: 1rem;
   margin-bottom: 3rem;
+`;
+
+export const PreviewImg = styled.img`
+  width: 34.4rem;
+  height: 20.4rem;
+  border-radius: 1rem;
   object-fit: cover;
 `;
 

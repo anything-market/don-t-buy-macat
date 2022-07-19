@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import UploadHeader from '../header/UploadHeader/UploadHeader';
 import * as S from './adoptPost.style';
 export default function AdoptPost() {
+  const [previewImg, setPreviewImg] = useState('');
   //파일 input
   const fileUploadBtn = useRef();
 
@@ -9,20 +10,35 @@ export default function AdoptPost() {
   const handleOpenFile = () => {
     fileUploadBtn.current.click();
   };
+
+  //이미지 파일 base64로 형식 변환
+  const handleParseImg = (e) => {
+    const Blob = e.target.files[0];
+    console.log(Blob);
+    if (Blob === undefined) return;
+    const reader = new FileReader();
+    reader.readAsDataURL(Blob);
+    reader.onload = () => {
+      setPreviewImg(reader.result);
+    };
+  };
+
   return (
     <>
       <UploadHeader />
       <S.Form id="adoptPost">
         <S.ImgLabel htmlFor="fileInput">이미지 등록</S.ImgLabel>
-        <S.ImgPreview>
+        <S.ImgPreviewContainer>
+          {previewImg && <S.PreviewImg src={previewImg} />}
           <S.ImgButton onClick={handleOpenFile} />
-        </S.ImgPreview>
+        </S.ImgPreviewContainer>
         <input
           type="file"
           className="A11yHidden"
           id="fileInput"
           accept="image/*"
           ref={fileUploadBtn}
+          onChange={handleParseImg}
           requried
         />
         <S.TxtLabel htmlFor="name">이름</S.TxtLabel>
