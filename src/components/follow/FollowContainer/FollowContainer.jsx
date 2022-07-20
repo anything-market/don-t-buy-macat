@@ -11,7 +11,7 @@ const FollowContainer = ({ data, followEmpty }) => {
   return (
     <S.FollowWrap>
       {userData && userData.length === 0 ? (
-        <h1>{followEmpty}</h1>
+        <S.followEmptyMessage>{followEmpty}</S.followEmptyMessage>
       ) : (
         userData &&
         userData.map((item) => {
