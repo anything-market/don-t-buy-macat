@@ -17,7 +17,7 @@ export default function FollowHeader() {
       </button>
       <S.HeaderTitle>
         {path.includes('followers') && 'Follwers'}
-        {path.includes('followings') && 'followings'}
+        {path.includes('followings') && 'Followings'}
       </S.HeaderTitle>
     </BasicHeaderLayout>
   );
