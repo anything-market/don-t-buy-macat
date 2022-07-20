@@ -12,7 +12,6 @@ export const ImgPreviewContainer = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.palette['background']};
   border-radius: 1rem;
-  margin-bottom: 3rem;
 `;
 
 export const PreviewImg = styled.img`
@@ -20,6 +19,24 @@ export const PreviewImg = styled.img`
   height: 20.4rem;
   border-radius: 1rem;
   object-fit: cover;
+`;
+
+export const ImgErrorMessage = styled.div`
+  height: 2.4rem;
+  & > em {
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+    color: #ff5a5a;
+  }
+`;
+
+export const InputErrorMessage = styled.div`
+  height: 1.6rem;
+  & > em {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    color: #ff5a5a;
+  }
 `;
 
 export const ImgButton = styled.img.attrs({
@@ -52,8 +69,9 @@ export const TxtLabel = styled(Label)`
 export const TxtInput = styled.input`
   width: 100%;
   border: none;
-  border-bottom: 1px solid ${(props) => props.theme.palette['border']};
-  margin-bottom: 1.6rem;
+  border-bottom: 1px solid
+    ${(props) => (props.error ? 'red' : props.theme.palette['border'])};
+  /* margin-bottom: 1.6rem; */
   padding-bottom: 0.9rem;
   &::placeholder {
     color: ${(props) => props.theme.palette['border']};
