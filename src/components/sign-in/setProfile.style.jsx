@@ -28,15 +28,17 @@ export const ImageBox = styled.div`
   position: relative;
   margin-bottom: 3rem;
 
-  .basicProfile {
+  .defaultProfilePhoto {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 110px;
     height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
   }
 
-  .uploadFile {
+  .fileUploadButton {
     position: absolute;
     width: 36px;
     height: 36px;
@@ -74,16 +76,29 @@ export const FormBox = styled.div`
       color: ${(props) => props.theme.palette['border']};
     }
   }
+
+  .message {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.6rem;
+    margin-top: -1rem;
+    color: ${(props) => props.theme.palette['point']};
+  }
 `;
 
-export const Button = styled.div`
+export const Button = styled.button.attrs({ type: 'button' })`
+  color: black;
   margin-top: 1.6rem;
-  background-color: ${(props) => props.theme.palette['disabled']};
+  background-color: ${(props) =>
+    props.disabled === 'disabled'
+      ? props.theme.palette['disabled']
+      : props.theme.palette['primary']};
   font-size: 1.4rem;
   font-weight: 500;
   padding: 1.3rem 0 1.4rem 0;
   text-align: center;
   border-radius: 44px;
   margin-bottom: 2.1rem;
-  cursor: pointer;
+  cursor: ${(props) =>
+    props.disabled === 'disabled' ? 'not-allowed' : 'pointer'};
 `;
