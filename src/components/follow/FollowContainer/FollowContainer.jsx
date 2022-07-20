@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import UserComponent from './../../userComponent/UserComponent';
 import * as S from './FollowContainer.style';
 
-const FollowContainer = () => {
+const FollowContainer = ({ data, followEmpty }) => {
+  const [userData, setUserData] = useState();
+  useEffect(() => {
+    setUserData(data);
+  }, [data]);
+
   return (
     <S.FollowWrap>
-      <S.FollowUserWrap>
-        <UserComponent
-          image={
-            'https://pbs.twimg.com/media/E_935U7UcAwvNj5?format=jpg&name=4096x4096'
-          }
-          username={'샤샤'}
-          accountname={'shasha'}
-        />
-      </S.FollowUserWrap>
+      {userData && userData.length === 0 ? (
+        <h1>{followEmpty}</h1>
+      ) : (
+        userData &&
+        userData.map((item) => {
+          return (
+            <S.FollowUserWrap key={item._id}>
+              <UserComponent
+                key={item._id}
+                image={item.image}
+                username={item.username}
+                accountname={item.accountname}
+                intro={item.intro}
+              />
+            </S.FollowUserWrap>
+          );
+        })
+      )}
     </S.FollowWrap>
   );
 };
