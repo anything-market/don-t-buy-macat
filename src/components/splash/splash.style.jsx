@@ -33,8 +33,7 @@ export const Logo = styled.div`
   width: 9.4rem;
   height: 8.6rem;
   margin-left: 0.8rem;
-  background: url(${catLogo}) no-repeat 0 0;
-  background-size: 131.6rem 8.6rem;
+  background: url(${catLogo}) no-repeat 0 0 / 131.6rem 8.6rem;
   animation: ${logoPlay} 1.8s steps(14) infinite;
 `;
 
