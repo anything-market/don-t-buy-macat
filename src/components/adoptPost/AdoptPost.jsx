@@ -9,7 +9,14 @@ export default function AdoptPost() {
   const [link, setLink] = useState('');
   const [previewImg, setPreviewImg] = useState('');
   const [previewImgError, setPreviewImgError] = useState(false);
-
+  const [isValid, setValid] = useState({
+    previewImg: false,
+    itemName: false,
+    price: false,
+    link: false,
+  });
+  const pass =
+    isValid.previewImg && isValid.itemName && isValid.price && isValid.link;
   //파일 input
   const fileUploadBtn = useRef();
 
@@ -39,12 +46,13 @@ export default function AdoptPost() {
       setPreviewImg(reader.result);
       //reader의 결과값을 잘 받았을 때 error false처리
       setPreviewImgError(false);
+      setValid({ ...isValid, previewImg: true });
     };
   };
-
+  console.log(isValid);
   return (
     <>
-      <UploadHeader />
+      <UploadHeader id="adoptPost" isValid={pass} />
       <S.Form id="adoptPost">
         <S.ImgLabel htmlFor="fileInput">이미지 등록</S.ImgLabel>
         <S.ImgPreviewContainer>
@@ -63,6 +71,7 @@ export default function AdoptPost() {
           {previewImgError && <em>이미지가 존재하지 않습니다.</em>}
         </S.ImgErrorMessage>
         <ValidationInput
+          id="itemName"
           label="이름"
           value={itemName}
           setValue={setItemName}
@@ -72,8 +81,11 @@ export default function AdoptPost() {
           placeholderText="이름을 입력해주세요."
           successText=""
           errorText="2~15자 이내여야 합니다."
+          isValid={isValid}
+          setValid={setValid}
         />
         <ValidationInput
+          id="price"
           label="책임비"
           value={price}
           setValue={setPrice}
@@ -82,8 +94,11 @@ export default function AdoptPost() {
           placeholderText="숫자를 입력해주세요."
           successText=""
           errorText="숫자만 입력가능합니다."
+          isValid={isValid}
+          setValid={setValid}
         />
         <ValidationInput
+          id="link"
           label="보호소 링크"
           value={link}
           setValue={setLink}
@@ -92,6 +107,8 @@ export default function AdoptPost() {
           placeholderText="URL을 입력해 주세요."
           successText=""
           errorText="올바른 URL형식으로 입력해 주세요."
+          isValid={isValid}
+          setValid={setValid}
         />
       </S.Form>
     </>

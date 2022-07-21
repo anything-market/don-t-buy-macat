@@ -12,6 +12,8 @@ export default function ValidationInput({
   errorText, //error시 나타나는 문구
   defaultText, //빈값일 때 나타나는 문구
   placeholderText,
+  isValid,
+  setValid,
 }) {
   //true면 error기능 작동
   const [isError, setIsError] = useState(false);
@@ -44,6 +46,12 @@ export default function ValidationInput({
 
     if (e.target.value === '') {
       setIsError(true);
+      //valid값 설정
+      id === 'itemName'
+        ? setValid({ ...isValid, itemName: false })
+        : id === 'price'
+        ? setValid({ ...isValid, price: false })
+        : setValid({ ...isValid, link: false });
       //입력해주세요.
       return setHelperText(defaultText);
     }
@@ -53,12 +61,24 @@ export default function ValidationInput({
       //정규표현식 체크 통과되었을 때
       if (regexCheck.test(e.target.value)) {
         setIsError(false);
+        //valid값 설정
+        id === 'itemName'
+          ? setValid({ ...isValid, itemName: true })
+          : id === 'price'
+          ? setValid({ ...isValid, price: true })
+          : setValid({ ...isValid, link: true });
         //""
         return setHelperText(successText);
       }
       //정규표현식 체크 통과하지 못했을 때
       if (!regexCheck.test(e.target.value)) {
         setIsError(true);
+        //valid값 설정
+        id === 'itemName'
+          ? setValid({ ...isValid, itemName: false })
+          : id === 'price'
+          ? setValid({ ...isValid, price: false })
+          : setValid({ ...isValid, link: false });
         //해당 값에 맞는 에러 텍스트
         setHelperText(errorText);
       }
