@@ -35,18 +35,20 @@ const Search = () => {
     <>
       <SearchHeader onTyping={onTyping} />
       <S.SearchListWrap>
-        {searchData.length === 0 || !searchData
-          ? null
-          : searchData.map((user) => {
-              return (
-                <SearchUserList
-                  key={Math.random() * 100}
-                  image={user.image}
-                  accountname={user.accountname}
-                  username={user.username}
-                />
-              );
-            })}
+        <S.SearchResultWrap>
+          {searchData.length === 0 || !searchData
+            ? null
+            : searchData.map((user) => {
+                return (
+                  <SearchUserList
+                    key={Math.random() * 100}
+                    image={user.image}
+                    accountname={user.accountname}
+                    username={user.username}
+                  />
+                );
+              })}
+        </S.SearchResultWrap>
       </S.SearchListWrap>
     </>
   );
