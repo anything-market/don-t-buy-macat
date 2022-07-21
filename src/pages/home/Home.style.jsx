@@ -12,7 +12,7 @@ export const FeedEmptyWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 10px);
+  height: calc(100vh);
   flex-direction: column;
   text-align: center;
   background-color: ${(props) => props.theme.palette['primary']};
