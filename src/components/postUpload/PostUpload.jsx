@@ -7,10 +7,12 @@ function PostUpload() {
   const Upload_Input = useRef();
   const [text, setText] = useState(''); //입력텍스트
   const [imageUrl, setImageUrl] = useState('');
+  const [isValid, setIsValid] = useState(false);
 
   //입력창에 글을 쓰면 이벤트발생
   const handleChangeText = (e) => {
     setText(e.target.value);
+    e.target.value.length > 0 ? setIsValid(true) : setIsValid(false);
   };
 
   //이미지 미리보기
@@ -30,9 +32,18 @@ function PostUpload() {
     });
   };
 
+  // useEffect(() => {
+  //   if (text || imageUrl) {
+  //     setIsValid(true);
+  //   } else {
+  //     setIsValid(false);
+  //   }
+  // }, [text, imageUrl]);
+
   return (
     <S.PostUploadWrapper>
-      <UploadHeader />
+      {/* isValid상태를 전달해줄께 */}
+      <UploadHeader isValid={isValid} />
       <S.PostUploadFieldSet>
         <S.PostUploadLegend className="A11yHidden">
           게시글 작성 페이지
@@ -47,6 +58,7 @@ function PostUpload() {
             id="postTxt"
             type="text"
             onChange={handleChangeText}
+            // onKeyUp={changeButton}
             maxLength="200"
             placeholder={'게시글 입력하기...'}
           />
