@@ -19,5 +19,6 @@ export const SaveBtn = styled.button`
     background: ${(props) => {
       return props.theme.palette['disabled'];
     }};
+    cursor: default;
   }
 `;
