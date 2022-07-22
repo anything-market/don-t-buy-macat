@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ImgButtonIcon from '../../assets/img-button.svg';
 
-export const Form = styled.form`
+export const Form = styled.div`
   width: 34.4rem;
   margin: 0 auto;
 `;
