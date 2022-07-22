@@ -30,7 +30,6 @@ export default function AdoptSection() {
         console.error(error);
       }
     };
-    console.log(adoptData.map((el) => el.itemName));
     handleGetData();
   }, []);
 
@@ -58,22 +57,24 @@ export default function AdoptSection() {
   };
   return (
     <>
-      <S.AdoptSection>
-        <S.AdoptSectionWrap>
-          <S.SectionHeading>입양을 기다려요</S.SectionHeading>
-          <S.AdoptList>
-            {adoptData.map((item) => (
-              <S.AdoptListItem key={item.id} onClick={handleOpenModal}>
-                <S.CatImage src={item.itemImage} />
-                <S.CatName>{item.itemName}</S.CatName>
-                <S.AdoptionFee>
-                  책임비 | {priceFormat(item.price)}
-                </S.AdoptionFee>
-              </S.AdoptListItem>
-            ))}
-          </S.AdoptList>
-        </S.AdoptSectionWrap>
-      </S.AdoptSection>
+      {adoptData.length !== 0 ? (
+        <S.AdoptSection>
+          <S.AdoptSectionWrap>
+            <S.SectionHeading>입양을 기다려요</S.SectionHeading>
+            <S.AdoptList>
+              {adoptData.map((item) => (
+                <S.AdoptListItem key={item.id} onClick={handleOpenModal}>
+                  <S.CatImage src={item.itemImage} />
+                  <S.CatName>{item.itemName}</S.CatName>
+                  <S.AdoptionFee>
+                    책임비 | {priceFormat(item.price)}
+                  </S.AdoptionFee>
+                </S.AdoptListItem>
+              ))}
+            </S.AdoptList>
+          </S.AdoptSectionWrap>
+        </S.AdoptSection>
+      ) : null}
       {isOpenModal && (
         <>
           <Modal handleCloseModal={handleCloseModal}>
