@@ -53,11 +53,11 @@ export default function AdoptPost() {
   //이미지 파일 base64로 형식 변환
   const handleParseImg = (e) => {
     const Blob = e.target.files[0];
-    console.log('블롭은', Blob);
     if (Blob === undefined) return;
 
     const reader = new FileReader();
     reader.readAsDataURL(Blob);
+    e.target.value = '';
 
     return new Promise((resolve) => {
       reader.onload = async () => {
