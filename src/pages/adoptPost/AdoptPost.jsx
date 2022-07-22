@@ -37,17 +37,7 @@ export default function AdoptPost() {
   //파일 input 클릭
   const handleOpenFile = () => {
     fileUploadBtn.current.click();
-
-    //미리보기 이미지를 선택하지 않고 취소 버튼을 눌렀을 때
-    if (previewImg === '') {
-      window.addEventListener('focus', () => setPreviewImgError(true), {
-        once: true,
-      });
-      //ios 브라우저용
-      window.addEventListener('touchend', () => setPreviewImgError(true), {
-        once: true,
-      });
-    }
+    setPreviewImgError(true);
   };
 
   //이미지 파일 base64로 형식 변환
