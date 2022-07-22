@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const nameRegex = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|0-9]{2,15}$/;
 const priceRegex = /^[0-9\\,]*$/;
 const urlRegex =
