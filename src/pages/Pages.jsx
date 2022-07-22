@@ -7,6 +7,7 @@ import Home from './home/Home';
 import Search from './search/Search';
 import PostUpload from './../components/postUpload/PostUpload';
 import Follow from './follow/Follow';
+import AdoptPost from './adoptPost/AdoptPost';
 
 function Pages() {
   return (
@@ -19,6 +20,7 @@ function Pages() {
       <Route path="/upload" element={<PostUpload />}></Route>
       <Route path="/follow/followers" element={<Follow />}></Route>
       <Route path="/follow/followings" element={<Follow />}></Route>
+      <Route path="/adoptPost" element={<AdoptPost />}></Route>
     </Routes>
   );
 }
