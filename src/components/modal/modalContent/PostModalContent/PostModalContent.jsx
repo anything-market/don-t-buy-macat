@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import ProductDeleteAlert from '../HeaderModal/LogoutAlert/LogoutAlert';
 import PostDeleteAlert from '../../alert/PostDeleteAlert/PostDeleteAlert';
-export default function ProductModalContent() {
+export default function PostModalContent() {
   //alert창 열기
   const [isOpenAlert, setIsOpenAlert] = useState(false);
   const handleOpenAlert = () => {
