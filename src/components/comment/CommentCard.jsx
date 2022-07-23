@@ -2,19 +2,23 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import CommentList from './CommentList/CommentList';
 import CommentReply from './CommentReply/CommentReply';
+import { useParams } from 'react-router';
 
 function CommentView() {
   const [comments, setComments] = useState([]);
+  const [userToken, setUserToken] = useState();
+  const { postId } = useParams();
 
-  const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2I4N2FhODJmZGNjNzEyZjQzODJhNCIsImV4cCI6MTY2MjY4OTcyMSwiaWF0IjoxNjU3NTA1NzIxfQ.eBZXMW7UGe1CCX23sZSf1qtIqnD-lCeIHsySOUdCJCg';
-  const postId = '62cb8b2882fdcc712f4382bb';
+  useEffect(() => {
+    const userToken = localStorage.getItem('Access Token');
+    setUserToken(userToken);
+  }, []);
   const getComments = () => {
     axios({
       url: `http://146.56.183.55:5050/post/${postId}/comments?limit=10`,
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
     })
