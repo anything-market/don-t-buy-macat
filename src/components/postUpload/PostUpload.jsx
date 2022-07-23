@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import * as S from './postUpload.style';
@@ -6,16 +7,11 @@ import UploadHeader from '../header/UploadHeader/UploadHeader';
 
 function PostUpload() {
   const Upload_Input = useRef();
+  const navigate = useNavigate();
   const [text, setText] = useState(''); //입력텍스트
   const [image, setImgfile] = useState([]); //이미지
   const [imageUrl, setImageUrl] = useState('');
   const [isValid, setIsValid] = useState(false);
-
-  //입력창에 글을 쓰면 이벤트발생
-  const handleChangeText = (e) => {
-    setText(e.target.value);
-    e.target.value.length > 0 ? setIsValid(true) : setIsValid(false);
-  };
 
   //텍스트 또는 미리보기이미지가 있으면 활성화
   useEffect(() => {
@@ -25,6 +21,12 @@ function PostUpload() {
       setIsValid(false);
     }
   }, [text, imageUrl]);
+
+  //입력창에 글을 쓰면 이벤트발생
+  const handleChangeText = (e) => {
+    setText(e.target.value);
+    // e.target.value.length > 0 ? setIsValid(true) : setIsValid(false);
+  };
 
   //이미지 미리보기
   const handleChangeFile = (e) => {
@@ -92,6 +94,9 @@ function PostUpload() {
         },
       });
       console.log('포스트 업로드 성공');
+      console.log(res);
+      //사용자프로필 완료되면 추후 사용자 프로필페이지로 이동
+      navigate('/home');
     } catch {
       (err) => console.log(err);
     }
