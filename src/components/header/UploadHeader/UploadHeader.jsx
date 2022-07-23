@@ -1,20 +1,21 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './uploadHeader.style';
-
-export default function UploadHeader() {
+import { BasicHeaderLayout } from '../commonHeader.style';
+export default function UploadHeader({ id, isValid }) {
   const navigate = useNavigate();
   const handleGoPrev = () => {
     navigate(-1);
   };
+  console.log(isValid);
   return (
-    <S.BasicHeaderLayout>
+    <BasicHeaderLayout>
       <button onClick={handleGoPrev}>
         <S.ArrowLeftIcon />
       </button>
-      <button>
-        <S.SaveBtn />
-      </button>
-    </S.BasicHeaderLayout>
+      <S.SaveBtn form={id} disabled={!isValid}>
+        저장
+      </S.SaveBtn>
+    </BasicHeaderLayout>
   );
 }

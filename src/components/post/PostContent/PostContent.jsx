@@ -18,7 +18,6 @@ const PostContent = (data) => {
 
   return (
     <S.PostContent>
-      {console.log(data)}
       {data.data.content.length === 0 ? null : (
         <S.PostTxt>{data.data.content}</S.PostTxt>
       )}
