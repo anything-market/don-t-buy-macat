@@ -12,6 +12,13 @@ function PostUpload() {
   const [image, setImgfile] = useState([]); //이미지
   const [imageUrl, setImageUrl] = useState('');
   const [isValid, setIsValid] = useState(false);
+  const [userToken, setUserToken] = useState();
+
+  // 컴포넌트가 처음 마운트될때 userToken을 받아옵니다
+  useEffect(() => {
+    const userToken = localStorage.getItem('Access Token');
+    setUserToken(userToken);
+  }, []);
 
   //텍스트 또는 미리보기이미지가 있으면 활성화
   useEffect(() => {
