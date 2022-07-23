@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './postUpload.style';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import UploadHeader from '../header/UploadHeader/UploadHeader';
 
 function PostUpload() {
@@ -15,30 +15,32 @@ function PostUpload() {
     e.target.value.length > 0 ? setIsValid(true) : setIsValid(false);
   };
 
+  //텍스트 또는 미리보기이미지가 있으면 활성화
+  useEffect(() => {
+    if (text || imageUrl) {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
+  }, [text, imageUrl]);
+
   //이미지 미리보기
   const handleChangeFile = (e) => {
     const Blob = e.target.files[0];
     if (Blob === undefined) {
       return;
     }
-    const reader = new FileReader();
-    reader.readAsDataURL(Blob);
+    const reader = new FileReader(); //파일을 읽을수 있는 reader 생성(인스턴스)
+    reader.readAsDataURL(Blob); //Blob 을 읽은 뒤 base64로 인코딩
     e.target.value = '';
     return new Promise((resolve) => {
+      //FileReader가 성공적으로 파일을 읽으면
       reader.onload = () => {
-        setImageUrl((imageUrl) => [...imageUrl, reader.result]);
+        setImageUrl((imageUrl) => [...imageUrl, reader.result]); //이미지 프리뷰,FileReader 인스턴스의 result라는 속성에 담음
         resolve();
       };
     });
   };
-
-  // useEffect(() => {
-  //   if (text || imageUrl) {
-  //     setIsValid(true);
-  //   } else {
-  //     setIsValid(false);
-  //   }
-  // }, [text, imageUrl]);
 
   return (
     <S.PostUploadWrapper>
