@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as S from './postUpload.style';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import UploadHeader from '../header/UploadHeader/UploadHeader';
 
 function PostUpload() {
   const Upload_Input = useRef();
   const [text, setText] = useState(''); //입력텍스트
+  const [image, setImgfile] = useState([]); //이미지
   const [imageUrl, setImageUrl] = useState('');
   const [isValid, setIsValid] = useState(false);
 
@@ -27,6 +28,8 @@ function PostUpload() {
   //이미지 미리보기
   const handleChangeFile = (e) => {
     const Blob = e.target.files[0];
+    // image를 Blob객체들이 들어있는 배열들로 할당해줍니다
+    setImgfile((prevState) => [...prevState, Blob]);
     if (Blob === undefined) {
       return;
     }
@@ -36,6 +39,7 @@ function PostUpload() {
     return new Promise((resolve) => {
       //FileReader가 성공적으로 파일을 읽으면
       reader.onload = () => {
+        //load 이벤트의 핸들러. 이 이벤트는 읽기 동작이 성공적으로 완료되었을 때마다 발생한다.
         setImageUrl((imageUrl) => [...imageUrl, reader.result]); //이미지 프리뷰,FileReader 인스턴스의 result라는 속성에 담음
         resolve();
       };
