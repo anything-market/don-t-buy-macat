@@ -10,6 +10,7 @@ export const BasicHeaderLayout = styled.header`
   height: 4.8rem;
   padding: 0 1.2rem 0 1.6rem;
   background-color: ${(props) => props.theme.palette['white']};
+  border-bottom: 1px solid ${(props) => props.theme.palette['border']};
   z-index: 9999;
   & > * {
     flex-shrink: 0;
