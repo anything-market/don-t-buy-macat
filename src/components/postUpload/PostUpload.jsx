@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import axios from 'axios';
 import * as S from './postUpload.style';
 import { useRef, useState } from 'react';
 import UploadHeader from '../header/UploadHeader/UploadHeader';
@@ -46,8 +47,67 @@ function PostUpload() {
     });
   };
 
+  //이미지 변환해주는 함수
+  const imageUpload = async (files, index) => {
+    //호출한부분 파일을 뭘 선택했는지
+    const formData = new FormData();
+    formData.append('image', files[index]);
+    try {
+      const res = await axios.post(
+        `http://146.56.183.55:5050/image/uploadfile`,
+        formData,
+      );
+      return res.data['filename'];
+    } catch {
+      (err) => {
+        console.log(err);
+      };
+    }
+  };
+
+  // 게시글 업로드 POST 요청보내는 함수
+  async function createPost() {
+    const imageUrls = [];
+    const files = image;
+    //이미지가 있는 경우에
+    for (let index = 0; index < files.length; index++) {
+      //이미지 변환해주는 함수를 여기서 실행
+      const imgurl = await imageUpload(files, index); //const files = image; 사용자가 선택한 파일
+      imageUrls.push(`http://146.56.183.55:5050/${imgurl}`);
+    }
+    try {
+      const res = await axios({
+        url: `http://146.56.183.55:5050/post`,
+        method: 'post',
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          'Content-type': 'application/json',
+        },
+        data: {
+          post: {
+            content: text,
+            image: imageUrls + '',
+            // imageUrls를 string형식으로 형변환하여 요청 보냅니다
+          },
+        },
+      });
+      console.log('포스트 업로드 성공');
+    } catch {
+      (err) => console.log(err);
+    }
+  }
+
   return (
-    <S.PostUploadWrapper>
+    <S.PostUploadWrapper
+      method="POST"
+      // 서버로 전송은 form에서 버튼을 눌렀을때 발생하는 함수(onSubmit)안에서 이루어지면 됩니다
+      onSubmit={(e) => {
+        e.preventDefault();
+        //post폼은 버튼 누를때 기본으로 새로고침되게 되어있는데, 새로고침 안하도록 막아주는 코드
+        // 응답이 오면, 응답을 담아서 게시글 업로드 POST 요청보내는 함수 실행
+        createPost(e);
+      }}
+    >
       {/* isValid상태를 전달해줄께 */}
       <UploadHeader isValid={isValid} />
       <S.PostUploadFieldSet>
