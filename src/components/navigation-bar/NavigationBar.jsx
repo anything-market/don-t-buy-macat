@@ -50,6 +50,7 @@ function NavigationBar() {
   return (
     <Wrapper>
       <NavBar>
+        {/* 홈으로 이동 */}
         <StyleNavLink
           to={'/home'}
           className={({ isActive }) => (isActive ? 'active' : 'inactive')}
@@ -61,6 +62,8 @@ function NavigationBar() {
             <p>홈</p>
           </List>
         </StyleNavLink>
+
+        {/* 채팅으로 이동 (임시로 search페이지로 이동)*/}
         <StyleNavLink
           to={'/search'}
           className={({ isActive }) => (isActive ? 'active' : 'inactive')}
@@ -73,6 +76,8 @@ function NavigationBar() {
             />
             <p>채팅</p>
           </List>
+
+          {/* 게시물 작성 페이지로 이동 */}
         </StyleNavLink>
         {/* post upload 페이지에서는 네비게이션 바 사라짐 */}
         <StyleNavLink
@@ -86,6 +91,8 @@ function NavigationBar() {
             <p>게시물 작성</p>
           </List>
         </StyleNavLink>
+
+        {/* 프로필 페이지로 이동  (임시로 adoptPost페이지로 이동)*/}
         <StyleNavLink
           to={'/adoptPost'}
           className={({ isActive }) => (isActive ? 'active' : 'inactive')}
