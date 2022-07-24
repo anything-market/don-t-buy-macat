@@ -31,7 +31,7 @@ function CommentCard({ postId }) {
 
   useEffect(() => {
     getComments();
-  }, []);
+  }, [userToken]);
 
   return (
     <div className="CommentCard">
