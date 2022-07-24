@@ -1,10 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import React, { useState, useEffect, useContext } from 'react';
 import * as S from './ProfileInfo.style';
 import FollowBtn from './../../button/FollowBtn/FollowBtn';
 import { useNavigate } from 'react-router-dom';
 
 const ProfileInfo = ({ userToken, data, isAuthorized }) => {
   const navigate = useNavigate();
+  const [isFollowed, setIsFollowed] = useState(data.isfollow);
+  const [followerCount, setFollowerCount] = useState(data.follower.length);
+
+  const handleFollowBtn = () => {
+    if (isFollowed) {
+      axios({
+        method: 'delete',
+        url: `http://146.56.183.55:5050/profile/${data.accountname}/unfollow`,
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          'Content-type': 'application/json',
+        },
+      }).then((res) => {
+        setIsFollowed(false);
+        setFollowerCount(res.data.profile.follower.length);
+      });
+    } else {
+      axios({
+        method: 'post',
+        url: `http://146.56.183.55:5050/profile/${data.accountname}/follow`,
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          'Content-type': 'application/json',
+        },
+      }).then((res) => {
+        setIsFollowed(true);
+        setFollowerCount(res.data.profile.follower.length);
+      });
+    }
+  };
 
   return (
     <S.ProfileBg myProfile={isAuthorized}>
@@ -15,9 +46,7 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
           <S.AccountName>@ {data.accountname}</S.AccountName>
           <S.Intro>{data.intro}</S.Intro>
           <S.Follow position={'right'} href="/follow/followers">
-            <S.FollowCount type={'follows'}>
-              {data.follower.length}
-            </S.FollowCount>
+            <S.FollowCount type={'follows'}>{followerCount}</S.FollowCount>
             <S.FollowSpan>follwers</S.FollowSpan>
           </S.Follow>
           <S.Follow position={'left'} href="/follow/followings">
@@ -38,9 +67,8 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
             </S.ProfileBtnWrap>
           ) : (
             <FollowBtn
-              userToken={userToken}
-              accountName={data.accountname}
-              followState={data.isfollow}
+              handleFollowBtn={handleFollowBtn}
+              isFollow={isFollowed}
               size={'large'}
             />
           )}
