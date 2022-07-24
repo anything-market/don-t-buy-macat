@@ -12,16 +12,6 @@ export const PostTxt = styled.p`
   word-break: break-all;
 `;
 
-export const ImgList = styled.ul`
-  display: flex;
-  transition: all 0.4s;
-`;
-
-export const PostImg = styled.img`
-  border-radius: 10px;
-  margin-bottom: 16px;
-`;
-
 export const PostIconsWrap = styled.div`
   display: flex;
   font-weight: 400;
