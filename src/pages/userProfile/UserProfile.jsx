@@ -100,7 +100,7 @@ const UserProfile = () => {
   useEffect(() => {
     // 권한정보 설정
     if (userData && userProfileData)
-      if (userData[1] === params.id) {
+      if (userData[1] === userProfileData.accountname) {
         setIsAuthorized(true);
       }
   }, [userData, userProfileData]);
@@ -112,6 +112,7 @@ const UserProfile = () => {
         <ProfileInfo
           userToken={userData && userData[0]}
           data={userProfileData}
+          isAuthorized={isAuthorized}
         />
       )}
       <AdoptSection accountName={params.id} />
