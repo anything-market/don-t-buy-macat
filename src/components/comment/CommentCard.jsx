@@ -36,7 +36,7 @@ function CommentCard({ postId }) {
   return (
     <div className="CommentCard">
       <CommentList comments={comments} />
-      <CommentReply getComments={getComments} />
+      <CommentReply getComments={getComments} postId={postId} />
     </div>
   );
 }
