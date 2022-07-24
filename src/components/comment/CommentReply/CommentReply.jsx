@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   CommentReplyWrapper,
   CommentReplyContainer,
@@ -10,12 +10,14 @@ import {
   CommentSubmitButton,
 } from './commentReply.style';
 
-function CommentReply({ getComments }) {
+function CommentReply({ getComments, postId }) {
   const [comment, setComment] = useState('');
   const [isValid, setIsValid] = useState(false);
-  const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2I4N2FhODJmZGNjNzEyZjQzODJhNCIsImV4cCI6MTY2MjY4OTcyMSwiaWF0IjoxNjU3NTA1NzIxfQ.eBZXMW7UGe1CCX23sZSf1qtIqnD-lCeIHsySOUdCJCg';
-  const postId = '62cb8b2882fdcc712f4382bb';
+  const [userToken, setUserToken] = useState('');
+  useEffect(() => {
+    const userToken = localStorage.getItem('Access Token');
+    setUserToken(userToken);
+  }, []);
 
   const handleInput = (e) => {
     e.preventDefault;
@@ -33,7 +35,7 @@ function CommentReply({ getComments }) {
       url: `http://146.56.183.55:5050/post/${postId}/comments`,
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
       data: {
