@@ -15,7 +15,6 @@ const UserProfile = () => {
   const [userData, setUserData] = useState();
   const [userPostData, setUserPostData] = useState();
   const [userProfileData, setUserProfileData] = useState();
-
   const params = useParams();
 
   // 로그인한 유저정보
@@ -48,6 +47,42 @@ const UserProfile = () => {
           method: 'get',
           // 프로필페이지에서 표시되는 게시물은 30개까지입니다
           url: `http://146.56.183.55:5050/post/${userData[1]}/userpost/?limit=30&skip=0`,
+          headers: {
+            Authorization: `Bearer ${userData[0]}`,
+            'Content-type': 'application/json',
+          },
+        }).then((response) => {
+          setUserPostData(response.data.post);
+        });
+      };
+      getProfileData();
+      getPostData();
+    }
+
+    //로그인한 유저의 프로필이 아닐 때
+    if (userData && params.id !== userData[1]) {
+      // 로그인한 유저의 프로필 정보 가져오기
+      const getProfileData = () => {
+        {
+          axios({
+            method: 'get',
+            url: `http://146.56.183.55:5050/profile/${params.id}`,
+            headers: {
+              Authorization: `Bearer ${userData[0]}`,
+              'Content-type': 'application/json',
+            },
+          }).then((response) => {
+            setUserProfileData(response.data.profile);
+          });
+        }
+      };
+
+      // 로그인한 유저의 게시글목록 가져오기
+      const getPostData = () => {
+        axios({
+          method: 'get',
+          // 프로필페이지에서 표시되는 게시물은 30개까지입니다
+          url: `http://146.56.183.55:5050/post/${params.id}/userpost/?limit=30&skip=0`,
           headers: {
             Authorization: `Bearer ${userData[0]}`,
             'Content-type': 'application/json',
