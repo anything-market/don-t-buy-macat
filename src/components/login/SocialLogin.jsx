@@ -51,6 +51,11 @@ const List = styled.li`
   margin-bottom: 1rem;
   cursor: pointer;
 
+  &:hover {
+    color: ${(props) => props.theme.palette['darkGray']};
+    font-weight: 500;
+  }
+
   & > img {
     width: 2.4rem;
     position: absolute;
@@ -59,11 +64,11 @@ const List = styled.li`
 `;
 
 const Others = styled.div`
-  font-size: 1.2rem;
-  color: ${(props) => props.theme.palette['mediumGray']};
   display: flex;
   justify-content: center;
   gap: 1rem;
+  font-size: 1.2rem;
+  color: ${(props) => props.theme.palette['mediumGray']};
   margin-bottom: 15%;
 
   & > .psudoElement {
@@ -80,6 +85,13 @@ const Others = styled.div`
       top: 0;
       right: -1.5rem;
     }
+  }
+`;
+
+const StyledLink = styled(Link)`
+  &:hover {
+    color: ${(props) => props.theme.palette['darkGray']};
+    font-weight: 500;
   }
 `;
 
@@ -107,10 +119,10 @@ function SocialLogin() {
           </List>
         </ul>
         <Others>
-          <Link to={'/login'} className="psudoElement">
+          <StyledLink to={'/login'} className="psudoElement">
             이메일로 로그인
-          </Link>
-          <Link to={'/join/signin'}>회원가입</Link>
+          </StyledLink>
+          <StyledLink to={'/join/signin'}>회원가입</StyledLink>
         </Others>
       </LoginBox>
     </Wrapper>
