@@ -42,7 +42,7 @@ const Home = () => {
           <MainHeader />
           <S.PostWrap>
             {userFeedData.map((post) => {
-              return <PostCard key={post.id} data={post} />;
+              return <PostCard key={post.id} data={post} postId={post.id} />;
             })}
           </S.PostWrap>
         </>
