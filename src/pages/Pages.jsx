@@ -8,6 +8,7 @@ import Search from './search/Search';
 import PostUpload from './../components/postUpload/PostUpload';
 import Follow from './follow/Follow';
 import AdoptPost from './adoptPost/AdoptPost';
+import SocialLogin from '../components/login/SocialLogin';
 
 function Pages() {
   return (
@@ -21,6 +22,7 @@ function Pages() {
       <Route path="/follow/followers" element={<Follow />}></Route>
       <Route path="/follow/followings" element={<Follow />}></Route>
       <Route path="/adoptPost" element={<AdoptPost />}></Route>
+      <Route path="/social-login" element={<SocialLogin />}></Route>
     </Routes>
   );
 }
