@@ -2,17 +2,16 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import CommentList from './CommentList/CommentList';
 import CommentReply from './CommentReply/CommentReply';
-import { useParams } from 'react-router';
 
-function CommentView() {
+function CommentCard({ postId }) {
   const [comments, setComments] = useState([]);
   const [userToken, setUserToken] = useState();
-  const { postId } = useParams();
 
   useEffect(() => {
     const userToken = localStorage.getItem('Access Token');
     setUserToken(userToken);
   }, []);
+
   const getComments = () => {
     axios({
       url: `http://146.56.183.55:5050/post/${postId}/comments?limit=10`,
@@ -36,11 +35,11 @@ function CommentView() {
   }, []);
 
   return (
-    <div className="CommentView">
+    <div className="CommentCard">
       <CommentList comments={comments} />
       <CommentReply getComments={getComments} />
     </div>
   );
 }
 
-export default CommentView;
+export default CommentCard;
