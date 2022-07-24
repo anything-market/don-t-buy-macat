@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
-import { ReactComponent as HeartIcon } from './../../../assets/icon-heart.svg';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import CommentIcon from './../../../assets/icon-message-circle.svg';
 import * as S from './PostContent.style';
 import PostImgContainer from './../PostImgContainer/PostImgContainer';
+import HeartBtn from '../../button/HeartBtn/HeartBtn';
+import { Link } from 'react-router-dom';
 
 const PostContent = (data) => {
-  const [isLiked, setIsLiked] = useState(null);
+  useEffect(() => {
+    const userToken = localStorage.getItem('Access Token');
+    setUserToken(userToken);
+  }, []);
 
-  const handleLike = () => {
-    if (!isLiked) {
-      setIsLiked(true);
-      data.data.heartCount++;
-    } else {
-      setIsLiked(false);
-      data.data.heartCount--;
-    }
-  };
+  const [userToken, setUserToken] = useState();
 
   return (
     <S.PostContent>
@@ -24,19 +21,12 @@ const PostContent = (data) => {
       )}
       <PostImgContainer image={data.data.image} />
       <S.PostIconsWrap>
-        <S.PostIconBtn onClick={handleLike}>
-          <HeartIcon
-            fill={isLiked ? '#05704A' : '#fff'}
-            style={{ marginRight: '6px' }}
-          />
-          <span>{data.data.heartCount}</span>
-        </S.PostIconBtn>
-        <a>
+        <Link to={`/post/${data.data.id}`}>
           <S.PostIconBtn>
             <img src={CommentIcon} alt="" style={{ marginRight: '6px' }} />
             <span>{data.data.comments.length}</span>
           </S.PostIconBtn>
-        </a>
+        </Link>
       </S.PostIconsWrap>
       <S.PostCreateDate>2022년 07월 11일</S.PostCreateDate>
     </S.PostContent>
