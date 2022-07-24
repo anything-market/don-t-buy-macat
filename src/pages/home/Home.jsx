@@ -4,6 +4,7 @@ import PostCard from '../../components/post/PostCard/PostCard';
 import * as S from './Home.style';
 import { ReactComponent as Logo } from './../../assets/symbol-logo-feed.svg';
 import MainHeader from './../../components/header/MainHeader/MainHeader';
+import NavigationBar from '../../components/navigation-bar/NavigationBar';
 
 const Home = () => {
   const [userToken, setUserToken] = useState();
@@ -56,6 +57,7 @@ const Home = () => {
           </div>
         </S.FeedEmptyWrap>
       )}
+      <NavigationBar />
     </>
   );
 };
