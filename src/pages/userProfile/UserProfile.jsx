@@ -15,6 +15,7 @@ const UserProfile = () => {
   const [userData, setUserData] = useState();
   const [userPostData, setUserPostData] = useState();
   const [userProfileData, setUserProfileData] = useState();
+  const [isAuthorized, setIsAuthorized] = useState(false);
   const params = useParams();
 
   // 로그인한 유저정보
@@ -95,6 +96,14 @@ const UserProfile = () => {
       getPostData();
     }
   }, [userData]);
+
+  useEffect(() => {
+    // 권한정보 설정
+    if (userData && userProfileData)
+      if (userData[1] === params.id) {
+        setIsAuthorized(true);
+      }
+  }, [userData, userProfileData]);
 
   return (
     <S.UserProfileWrap>
