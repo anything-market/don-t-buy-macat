@@ -21,6 +21,12 @@ const PostContent = (data) => {
       )}
       <PostImgContainer image={data.data.image} />
       <S.PostIconsWrap>
+        <HeartBtn
+          userToken={userToken}
+          hearted={data.data.hearted}
+          postId={data.data.id}
+          heartCount={data.data.heartCount}
+        />
         <Link to={`/post/${data.data.id}`}>
           <S.PostIconBtn>
             <img src={CommentIcon} alt="" style={{ marginRight: '6px' }} />
