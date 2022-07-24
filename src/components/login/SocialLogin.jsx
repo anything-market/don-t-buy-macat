@@ -98,6 +98,9 @@ const StyledLink = styled(Link)`
 function SocialLogin() {
   return (
     <Wrapper>
+      <h1 className="A11yHidden">
+        로그인 혹은 회원가입페이지로 이동할 수 있는 페이지입니다.
+      </h1>
       <Background>
         <ImgBox>
           <img src={Logo}></img>
