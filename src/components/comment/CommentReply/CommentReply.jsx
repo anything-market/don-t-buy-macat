@@ -10,7 +10,7 @@ import {
   CommentSubmitButton,
 } from './commentReply.style';
 
-function CommentReply({ getComments }) {
+function CommentReply({ getComments, postId }) {
   const [comment, setComment] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [userToken, setUserToken] = useState('');
