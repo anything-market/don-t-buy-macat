@@ -9,6 +9,7 @@ import PostUpload from './../components/postUpload/PostUpload';
 import Follow from './follow/Follow';
 import AdoptPost from './adoptPost/AdoptPost';
 import Post from './post/Post';
+import UserProfile from './userProfile/UserProfile';
 
 function Pages() {
   return (
@@ -18,6 +19,7 @@ function Pages() {
       <Route path="/join/setprofile" element={<SerProfile />}></Route>
       <Route path="/home" element={<Home />}></Route>
       <Route path="/search" element={<Search />}></Route>
+      <Route path="/profile/:id" element={<UserProfile />}></Route>
       <Route path="/upload" element={<PostUpload />}></Route>
       <Route path="/follow/followers" element={<Follow />}></Route>
       <Route path="/follow/followings" element={<Follow />}></Route>
