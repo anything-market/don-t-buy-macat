@@ -5,8 +5,7 @@ import CommentReply from './CommentReply/CommentReply';
 
 function CommentCard({ postId }) {
   const [comments, setComments] = useState([]);
-  const [userToken, setUserToken] = useState();
-
+  const [userToken, setUserToken] = useState('');
   useEffect(() => {
     const userToken = localStorage.getItem('Access Token');
     setUserToken(userToken);
@@ -15,7 +14,7 @@ function CommentCard({ postId }) {
   const getComments = () => {
     axios({
       url: `http://146.56.183.55:5050/post/${postId}/comments?limit=10`,
-      method: 'GET',
+      method: 'get',
       headers: {
         Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
