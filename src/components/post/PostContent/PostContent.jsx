@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import CommentIcon from './../../../assets/icon-message-circle.svg';
 import * as S from './PostContent.style';
 import PostImgContainer from './../PostImgContainer/PostImgContainer';
