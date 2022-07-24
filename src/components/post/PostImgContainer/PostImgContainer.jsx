@@ -55,7 +55,7 @@ const PostImgContainer = ({ image }) => {
                   key={Math.floor(Math.random() * 1000)}
                   id={'slide-btn' + (index + 1)}
                   onClick={handleSliderBtn}
-                  style={index === 0 ? { backgroundColor: '#05704A' } : null}
+                  index={index}
                 />
               );
             })}
