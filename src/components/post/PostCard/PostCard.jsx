@@ -1,32 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './PostCard.style';
 import PostContent from '../PostContent/PostContent';
+import PostAuthor from './../PostAuthor/PostAuthor';
 import UserComponent from './../../userComponent/UserComponent';
 
-const PostCard = ({ data }) => {
+const PostCard = (data) => {
   const [authorData, setAuthorData] = useState();
   const [postData, setPostData] = useState();
 
   useEffect(() => {
-    if (data) {
-      setAuthorData(data.author);
-      setPostData(data);
-    }
+    setAuthorData(data.data.author);
+    setPostData(data.data);
   }, [data]);
 
   return (
-    <S.PostCardWrap>
-      <S.ProfileWrap>
-        {authorData && (
-          <UserComponent
-            image={authorData.image}
-            username={authorData.username}
-            accountname={authorData.accountname}
-          />
-        )}
-        {postData && <PostContent data={postData} />}
-      </S.ProfileWrap>
-    </S.PostCardWrap>
+    <S.ProfileWrap>
+      {authorData && (
+        <UserComponent
+          image={authorData.image}
+          username={authorData.username}
+          accountname={authorData.accountname}
+        />
+      )}
+      {postData && <PostContent data={postData} />}
+    </S.ProfileWrap>
   );
 };
 
