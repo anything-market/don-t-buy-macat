@@ -10,6 +10,7 @@ import { ReactComponent as PostIcoOff } from '../../assets/icon-post-list-off.sv
 import { ReactComponent as PostIcoOn } from '../../assets/icon-post-list-on.svg';
 import { ReactComponent as AlbumIcoOff } from '../../assets/icon-post-album-off.svg';
 import { ReactComponent as AlbumIcoOn } from '../../assets/icon-post-album-on.svg';
+import NavigationBar from './../../components/navigation-bar/NavigationBar';
 
 const UserProfile = () => {
   const [userData, setUserData] = useState();
@@ -132,6 +133,7 @@ const UserProfile = () => {
             );
           })}
       </S.UserPostWrap>
+      <NavigationBar />
     </S.UserProfileWrap>
   );
 };
