@@ -17,7 +17,7 @@ import { isLogin } from '../utils/isLogin';
 import { useState, useEffect } from 'react';
 import Splash from '../components/splash/Splash';
 
-function Main() {
+function Pages() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -29,10 +29,10 @@ function Main() {
     }
   }, []);
 
-  return loading ? <Splash /> : <Pages />;
+  return loading ? <Splash /> : <MainPages />;
 }
 
-function Pages() {
+function MainPages() {
   return (
     <Routes>
       <Route path="/" element={isLogin() ? <Home /> : <SocialLogin />}></Route>
@@ -54,4 +54,4 @@ function Pages() {
   );
 }
 
-export default Main;
+export default Pages;
