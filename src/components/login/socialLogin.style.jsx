@@ -13,8 +13,10 @@ export const Background = styled.div`
 `;
 
 export const ImgBox = styled.div`
-  text-align: center;
-  margin-top: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rem;
   & > img {
     width: 10rem;
   }
