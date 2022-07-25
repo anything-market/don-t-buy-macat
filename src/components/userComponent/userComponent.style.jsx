@@ -7,7 +7,7 @@ export const UserComponent = styled.div`
   position: relative;
   //UserComponent 사이즈 조절을 위한 속성
   font-size: 1rem;
-  cursor: pointer;
+  justify-content: space-between;
   margin-bottom: ${({ marginbottom }) => (marginbottom ? '1.2rem' : '0')};
   & > * {
     flex-shrink: 0;
@@ -21,6 +21,11 @@ export const NonRead = styled.div`
   height: 1.5rem;
   border-radius: 50%;
   background-color: ${(props) => props.theme.palette['point']};
+`;
+
+export const UserInfoWrap = styled.div`
+  display: flex;
+  cursor: pointer;
 `;
 
 export const ProfileImg = styled.img`
@@ -39,6 +44,7 @@ export const UserName = styled.strong`
   display: block;
   font-size: 1.4em;
   margin-bottom: 0.6em;
+  font-weight: 500;
 `;
 
 export const UserIntro = styled.strong`

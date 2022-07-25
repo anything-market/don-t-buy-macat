@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './userComponent.style';
 import ModalBtn from '../modal/ModalBtn/ModalBtn';
@@ -39,7 +39,6 @@ export default function UserComponent({
         onClick={() => {
           const id = accountname;
           navigate(`/profile/${id}`);
-          console.log('Clicked!');
         }}
       >
         <S.ProfileImg
@@ -57,8 +56,8 @@ export default function UserComponent({
         </S.UserInfo>
       </S.UserInfoWrap>
 
-      {/*페이지의 경로에 follow 있을 때 팔로우 버튼이 뜬다, search,follow 페이지가 아닐경우 모달 버튼이 뜬다*/}
-      {path.includes('follow') && <FollowBtn size="small" />}
+      {/*페이지의 경로에 follow 있을 때 팔로우 버튼이 뜬다 , search,follow 페이지가 아닐경우 모달 버튼이 뜬다*/}
+      {path.includes('follow') ? <FollowBtn size="small" /> : null}
       {path.includes('chats') && <S.TimeInfo>{time}</S.TimeInfo>}
       {path.includes('search') ||
       path.includes('chats') ||
