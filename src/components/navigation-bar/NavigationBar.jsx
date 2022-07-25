@@ -19,8 +19,8 @@ const Wrapper = styled.div`
   padding-bottom: 1rem;
   position: fixed;
   bottom: 0;
-  z-index: 99999;
   background-color: ${(props) => props.theme.palette['white']};
+  border-top: 1px solid ${(props) => props.theme.palette['border']};
 `;
 
 const NavBar = styled.ul`
