@@ -17,7 +17,7 @@ import { isLogin } from '../utils/isLogin';
 import { useState, useEffect } from 'react';
 import Splash from '../components/splash/Splash';
 
-function SplashMain() {
+function Main() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -54,4 +54,4 @@ function Pages() {
   );
 }
 
-export default SplashMain;
+export default Main;
