@@ -11,9 +11,18 @@ export default function UserComponent({
   accountname,
   intro,
   isFollow,
+  message,
+  time,
 }) {
   const path = window.location.href;
-
+  let userIntro = '';
+  if (path.includes('follow')) {
+    userIntro = intro;
+  } else if (path.includes('chats')) {
+    userIntro = message;
+  } else {
+    userIntro = `@ ${accountname}`;
+  }
   return (
     <S.UserComponent
       marginbottom={
@@ -32,13 +41,14 @@ export default function UserComponent({
       />
       <S.UserInfo>
         <S.UserName>{username}</S.UserName>
-        <S.UserIntro>
-          {path.includes('follow') ? intro : `@ ${accountname}`}
-        </S.UserIntro>
+        <S.UserIntro>{userIntro}</S.UserIntro>
       </S.UserInfo>
       {/*페이지의 경로에 follow 있을 때 팔로우 버튼이 뜬다, search,follow 페이지가 아닐경우 모달 버튼이 뜬다*/}
       {path.includes('follow') && <FollowBtn size="small" />}
-      {path.includes('search') || path.includes('follow') ? null : (
+      {path.includes('chats') && <S.TimeInfo>{time}</S.TimeInfo>}
+      {path.includes('search') ||
+      path.includes('chats') ||
+      path.includes('follow') ? null : (
         <ModalBtn>
           <ProductModalContent />
         </ModalBtn>
