@@ -22,7 +22,8 @@ const Home = () => {
       if (userToken) {
         axios({
           method: 'get',
-          url: 'http://146.56.183.55:5050/post/feed',
+          // 사용자 피드에서 보이는 게시물은 30개까지입니다
+          url: 'http://146.56.183.55:5050/post/feed/?limit=30&skip=0',
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',
