@@ -13,6 +13,15 @@ to{
 }
 `;
 
+const changeBackground = keyframes`
+0% {
+        background: #FFFFFF;
+    }
+    100% {
+        background: #FADF53;
+    }
+`;
+
 export const SplashImgWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -20,6 +29,7 @@ export const SplashImgWrapper = styled.div`
   height: 100vh;
   animation-name: ${ImageFadeOut};
   animation-duration: 1.4s;
+  animation: ${changeBackground} 3s ease;
 `;
 
 const logoPlay = keyframes`
