@@ -1,9 +1,8 @@
 import axios from 'axios';
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as S from './ProfileInfo.style';
 import FollowBtn from './../../button/FollowBtn/FollowBtn';
-import { useNavigate } from 'react-router-dom';
-// import { ReactComponent as ShareIco } from '../../../assets/icon-share.svg';
 
 const ProfileInfo = ({ userToken, data, isAuthorized }) => {
   const navigate = useNavigate();
