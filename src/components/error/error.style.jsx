@@ -21,7 +21,7 @@ export const ErrorText = styled.span`
   font-weight: 400;
   font-size: 1.4rem;
   line-height: 1.4rem;
-  color: ${(props) => props.theme.palette['darkGray']};
+  color: ${(props) => props.theme.palette['mediumGray']};
   text-align: center;
   margin-bottom: 2rem;
 `;
@@ -30,7 +30,7 @@ export const PreButton = styled.button`
   width: 12rem;
   height: 4.4rem;
   border-radius: 4.4rem;
-  background-color: ${(props) => props.theme.palette['main']};
+  background-color: ${(props) => props.theme.palette['primary']};
   font-weight: 600;
   font-size: 1.4rem;
   line-height: 1.7rem;
