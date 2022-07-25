@@ -13,10 +13,12 @@ import SocialLogin from '../components/login/SocialLogin';
 import UserProfile from './userProfile/UserProfile';
 import ChatList from './chats/ChatList/ChatList';
 import Chat from './chats/Chat/Chat';
+import SplashMain from './splashMain/SplashMain';
 
 function Pages() {
   return (
     <Routes>
+      <Route path="/" element={<SplashMain />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/join/signin" element={<SignIn />}></Route>
       <Route path="/join/setprofile" element={<SerProfile />}></Route>
