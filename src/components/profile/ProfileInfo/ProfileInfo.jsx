@@ -10,7 +10,7 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
   const [isFollowed, setIsFollowed] = useState(data.isfollow);
   const [followerCount, setFollowerCount] = useState(data.follower.length);
 
-  const handleFollowBtn = () => {
+  const handleFollow = () => {
     if (isFollowed) {
       axios({
         method: 'delete',
@@ -49,8 +49,7 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
           <S.Follow
             position={'right'}
             onClick={() => {
-              const id = data.accountname;
-              navigate(`/follow/${id}/followers`);
+              navigate(`/follow/${data.accountname}/followers`);
             }}
           >
             <S.FollowCount type={'follows'}>{followerCount}</S.FollowCount>
@@ -59,8 +58,7 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
           <S.Follow
             position={'left'}
             onClick={() => {
-              const id = data.accountname;
-              navigate(`/follow/${id}/followings`);
+              navigate(`/follow/${data.accountname}/followings`);
             }}
           >
             <S.FollowCount type={'followings'}>
@@ -84,7 +82,7 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
                 <S.StyledMessageIco />
               </S.ProfileBtnIco>
               <FollowBtn
-                handleFollowBtn={handleFollowBtn}
+                handleFollow={handleFollow}
                 isFollow={isFollowed}
                 size={'large'}
               />
