@@ -4,7 +4,7 @@ import * as S from './chatHeader.style';
 import { BasicHeaderLayout } from '../commonHeader.style';
 import ModalBtn from '../../modal/ModalBtn/ModalBtn';
 import ChatModalContent from '../../modal/modalContent/ChatModalContent/ChatModalContent';
-export default function ChatHeader() {
+export default function ChatHeader({ name }) {
   const navigate = useNavigate();
   const handleGoPrev = () => {
     navigate(-1);
@@ -14,7 +14,7 @@ export default function ChatHeader() {
       <button onClick={handleGoPrev}>
         <S.ArrowLeftIcon />
       </button>
-      <S.UserName>애월읍 위니브 감귤농장</S.UserName>
+      <S.UserName>{name}</S.UserName>
       <ModalBtn>
         <ChatModalContent />
       </ModalBtn>
