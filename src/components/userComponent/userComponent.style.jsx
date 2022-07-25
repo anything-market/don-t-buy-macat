@@ -7,6 +7,7 @@ export const UserComponent = styled.div`
   position: relative;
   //UserComponent 사이즈 조절을 위한 속성
   font-size: 1rem;
+  cursor: pointer;
   margin-bottom: ${({ marginbottom }) => (marginbottom ? '1.2rem' : '0')};
   & > * {
     flex-shrink: 0;
