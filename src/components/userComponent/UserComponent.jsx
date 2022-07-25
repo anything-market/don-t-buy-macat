@@ -23,6 +23,9 @@ export default function UserComponent({
   } else {
     userIntro = `@ ${accountname}`;
   }
+  //채팅 알림 표시
+  // const [isRead, setIsRead] = useState(false);
+
   return (
     <S.UserComponent
       marginbottom={
@@ -39,6 +42,7 @@ export default function UserComponent({
           path.includes('home') || path.includes('profile') ? 'true' : 'false'
         }
       />
+      {/* {!isRead && <S.NonRead />} */}
       <S.UserInfo>
         <S.UserName>{username}</S.UserName>
         <S.UserIntro>{userIntro}</S.UserIntro>

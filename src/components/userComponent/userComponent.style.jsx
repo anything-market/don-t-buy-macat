@@ -4,12 +4,22 @@ import { css } from 'styled-components';
 export const UserComponent = styled(div)`
   display: flex;
   align-items: center;
+  position: relative;
   //UserComponent 사이즈 조절을 위한 속성
   font-size: 1rem;
   margin-bottom: ${({ marginbottom }) => (marginbottom ? '1.2rem' : '0')};
   & > * {
     flex-shrink: 0;
   }
+`;
+
+export const NonRead = styled.div`
+  position: absolute;
+  top: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.palette['point']};
 `;
 
 export const ProfileImg = styled.img`
