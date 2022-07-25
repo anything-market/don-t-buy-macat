@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { css } from 'styled-components';
 
-export const UserComponent = styled(div)`
+export const UserComponent = styled.div`
   display: flex;
   align-items: center;
   position: relative;
