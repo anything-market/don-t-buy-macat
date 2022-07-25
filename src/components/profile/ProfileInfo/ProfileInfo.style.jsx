@@ -29,7 +29,7 @@ export const ProfileInfoContainer = styled.div`
 export const ProfileImg = styled.img`
   width: 110px;
   height: 110px;
-  border: 1px solid var(--border-color);
+  border: 1px solid ${(props) => props.theme.palette['border']};
   border-radius: 50%;
   margin-bottom: 16px;
 `;
