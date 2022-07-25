@@ -5,7 +5,7 @@ import UserComponent from '../../../components/userComponent/UserComponent';
 import Chat from '../Chat/Chat';
 import { Link } from 'react-router-dom';
 import testuserInfo from '../TestUserInfo';
-
+import NavigationBar from '../../../components/navigation-bar/NavigationBar';
 export default function ChatList() {
   return (
     <>
@@ -25,6 +25,7 @@ export default function ChatList() {
           </li>
         ))}
       </S.ChatListUl>
+      <NavigationBar />
     </>
   );
 }
