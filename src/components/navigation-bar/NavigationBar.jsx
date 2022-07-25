@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import tabHome from '../../assets/tab-icon-home.svg.svg';
 import tabMessage from '../../assets/tab-icon-message.svg.svg';
@@ -9,8 +9,6 @@ import activeTabMessage from '../../assets/tab-icon-message-color.svg.svg';
 import activeTabEdit from '../../assets/tab-icon-edit-color.svg.svg';
 import activeTabUser from '../../assets/tab-icon-user-color.svg.svg';
 import { NavLink } from 'react-router-dom';
-
-const accountName = localStorage.getItem('Account Name');
 
 const Wrapper = styled.div`
   margin-top: auto;
@@ -53,6 +51,13 @@ const List = styled.li`
 `;
 
 function NavigationBar() {
+  const [accountName, setAccountName] = useState();
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('Account Name');
+    setAccountName(loggedInUser);
+  }, []);
+
   return (
     <Wrapper>
       <NavBar>
