@@ -25,7 +25,7 @@ const Follow = () => {
       const getFollowerData = async () => {
         await axios({
           method: 'get',
-          url: `http://146.56.183.55:5050/profile/${accountName}/follower`,
+          url: `http://146.56.183.55:5050/profile/${accountName}/follower?limit=30&skip=0`,
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',
@@ -49,7 +49,7 @@ const Follow = () => {
       const getFollowingData = async () => {
         await axios({
           method: 'get',
-          url: `http://146.56.183.55:5050/profile/${accountName}/following`,
+          url: `http://146.56.183.55:5050/profile/${accountName}/following?limit=30&skip=0`,
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',
@@ -77,6 +77,7 @@ const Follow = () => {
         // followerData가 있다면 data로 followerData를 전송, 그 외는 data로 followingData전송
         data={followerData ? followerData : followingData}
         followEmpty={followEmptyMessage}
+        userToken={userToken}
       />
     </>
   );
