@@ -49,10 +49,18 @@ export const FileInput = styled.img.attrs({
   src: uploadIcon,
 })`
   width: 3.6rem;
+  cursor: pointer;
 `;
 
 export const SendBtn = styled.button`
   width: 3.6rem;
+  color: ${(props) =>
+    props.disabled
+      ? props.theme.palette['border']
+      : props.theme.palette['point']};
+  &:disabled {
+    cursor: default;
+  }
 `;
 
 export const ChatMain = styled.div`
