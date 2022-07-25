@@ -11,7 +11,6 @@ export default function UserComponent({
   username,
   accountname,
   intro,
-  isFollow,
   message,
   time,
 }) {
@@ -35,24 +34,29 @@ export default function UserComponent({
         path.includes('home') || path.includes('profile') ? 'true' : 'false'
       }
       id={accountname}
-      onClick={() => {
-        const id = accountname;
-        navigate(`/profile/${id}`);
-      }}
     >
-      <S.ProfileImg
-        src={image}
-        alt="프로필이미지"
-        // 페이지의 경로가 home또는 profile일때 프로필 이미지 사이즈 작게 표시
-        small={
-          path.includes('home') || path.includes('profile') ? 'true' : 'false'
-        }
-      />
-      {/* {!isRead && <S.NonRead />} */}
-      <S.UserInfo>
-        <S.UserName>{username}</S.UserName>
-        <S.UserIntro>{userIntro}</S.UserIntro>
-      </S.UserInfo>
+      <S.UserInfoWrap
+        onClick={() => {
+          const id = accountname;
+          navigate(`/profile/${id}`);
+          console.log('Clicked!');
+        }}
+      >
+        <S.ProfileImg
+          src={image}
+          alt="프로필이미지"
+          // 페이지의 경로가 home또는 profile일때 프로필 이미지 사이즈 작게 표시
+          small={
+            path.includes('home') || path.includes('profile') ? 'true' : 'false'
+          }
+        />
+        {/* {!isRead && <S.NonRead />} */}
+        <S.UserInfo>
+          <S.UserName>{username}</S.UserName>
+          <S.UserIntro>{userIntro}</S.UserIntro>
+        </S.UserInfo>
+      </S.UserInfoWrap>
+
       {/*페이지의 경로에 follow 있을 때 팔로우 버튼이 뜬다, search,follow 페이지가 아닐경우 모달 버튼이 뜬다*/}
       {path.includes('follow') && <FollowBtn size="small" />}
       {path.includes('chats') && <S.TimeInfo>{time}</S.TimeInfo>}
