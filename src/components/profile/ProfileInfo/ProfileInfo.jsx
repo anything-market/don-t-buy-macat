@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import * as S from './ProfileInfo.style';
 import FollowBtn from './../../button/FollowBtn/FollowBtn';
 import { useNavigate } from 'react-router-dom';
+// import { ReactComponent as ShareIco } from '../../../assets/icon-share.svg';
 
 const ProfileInfo = ({ userToken, data, isAuthorized }) => {
   const navigate = useNavigate();
@@ -59,18 +60,26 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
             <S.ProfileBtnWrap>
               <S.ProfileBtn>프로필 수정</S.ProfileBtn>
               <S.ProfileBtn
-                adoptBtn={true}
+                adoptBtn={'true'}
                 onClick={() => navigate('/adoptPost')}
               >
                 상품 등록
               </S.ProfileBtn>
             </S.ProfileBtnWrap>
           ) : (
-            <FollowBtn
-              handleFollowBtn={handleFollowBtn}
-              isFollow={isFollowed}
-              size={'large'}
-            />
+            <S.ProfileBtnWrap>
+              <S.ProfileBtnIco messageIco={'true'}>
+                <S.StyledMessageIco />
+              </S.ProfileBtnIco>
+              <FollowBtn
+                handleFollowBtn={handleFollowBtn}
+                isFollow={isFollowed}
+                size={'large'}
+              />
+              <S.ProfileBtnIco shareIco={'true'}>
+                <S.StyledShareIco />
+              </S.ProfileBtnIco>
+            </S.ProfileBtnWrap>
           )}
         </S.ProfileInfoContainer>
       </S.ProfileInfoWrap>

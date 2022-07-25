@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { ReactComponent as ShareIco } from '../../../assets/icon-share.svg';
+import { ReactComponent as MessageIco } from '../../../assets/message-circle.svg';
 
 export const ProfileBg = styled.div`
   display: block;
@@ -95,4 +97,31 @@ export const ProfileBtn = styled.button`
   height: 34px;
   border-radius: 30px;
   margin-left: ${({ adoptBtn }) => (adoptBtn ? '12px' : '0')};
+`;
+
+export const ProfileBtnIco = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid ${(props) => props.theme.palette['darkGray']};
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.palette['white']};
+  margin-right: ${({ messageIco }) => (messageIco ? '10px' : '0')};
+  margin-left: ${({ shareIco }) => (shareIco ? '10px' : '0')};
+`;
+
+export const StyledMessageIco = styled(MessageIco)`
+  stroke: ${(props) => props.theme.palette['darkGray']};
+  fill: ${(props) => props.theme.palette['white']};
+  stroke-width: 1.5;
+  width: 2rem;
+  height: 2rem;
+`;
+
+export const StyledShareIco = styled(ShareIco)`
+  stroke-width: 1.5;
+  width: 2rem;
+  height: 2rem;
 `;
