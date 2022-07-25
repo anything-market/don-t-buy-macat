@@ -4,6 +4,7 @@ export const UserProfileWrap = styled.main`
   width: 100%;
   height: 100%;
   background-color: ${(props) => props.theme.palette['background']};
+  padding-bottom: 4.8rem;
 `;
 
 export const UserPostWrap = styled.div`
