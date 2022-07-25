@@ -2,21 +2,23 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { css } from 'styled-components';
 
-export const UserComponent = styled(Link).attrs({
-  to: '#',
-})`
+export const UserComponent = styled(Link).attrs((props) => ({
+  // to: `/profile/${id}`,
+  to: `/profile/${props.id}`,
+}))`
   display: flex;
   align-items: center;
   //UserComponent 사이즈 조절을 위한 속성
   font-size: 1rem;
+  margin-bottom: ${({ marginbottom }) => (marginbottom ? '1.2rem' : '0')};
   & > * {
     flex-shrink: 0;
   }
 `;
 
 export const ProfileImg = styled.img`
-  width: 5em;
-  height: 5em;
+  width: ${({ small }) => (small ? '4.2em' : '5em')};
+  height: ${({ small }) => (small ? '4.2em' : '5em')};
   border-radius: 50%;
 `;
 

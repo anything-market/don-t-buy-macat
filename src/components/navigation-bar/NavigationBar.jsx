@@ -10,6 +10,8 @@ import activeTabEdit from '../../assets/tab-icon-edit-color.svg.svg';
 import activeTabUser from '../../assets/tab-icon-user-color.svg.svg';
 import { NavLink } from 'react-router-dom';
 
+const accountName = localStorage.getItem('Account Name');
+
 const Wrapper = styled.div`
   margin-top: auto;
   width: 100%;
@@ -92,9 +94,9 @@ function NavigationBar() {
           </List>
         </StyleNavLink>
 
-        {/* 프로필 페이지로 이동  (임시로 adoptPost페이지로 이동)*/}
+        {/* 로그인한 유저의 프로필 페이지로 이동*/}
         <StyleNavLink
-          to={'/adoptPost'}
+          to={`/profile/${accountName}`}
           className={({ isActive }) => (isActive ? 'active' : 'inactive')}
         >
           <List>

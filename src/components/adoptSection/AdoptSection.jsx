@@ -3,17 +3,15 @@ import axios from 'axios';
 import * as S from './adoptSection.style';
 import Modal from '../modal/Modal/Modal';
 import ProductModalContent from '../modal/modalContent/ProductModalContent/ProductModalContent';
-export default function AdoptSection() {
+export default function AdoptSection({ accountName }) {
   const [userToken, setUserToken] = useState('');
-  const [accountName, setAccountName] = useState('');
   const [adoptData, setAdoptData] = useState([]);
 
   //데이터 가져오기
   useEffect(() => {
     const userToken = localStorage.getItem('Access Token');
     setUserToken(userToken);
-    const accountName = localStorage.getItem('Account Name');
-    setAccountName(accountName);
+
     const handleGetData = async () => {
       try {
         const res = await axios
