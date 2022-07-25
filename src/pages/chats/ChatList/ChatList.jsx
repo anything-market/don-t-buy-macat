@@ -20,7 +20,6 @@ export default function ChatList() {
                 username={user.username}
                 message={user.message}
                 time={user.time}
-                isRead={isRead}
               />
             </Link>
           </li>
