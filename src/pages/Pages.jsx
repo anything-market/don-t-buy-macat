@@ -11,6 +11,8 @@ import AdoptPost from './adoptPost/AdoptPost';
 import Post from './post/Post';
 import SocialLogin from '../components/login/SocialLogin';
 import UserProfile from './userProfile/UserProfile';
+import ChatList from './chats/ChatList/ChatList';
+import Chat from './chats/Chat/Chat';
 
 function Pages() {
   return (
@@ -27,6 +29,8 @@ function Pages() {
       <Route path="/adoptPost" element={<AdoptPost />}></Route>
       <Route path="/post/:postId" element={<Post />}></Route>
       <Route path="/social-login" element={<SocialLogin />}></Route>
+      <Route path="/chats" element={<ChatList />}></Route>
+      <Route path="/chats/:id" element={<Chat />}></Route>
     </Routes>
   );
 }
