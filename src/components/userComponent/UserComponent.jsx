@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as S from './userComponent.style';
 import ModalBtn from '../modal/ModalBtn/ModalBtn';
 import ProductModalContent from '../modal/modalContent/PostModalContent/PostModalContent';
@@ -15,6 +16,7 @@ export default function UserComponent({
   time,
 }) {
   const path = window.location.href;
+  const navigate = useNavigate();
   let userIntro = '';
   if (path.includes('follow')) {
     userIntro = intro;
@@ -33,6 +35,10 @@ export default function UserComponent({
         path.includes('home') || path.includes('profile') ? 'true' : 'false'
       }
       id={accountname}
+      onClick={() => {
+        const id = accountname;
+        navigate(`/profile/${id}`);
+      }}
     >
       <S.ProfileImg
         src={image}

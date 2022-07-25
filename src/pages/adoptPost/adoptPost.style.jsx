@@ -3,7 +3,7 @@ import ImgButtonIcon from '../../assets/img-button.svg';
 
 export const Form = styled.div`
   width: 34.4rem;
-  margin: 0 auto;
+  margin: 3rem auto 0;
 `;
 
 export const ImgPreviewContainer = styled.div`
