@@ -16,6 +16,7 @@ import Chat from './chats/Chat/Chat';
 import { isLogin } from '../utils/isLogin';
 import { useState, useEffect } from 'react';
 import Splash from '../components/splash/Splash';
+import Error from '../components/error/Error';
 
 function Pages() {
   const [loading, setLoading] = useState(false);
@@ -50,6 +51,7 @@ function MainPages() {
       <Route path="/social-login" element={<SocialLogin />}></Route>
       <Route path="/chats" element={<ChatList />}></Route>
       <Route path="/chats/:id" element={<Chat />}></Route>
+      <Route path="/*" element={<Error />}></Route>
     </Routes>
   );
 }
