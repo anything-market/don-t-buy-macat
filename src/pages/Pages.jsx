@@ -13,12 +13,29 @@ import SocialLogin from '../components/login/SocialLogin';
 import UserProfile from './userProfile/UserProfile';
 import ChatList from './chats/ChatList/ChatList';
 import Chat from './chats/Chat/Chat';
-import SplashMain from './splashMain/SplashMain';
+import { isLogin } from '../utils/isLogin';
+import { useState, useEffect } from 'react';
+import Splash from '../components/splash/Splash';
 
 function Pages() {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (window.location.pathname === '/') {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2400);
+    }
+  }, []);
+
+  return loading ? <Splash /> : <MainPages />;
+}
+
+function MainPages() {
   return (
     <Routes>
-      <Route path="/" element={<SplashMain />}></Route>
+      <Route path="/" element={isLogin() ? <Home /> : <SocialLogin />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/join/signin" element={<SignIn />}></Route>
       <Route path="/join/setprofile" element={<SerProfile />}></Route>
