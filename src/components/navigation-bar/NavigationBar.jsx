@@ -17,6 +17,10 @@ const Wrapper = styled.div`
   width: 100%;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  position: fixed;
+  bottom: 0;
+  z-index: 99999;
+  background-color: ${(props) => props.theme.palette['white']};
 `;
 
 const NavBar = styled.ul`
@@ -65,15 +69,15 @@ function NavigationBar() {
           </List>
         </StyleNavLink>
 
-        {/* 채팅으로 이동 (임시로 search페이지로 이동)*/}
+        {/* 채팅으로 이동*/}
         <StyleNavLink
-          to={'/search'}
+          to={'/chats'}
           className={({ isActive }) => (isActive ? 'active' : 'inactive')}
         >
           <List>
             <img
               src={
-                location.pathname === '/search' ? activeTabMessage : tabMessage
+                location.pathname === '/chats' ? activeTabMessage : tabMessage
               }
             />
             <p>채팅</p>
@@ -101,7 +105,11 @@ function NavigationBar() {
         >
           <List>
             <img
-              src={location.pathname === '/adoptPost' ? activeTabUser : tabUser}
+              src={
+                location.pathname === `/profile/${accountName}`
+                  ? activeTabUser
+                  : tabUser
+              }
             />
             <p>프로필</p>
           </List>
