@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import basicProfile from '../../../assets/basic-profile.svg';
 import moreVertical from '../../../assets/icon-more-vertical.svg';
 
 export const CommentListWrapper = styled.section`
@@ -21,7 +20,6 @@ export const CommentListLi = styled.li`
 `;
 
 export const ProfileImg = styled.img.attrs({
-  // src: basicProfile,
   alt: '프로필 이미지',
 })`
   margin-right: 1.2rem;
