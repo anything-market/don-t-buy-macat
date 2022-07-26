@@ -114,6 +114,7 @@ const UserProfile = () => {
           userToken={userData && userData[0]}
           data={userProfileData}
           isAuthorized={isAuthorized}
+          accountName={userData && userData[1]}
         />
       )}
       <AdoptSection accountName={params.id} />

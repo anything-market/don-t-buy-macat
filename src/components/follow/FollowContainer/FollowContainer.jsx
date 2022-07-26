@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import UserComponent from './../../userComponent/UserComponent';
 import * as S from './FollowContainer.style';
+import FollowUserList from './../FollowUserList/FollowUserList';
 
-const FollowContainer = ({ data, followEmpty }) => {
+const FollowContainer = ({ userToken, data, followEmpty }) => {
   const [userData, setUserData] = useState();
+
   useEffect(() => {
     setUserData(data);
   }, [data]);
@@ -17,12 +18,13 @@ const FollowContainer = ({ data, followEmpty }) => {
         userData.map((item) => {
           return (
             <S.FollowUserWrap key={item._id}>
-              <UserComponent
-                key={item._id}
+              <FollowUserList
+                userToken={userToken}
                 image={item.image}
                 username={item.username}
                 accountname={item.accountname}
                 intro={item.intro}
+                isFollow={item.isfollow}
               />
             </S.FollowUserWrap>
           );

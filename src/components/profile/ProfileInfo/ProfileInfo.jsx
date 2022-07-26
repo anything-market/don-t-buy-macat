@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ReactComponent as Message } from '../../../assets/message-circle.svg';
 import * as S from './ProfileInfo.style';
 import FollowBtn from './../../button/FollowBtn/FollowBtn';
 
@@ -9,7 +10,7 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
   const [isFollowed, setIsFollowed] = useState(data.isfollow);
   const [followerCount, setFollowerCount] = useState(data.follower.length);
 
-  const handleFollowBtn = () => {
+  const handleFollow = () => {
     if (isFollowed) {
       axios({
         method: 'delete',
@@ -45,11 +46,21 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
           <S.UserName>{data.username}</S.UserName>
           <S.AccountName>@ {data.accountname}</S.AccountName>
           <S.Intro>{data.intro}</S.Intro>
-          <S.Follow position={'right'} href="/follow/followers">
+          <S.Follow
+            position={'right'}
+            onClick={() => {
+              navigate(`/follow/${data.accountname}/followers`);
+            }}
+          >
             <S.FollowCount type={'follows'}>{followerCount}</S.FollowCount>
             <S.FollowSpan>follwers</S.FollowSpan>
           </S.Follow>
-          <S.Follow position={'left'} href="/follow/followings">
+          <S.Follow
+            position={'left'}
+            onClick={() => {
+              navigate(`/follow/${data.accountname}/followings`);
+            }}
+          >
             <S.FollowCount type={'followings'}>
               {data.following.length}
             </S.FollowCount>
@@ -62,7 +73,7 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
                 adoptBtn={'true'}
                 onClick={() => navigate('/adoptPost')}
               >
-                상품 등록
+                입양 등록
               </S.ProfileBtn>
             </S.ProfileBtnWrap>
           ) : (
@@ -71,7 +82,7 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
                 <S.StyledMessageIco />
               </S.ProfileBtnIco>
               <FollowBtn
-                handleFollowBtn={handleFollowBtn}
+                handleFollow={handleFollow}
                 isFollow={isFollowed}
                 size={'large'}
               />
