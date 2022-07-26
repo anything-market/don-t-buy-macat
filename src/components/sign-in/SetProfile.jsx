@@ -13,7 +13,6 @@ function SetProfile() {
 
   const email = location.state.email;
   const password = location.state.password;
-  // console.log(email, password);
 
   const [userName, setUserName] = useState('');
   const [userID, setUserID] = useState('');
@@ -63,7 +62,6 @@ function SetProfile() {
 
   // userName 유효성 검사
   useEffect(() => {
-    // console.log(userName.length);
     if (userName.length > 10 || (userName.length < 2 && userName !== '')) {
       setUserNameWarningMessage('2자~10자 이내여야 합니다.');
       setIsUserName(false);
@@ -92,7 +90,6 @@ function SetProfile() {
   }, [userID]);
 
   const signInHandler = async function () {
-    // console.log('되는거야?');
     try {
       const res = await axios.post('http://146.56.183.55:5050/user', {
         headers: {
@@ -122,20 +119,17 @@ function SetProfile() {
       <h1>프로필 설정</h1>
       <p>나중에 언제든지 변경할 수 있습니다.</p>
       <S.ImageBox>
-        {/* 이미지 미리보기 -> preview사진 넣어준게 없으면 기본사진으로 지정 */}
         <img
           src={preview ? preview : defaultProfilePhoto}
           alt="프로필 사진 미리보기"
           className="defaultProfilePhoto"
         />
-        {/* 가짜버튼 */}
         <img
           src={fileUploadButton}
           alt="버튼을 누르면 프로필사진을 선택하고 등록합니다"
           className="fileUploadButton"
           onClick={openInputFile}
         />
-        {/* 실제 file인풋버튼 -> 숨김처리 */}
         <input
           type="file"
           accept=".jpg, .gif, .png, .jpeg, .bmp, .tif, .heic"
