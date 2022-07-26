@@ -24,7 +24,6 @@ const UserProfile = () => {
 
   useEffect(() => {
     if (userToken) {
-      // 유저의 프로필 정보 가져오기
       const getProfileData = async () => {
         await axios({
           method: 'get',
@@ -41,7 +40,6 @@ const UserProfile = () => {
         });
       };
 
-      // 유저의 게시글목록 가져오기
       const getPostData = async () => {
         await axios({
           method: 'get',
@@ -63,7 +61,6 @@ const UserProfile = () => {
   }, [params]);
 
   useEffect(() => {
-    // 권한정보 설정
     if (userToken && userProfileData)
       if (accountName === userProfileData.accountname) {
         setIsAuthorized(true);

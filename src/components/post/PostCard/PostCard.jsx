@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react';
 import * as S from './PostCard.style';
 import PostContent from '../PostContent/PostContent';
 import UserComponent from './../../userComponent/UserComponent';
-import { useNavigate, useParams } from 'react-router-dom';
 
 const PostCard = ({ data }) => {
-  const navigate = useNavigate();
-
   const [authorData, setAuthorData] = useState();
   const [postData, setPostData] = useState();
 

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as Message } from '../../../assets/message-circle.svg';
 import * as S from './ProfileInfo.style';
 import FollowBtn from './../../button/FollowBtn/FollowBtn';
 

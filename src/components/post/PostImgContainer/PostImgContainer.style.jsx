@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ImgList = styled.ul`
   display: flex;
-  /* box-sizing: border-box; */
   transition: all 0.4s;
 `;
 

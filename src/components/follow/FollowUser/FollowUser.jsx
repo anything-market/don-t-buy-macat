@@ -13,7 +13,6 @@ const FollowUser = ({
   accountname,
   intro,
 }) => {
-  const path = window.location.href;
   const navigate = useNavigate();
   let userIntro = intro;
 
@@ -29,7 +28,6 @@ const FollowUser = ({
           'Content-type': 'application/json',
         },
       }).then((res) => {
-        console.log(res);
         setIsFollowed(false);
       });
     } else {
@@ -41,7 +39,6 @@ const FollowUser = ({
           'Content-type': 'application/json',
         },
       }).then((res) => {
-        console.log(res);
         setIsFollowed(true);
       });
     }
