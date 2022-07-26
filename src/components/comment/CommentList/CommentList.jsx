@@ -20,7 +20,7 @@ function CommentList({ comments }) {
           comments.map((data) => {
             return (
               <CommentListLi key={data.id}>
-                <ProfileImg />
+                <ProfileImg src={data.author.image} />
                 <InformationBox>
                   <span>{data.author.username}</span>
                   <small>{new Date(data.createdAt).toLocaleDateString()}</small>

@@ -20,14 +20,21 @@ export const PostUploadTextarea = styled.textarea`
 
 export const PostUploadLegendTxt = styled.h4``;
 
-export const ProfileImage = styled.img.attrs({
-  src: basicProfile,
+export const ProfileImageBox = styled.div`
+  width: 4.2rem;
+  height: 4.2rem;
+  margin-right: 1.2rem;
+`;
+
+export const ProfileImage = styled.img.attrs((props) => ({
+  src: props.authorImg || basicProfile,
   alt: '프로필 이미지',
-})`
+}))`
   width: 4.2rem;
   height: 4.2rem;
   border-radius: 50%;
   margin-right: 1.2rem;
+  object-fit: cover;
 `;
 
 export const PostForm = styled.article`
@@ -37,8 +44,6 @@ export const PostForm = styled.article`
   line-height: 1.8rem;
   textarea {
     width: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
   }
 `;
 
