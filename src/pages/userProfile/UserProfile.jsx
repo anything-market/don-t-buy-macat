@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import PostCard from '../../components/post/PostCard/PostCard';
+import PostAlbumCard from '../../components/post/PostAlbumCard/PostAlbumCard';
 import BasicHeader from './../../components/header/BasicHeader/BasicHeader';
 import ProfileInfo from './../../components/profile/ProfileInfo/ProfileInfo';
 import AdoptSection from './../../components/adoptSection/AdoptSection';
@@ -104,7 +105,8 @@ const UserProfile = () => {
         )}
       </S.UserPostHeader>
       <S.UserPostWrap>
-        {userPostData &&
+        {!albumOn &&
+          userPostData &&
           userPostData.map((post) => {
             return (
               <S.ProfilePostCardWrap key={post.id}>
@@ -112,6 +114,13 @@ const UserProfile = () => {
               </S.ProfilePostCardWrap>
             );
           })}
+        <S.ProfilePostAlbumWrap>
+          {albumOn &&
+            userPostData &&
+            userPostData.map((post) => {
+              return <PostAlbumCard key={post.id} data={post} />;
+            })}
+        </S.ProfilePostAlbumWrap>
       </S.UserPostWrap>
       <NavigationBar />
     </S.UserProfileWrap>
