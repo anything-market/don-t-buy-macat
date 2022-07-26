@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const PostCardWrap = styled.div`
   width: 100%;
   display: block;
+  margin-top: 1.6rem;
 `;
 
 export const PostCardContainer = styled.div`
