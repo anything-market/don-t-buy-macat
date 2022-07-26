@@ -13,7 +13,7 @@ export const PostCardContainer = styled.div`
 `;
 
 export const ProfileWrap = styled.article`
-  margin: 2rem 0;
+  margin-bottom: 2rem;
   position: relative;
   max-width: 358px;
   min-width: 358px;
