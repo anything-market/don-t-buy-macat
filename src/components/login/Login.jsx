@@ -23,15 +23,18 @@ function Login() {
     console.log(ableToClick);
     if (ableToClick === true) {
       try {
-        const res = await axios.post('http://146.56.183.55:5050/user/login', {
-          headers: {
-            'Content-type': 'application/json',
+        const res = await axios.post(
+          'https://mandarin.api.weniv.co.kr/user/login',
+          {
+            headers: {
+              'Content-type': 'application/json',
+            },
+            user: {
+              email: email,
+              password: password,
+            },
           },
-          user: {
-            email: email,
-            password: password,
-          },
-        });
+        );
         console.log(res);
 
         if (res.data.message === '이메일 또는 비밀번호가 일치하지 않습니다.') {
