@@ -13,7 +13,6 @@ import {
 } from './commentList.style';
 
 function CommentList({ comments }) {
-  console.log(comments);
   return (
     <CommentListWrapper>
       <CommentListContainer>
