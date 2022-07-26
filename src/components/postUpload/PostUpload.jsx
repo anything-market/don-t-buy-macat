@@ -13,12 +13,32 @@ function PostUpload() {
   const [imageUrl, setImageUrl] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [userToken, setUserToken] = useState();
+  const [accountName, setAccountName] = useState('');
+  const [authorImg, setAuthorImg] = useState('');
 
   // 컴포넌트가 처음 마운트될때 userToken을 받아옵니다
   useEffect(() => {
     const userToken = localStorage.getItem('Access Token');
+    const accountName = localStorage.getItem('Account Name');
     setUserToken(userToken);
+    setAccountName(accountName);
   }, []);
+
+  //글 작성중인 유저의 정보를 받아옵니다
+  useEffect(() => {
+    if (accountName) {
+      axios({
+        url: `http://146.56.183.55:5050/profile/${accountName}`,
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          'Content-type': 'application/json',
+        },
+      }).then((response) => {
+        setAuthorImg(response.data.profile.image);
+      });
+    }
+  }, [accountName]);
 
   //텍스트 또는 미리보기이미지가 있으면 활성화
   useEffect(() => {
@@ -126,7 +146,9 @@ function PostUpload() {
         <S.PostUploadLegend className="A11yHidden">
           게시글 작성 페이지
         </S.PostUploadLegend>
-        <S.ProfileImage />
+        <S.ProfileImageBox>
+          <S.ProfileImage authorImg={authorImg} />
+        </S.ProfileImageBox>
         <S.PostForm>
           <S.PostUploadLegendTxt className="A11yHidden">
             게시글을 입력하세요

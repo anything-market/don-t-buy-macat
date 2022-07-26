@@ -8,16 +8,37 @@ import {
   ProfileImg,
   CommentInput,
   CommentSubmitButton,
+  ProfileImgBox,
 } from './commentReply.style';
 
 function CommentReply({ getComments, postId }) {
   const [comment, setComment] = useState('');
   const [isValid, setIsValid] = useState(false);
+  const [authorImg, setAuthorImg] = useState('');
   const [userToken, setUserToken] = useState('');
+  const [accountName, setAccountName] = useState('');
+
   useEffect(() => {
     const userToken = localStorage.getItem('Access Token');
+    const accountName = localStorage.getItem('Account Name');
     setUserToken(userToken);
+    setAccountName(accountName);
   }, []);
+
+  useEffect(() => {
+    if (accountName) {
+      axios({
+        url: `http://146.56.183.55:5050/profile/${accountName}`,
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          'Content-type': 'application/json',
+        },
+      }).then((response) => {
+        setAuthorImg(response.data.profile.image);
+      });
+    }
+  }, [accountName]);
 
   const handleInput = (e) => {
     e.preventDefault;
@@ -53,7 +74,9 @@ function CommentReply({ getComments, postId }) {
   return (
     <CommentReplyWrapper>
       <CommentReplyContainer>
-        <ProfileImg />
+        <ProfileImgBox>
+          <ProfileImg authorImg={authorImg} />
+        </ProfileImgBox>
         <CommentInput
           type="text"
           value={comment}

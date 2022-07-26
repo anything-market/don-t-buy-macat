@@ -18,12 +18,20 @@ export const CommentReplyContainer = styled.form`
   width: 100%;
 `;
 
-export const ProfileImg = styled.img.attrs({
-  src: basicProfile,
-  alt: '프로필 이미지',
-})`
+export const ProfileImgBox = styled.div`
   width: 3.6rem;
+  height: 3.6rem;
   margin-right: 1.8rem;
+`;
+
+export const ProfileImg = styled.img.attrs((props) => ({
+  src: props.authorImg || basicProfile,
+  alt: '프로필 이미지',
+}))`
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  object-fit: cover;
 `;
 
 export const CommentInput = styled.input`
