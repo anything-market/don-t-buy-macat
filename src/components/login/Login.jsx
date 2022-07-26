@@ -8,12 +8,9 @@ function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const [ableToClick, setAbleToClick] = useState(false);
-
   const [message, setMessage] = useState('');
 
-  // email과 password가 둘 다 빈값이 아닐 때 setAbleToClick true로 변경
   useEffect(() => {
     if (email && password) {
       setAbleToClick(true);
@@ -24,7 +21,6 @@ function Login() {
 
   async function login() {
     console.log(ableToClick);
-    // email, password가 둘 다 빈 값이 아닐때(true일 때)만 실행
     if (ableToClick === true) {
       try {
         const res = await axios.post('http://146.56.183.55:5050/user/login', {
