@@ -44,8 +44,8 @@ function MainPages() {
       <Route path="/search" element={<Search />}></Route>
       <Route path="/profile/:id" element={<UserProfile />}></Route>
       <Route path="/upload" element={<PostUpload />}></Route>
-      <Route path="/follow/followers" element={<Follow />}></Route>
-      <Route path="/follow/followings" element={<Follow />}></Route>
+      <Route path="/follow/:id/followers" element={<Follow />}></Route>
+      <Route path="/follow/:id/followings" element={<Follow />}></Route>
       <Route path="/adoptPost" element={<AdoptPost />}></Route>
       <Route path="/post/:postId" element={<Post />}></Route>
       <Route path="/social-login" element={<SocialLogin />}></Route>
