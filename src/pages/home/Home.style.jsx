@@ -6,6 +6,8 @@ export const PostWrap = styled.main`
   align-items: center;
   padding: 20px 16px 0;
   height: calc(100% - 108px);
+  margin-top: 2rem;
+  padding-bottom: 7rem;
 `;
 
 export const FeedEmptyWrap = styled.div`

@@ -6,12 +6,24 @@ import HeartBtn from '../../button/HeartBtn/HeartBtn';
 import { Link } from 'react-router-dom';
 
 const PostContent = (data) => {
+  const [userToken, setUserToken] = useState();
+
   useEffect(() => {
     const userToken = localStorage.getItem('Access Token');
     setUserToken(userToken);
   }, []);
 
-  const [userToken, setUserToken] = useState();
+  const formatDate = (date) => {
+    let newDate = new Date(date);
+    const formatedDate =
+      newDate.getFullYear() +
+      '년 ' +
+      (newDate.getMonth() + 1) +
+      '월 ' +
+      newDate.getDate() +
+      '일 ';
+    return formatedDate;
+  };
 
   return (
     <S.PostContent>
@@ -33,7 +45,7 @@ const PostContent = (data) => {
           </S.PostIconBtn>
         </Link>
       </S.PostIconsWrap>
-      <S.PostCreateDate>2022년 07월 11일</S.PostCreateDate>
+      <S.PostCreateDate>{formatDate(data.data.createdAt)}</S.PostCreateDate>
     </S.PostContent>
   );
 };

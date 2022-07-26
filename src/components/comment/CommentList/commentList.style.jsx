@@ -57,9 +57,7 @@ export const CommentText = styled.span`
   margin: 0.2rem 0 0 4.8rem;
 `;
 
-export const Toggleimg = styled.img.attrs({
-  src: moreVertical,
-})`
+export const ModalBtnBox = styled.div`
   position: absolute;
   top: 5px;
   right: 0;
