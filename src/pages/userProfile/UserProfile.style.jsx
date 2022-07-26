@@ -31,6 +31,9 @@ export const UserPostBtnsWrap = styled.div`
   width: 100%;
   height: 44px;
   padding-right: 16px;
+  & > * {
+    cursor: pointer;
+  }
 `;
 
 export const ProfilePostCardWrap = styled.div`

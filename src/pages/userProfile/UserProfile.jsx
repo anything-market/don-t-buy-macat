@@ -18,6 +18,7 @@ const UserProfile = () => {
   const [userPostData, setUserPostData] = useState();
   const [userProfileData, setUserProfileData] = useState();
   const [isAuthorized, setIsAuthorized] = useState(false);
+  const [albumOn, setAlbumOn] = useState(false);
   const params = useParams();
 
   useEffect(() => {
@@ -81,10 +82,26 @@ const UserProfile = () => {
       )}
       <AdoptSection accountName={params.id} />
       <S.UserPostHeader>
-        <S.UserPostBtnsWrap>
-          <PostIcoOn />
-          <AlbumIcoOff style={{ marginLeft: '1.6rem' }} />
-        </S.UserPostBtnsWrap>
+        {!albumOn ? (
+          <S.UserPostBtnsWrap>
+            <PostIcoOn />
+            <AlbumIcoOff
+              onClick={() => {
+                setAlbumOn(true);
+              }}
+              style={{ marginLeft: '1.6rem' }}
+            />
+          </S.UserPostBtnsWrap>
+        ) : (
+          <S.UserPostBtnsWrap>
+            <PostIcoOff
+              onClick={() => {
+                setAlbumOn(false);
+              }}
+            />
+            <AlbumIcoOn style={{ marginLeft: '1.6rem' }} />
+          </S.UserPostBtnsWrap>
+        )}
       </S.UserPostHeader>
       <S.UserPostWrap>
         {userPostData &&
