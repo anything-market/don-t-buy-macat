@@ -13,44 +13,42 @@ import { ReactComponent as AlbumIcoOn } from '../../assets/icon-post-album-on.sv
 import NavigationBar from './../../components/navigation-bar/NavigationBar';
 
 const UserProfile = () => {
-  const [userData, setUserData] = useState();
+  const userToken = localStorage.getItem('Access Token');
+  const accountName = localStorage.getItem('Account Name');
   const [userPostData, setUserPostData] = useState();
   const [userProfileData, setUserProfileData] = useState();
   const [isAuthorized, setIsAuthorized] = useState(false);
   const params = useParams();
 
-  // 로그인한 유저정보
   useEffect(() => {
-    const userToken = localStorage.getItem('Access Token');
-    const accountName = localStorage.getItem('Account Name');
-    setUserData([userToken, accountName]);
-  }, []);
-
-  useEffect(() => {
-    //로그인한 유저의 프로필일때
-    if (userData && params.id === userData[1]) {
-      // 로그인한 유저의 프로필 정보 가져오기
-      const getProfileData = () => {
-        axios({
+    if (userToken) {
+      // 유저의 프로필 정보 가져오기
+      const getProfileData = async () => {
+        await axios({
           method: 'get',
-          url: `http://146.56.183.55:5050/profile/${userData[1]}`,
+          url: `http://146.56.183.55:5050/profile/${
+            params.id === accountName ? accountName : params.id
+          }`,
           headers: {
-            Authorization: `Bearer ${userData[0]}`,
+            Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',
           },
         }).then((response) => {
+          console.log(response);
           setUserProfileData(response.data.profile);
         });
       };
 
-      // 로그인한 유저의 게시글목록 가져오기
-      const getPostData = () => {
-        axios({
+      // 유저의 게시글목록 가져오기
+      const getPostData = async () => {
+        await axios({
           method: 'get',
           // 프로필페이지에서 표시되는 게시물은 30개까지입니다
-          url: `http://146.56.183.55:5050/post/${userData[1]}/userpost/?limit=30&skip=0`,
+          url: `http://146.56.183.55:5050/post/${
+            params.id === accountName ? accountName : params.id
+          }/userpost/?limit=30&skip=0`,
           headers: {
-            Authorization: `Bearer ${userData[0]}`,
+            Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',
           },
         }).then((response) => {
@@ -60,61 +58,25 @@ const UserProfile = () => {
       getProfileData();
       getPostData();
     }
-
-    //로그인한 유저의 프로필이 아닐 때
-    if (userData && params.id !== userData[1]) {
-      // 로그인한 유저의 프로필 정보 가져오기
-      const getProfileData = () => {
-        {
-          axios({
-            method: 'get',
-            url: `http://146.56.183.55:5050/profile/${params.id}`,
-            headers: {
-              Authorization: `Bearer ${userData[0]}`,
-              'Content-type': 'application/json',
-            },
-          }).then((response) => {
-            setUserProfileData(response.data.profile);
-          });
-        }
-      };
-
-      // 로그인한 유저의 게시글목록 가져오기
-      const getPostData = () => {
-        axios({
-          method: 'get',
-          // 프로필페이지에서 표시되는 게시물은 30개까지입니다
-          url: `http://146.56.183.55:5050/post/${params.id}/userpost/?limit=30&skip=0`,
-          headers: {
-            Authorization: `Bearer ${userData[0]}`,
-            'Content-type': 'application/json',
-          },
-        }).then((response) => {
-          setUserPostData(response.data.post);
-        });
-      };
-      getProfileData();
-      getPostData();
-    }
-  }, [userData]);
+  }, [params]);
 
   useEffect(() => {
     // 권한정보 설정
-    if (userData && userProfileData)
-      if (userData[1] === userProfileData.accountname) {
+    if (userToken && userProfileData)
+      if (accountName === userProfileData.accountname) {
         setIsAuthorized(true);
       }
-  }, [userData, userProfileData]);
+  }, [userToken, userProfileData]);
 
   return (
     <S.UserProfileWrap>
       <BasicHeader />
       {userProfileData && (
         <ProfileInfo
-          userToken={userData && userData[0]}
+          userToken={userToken}
           data={userProfileData}
           isAuthorized={isAuthorized}
-          accountName={userData && userData[1]}
+          accountName={accountName}
         />
       )}
       <AdoptSection accountName={params.id} />

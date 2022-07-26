@@ -4,10 +4,10 @@ import { css } from 'styled-components';
 export const UserComponent = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
   //UserComponent 사이즈 조절을 위한 속성
   font-size: 1rem;
-  justify-content: space-between;
   margin-bottom: ${({ marginbottom }) => (marginbottom ? '1.2rem' : '0')};
   & > * {
     flex-shrink: 0;
