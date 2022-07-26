@@ -1,11 +1,9 @@
-import React, { useContext, useEffect } from 'react';
-import { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './userComponent.style';
 import ModalBtn from '../modal/ModalBtn/ModalBtn';
 import ProductModalContent from '../modal/modalContent/PostModalContent/PostModalContent';
 import FollowBtn from '../button/FollowBtn/FollowBtn';
-import { FollowHandlerContext } from './../follow/FollowUserList/FollowUserList';
 
 export default function UserComponent({
   image,
@@ -29,15 +27,6 @@ export default function UserComponent({
   }
   //채팅 알림 표시
   // const [isRead, setIsRead] = useState(false);
-
-  // useEffect(() => {
-  if (path.includes('follow')) {
-    const { handleFollowBtn } = useContext(FollowHandlerContext);
-    const { isfollow } = useContext(FollowHandlerContext);
-    handleFollow = handleFollowBtn;
-    console.log(`UserComponent에서 받아오는프롭 ${isfollow}`);
-  }
-  // }, [FollowHandlerContext]);
 
   return (
     <S.UserComponent
