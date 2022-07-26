@@ -5,6 +5,7 @@ import * as S from './Home.style';
 import { ReactComponent as Logo } from './../../assets/symbol-logo-feed.svg';
 import MainHeader from './../../components/header/MainHeader/MainHeader';
 import NavigationBar from '../../components/navigation-bar/NavigationBar';
+import Loading from '../../utils/Loading';
 
 const Home = () => {
   const [userToken, setUserToken] = useState();
@@ -18,9 +19,9 @@ const Home = () => {
 
   // get feed data
   useEffect(() => {
-    const getFeedData = () => {
+    const getFeedData = async () => {
       if (userToken) {
-        axios({
+        await axios({
           method: 'get',
           // 사용자 피드에서 보이는 게시물은 30개까지입니다
           url: 'http://146.56.183.55:5050/post/feed/?limit=30&skip=0',
@@ -35,6 +36,14 @@ const Home = () => {
     };
     getFeedData();
   }, [userToken]);
+
+  if (!userFeedData) {
+    return (
+      <S.LoadingWrap>
+        <Loading />
+      </S.LoadingWrap>
+    );
+  }
 
   return (
     <>
