@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './PostImgContainer.style';
 
 const PostImgContainer = ({ image }) => {
-  const multipleImages = image.split(',').length > 1;
+  const multipleImages = image && image.split(',').length > 1;
 
   const handleSliderBtn = (e) => {
     const parentUl = e.target.parentNode.parentNode.childNodes[0];
@@ -25,7 +25,7 @@ const PostImgContainer = ({ image }) => {
     }
   };
 
-  if (image.length !== 0) {
+  if (image && image.length !== 0) {
     return (
       <S.ImgContainer>
         <S.ImgList>
