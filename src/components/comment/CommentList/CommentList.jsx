@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import ModalBtn from '../../modal/ModalBtn/ModalBtn';
+import CommentModalContent from '../../modal/modalContent/CommentModalContent/CommentModalContent';
 import { timeForToday } from '../../../utils/timeForToday';
 
 import {
@@ -9,7 +11,7 @@ import {
   ProfileImg,
   InformationBox,
   CommentText,
-  Toggleimg,
+  ModalBtnBox,
 } from './commentList.style';
 
 function CommentList({ comments }) {
@@ -25,8 +27,12 @@ function CommentList({ comments }) {
                   <span>{data.author.username}</span>
                   <small>{timeForToday(data.createdAt)}</small>
                 </InformationBox>
+                <ModalBtnBox>
+                  <ModalBtn>
+                    <CommentModalContent />
+                  </ModalBtn>
+                </ModalBtnBox>
                 <CommentText>{data.content}</CommentText>
-                <Toggleimg />
               </CommentListLi>
             );
           })}
