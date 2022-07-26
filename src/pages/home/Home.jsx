@@ -5,7 +5,7 @@ import * as S from './Home.style';
 import { ReactComponent as Logo } from './../../assets/symbol-logo-feed.svg';
 import MainHeader from './../../components/header/MainHeader/MainHeader';
 import NavigationBar from '../../components/navigation-bar/NavigationBar';
-import Loading from '../../utils/Loading';
+import Loading from '../../components/loading/Loading';
 
 const Home = () => {
   const [userToken, setUserToken] = useState();
@@ -38,11 +38,7 @@ const Home = () => {
   }, [userToken]);
 
   if (!userFeedData) {
-    return (
-      <S.LoadingWrap>
-        <Loading />
-      </S.LoadingWrap>
-    );
+    return <Loading />;
   }
 
   return (
