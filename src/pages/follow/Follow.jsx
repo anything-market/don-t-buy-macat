@@ -23,7 +23,7 @@ const Follow = () => {
       const getFollowerData = async () => {
         await axios({
           method: 'get',
-          url: `http://146.56.183.55:5050/profile/${accountName}/follower?limit=30&skip=0`,
+          url: `https://mandarin.api.weniv.co.kr/profile/${accountName}/follower?limit=30&skip=0`,
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',
@@ -46,7 +46,7 @@ const Follow = () => {
       const getFollowingData = async () => {
         await axios({
           method: 'get',
-          url: `http://146.56.183.55:5050/profile/${accountName}/following?limit=30&skip=0`,
+          url: `https://mandarin.api.weniv.co.kr/profile/${accountName}/following?limit=30&skip=0`,
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',

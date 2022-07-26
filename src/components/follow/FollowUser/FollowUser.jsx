@@ -22,7 +22,7 @@ const FollowUser = ({
     if (isFollow) {
       await axios({
         method: 'delete',
-        url: `http://146.56.183.55:5050/profile/${accountname}/unfollow`,
+        url: `https://mandarin.api.weniv.co.kr/profile/${accountname}/unfollow`,
         headers: {
           Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',
@@ -33,7 +33,7 @@ const FollowUser = ({
     } else {
       await axios({
         method: 'post',
-        url: `http://146.56.183.55:5050/profile/${accountname}/follow`,
+        url: `https://mandarin.api.weniv.co.kr/profile/${accountname}/follow`,
         headers: {
           Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',

@@ -28,7 +28,7 @@ function CommentReply({ getComments, postId }) {
   useEffect(() => {
     if (accountName) {
       axios({
-        url: `http://146.56.183.55:5050/profile/${accountName}`,
+        url: `https://mandarin.api.weniv.co.kr/profile/${accountName}`,
         method: 'GET',
         headers: {
           Authorization: `Bearer ${userToken}`,
@@ -53,7 +53,7 @@ function CommentReply({ getComments, postId }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios({
-      url: `http://146.56.183.55:5050/post/${postId}/comments`,
+      url: `https://mandarin.api.weniv.co.kr/post/${postId}/comments`,
       method: 'POST',
       headers: {
         Authorization: `Bearer ${userToken}`,

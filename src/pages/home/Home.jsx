@@ -24,7 +24,7 @@ const Home = () => {
         await axios({
           method: 'get',
           // 사용자 피드에서 보이는 게시물은 30개까지입니다
-          url: 'http://146.56.183.55:5050/post/feed/?limit=30&skip=0',
+          url: 'https://mandarin.api.weniv.co.kr/post/feed/?limit=30&skip=0',
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',

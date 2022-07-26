@@ -19,7 +19,7 @@ function Post() {
 
   const getPostData = () => {
     axios({
-      url: `http://146.56.183.55:5050/post/${postId}`,
+      url: `https://mandarin.api.weniv.co.kr/post/${postId}`,
       method: 'get',
       headers: {
         Authorization: `Bearer ${userToken}`,
@@ -36,7 +36,7 @@ function Post() {
 
   const getComments = () => {
     axios({
-      url: `http://146.56.183.55:5050/post/${postId}/comments?limit=10`,
+      url: `https://mandarin.api.weniv.co.kr/post/${postId}/comments?limit=10`,
       method: 'get',
       headers: {
         Authorization: `Bearer ${userToken}`,

@@ -49,12 +49,14 @@ function SetProfile() {
         formData.append('image', Blob);
 
         const res = await axios.post(
-          'http://146.56.183.55:5050/image/uploadfiles',
+          'https://mandarin.api.weniv.co.kr/image/uploadfiles',
           formData,
         );
 
         console.log(res.data);
-        setProfileImage(`http://146.56.183.55:5050/${res.data[0].filename}`);
+        setProfileImage(
+          `https://mandarin.api.weniv.co.kr/${res.data[0].filename}`,
+        );
         resolve();
       };
     });
@@ -91,7 +93,7 @@ function SetProfile() {
 
   const signInHandler = async function () {
     try {
-      const res = await axios.post('http://146.56.183.55:5050/user', {
+      const res = await axios.post('https://mandarin.api.weniv.co.kr/user', {
         headers: {
           'Content-type': 'application/json',
         },

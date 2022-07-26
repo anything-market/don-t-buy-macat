@@ -15,7 +15,7 @@ export default function AdoptSection({ accountName }) {
     const handleGetData = async () => {
       try {
         const res = await axios
-          .get(`http://146.56.183.55:5050/product/${accountName}`, {
+          .get(`https://mandarin.api.weniv.co.kr/product/${accountName}`, {
             headers: {
               Authorization: `Bearer ${userToken}`,
               'Content-type': 'application/json',

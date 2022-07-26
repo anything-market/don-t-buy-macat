@@ -16,7 +16,7 @@ const Search = () => {
   const getSearchData = async (searchTerm) => {
     await axios({
       method: 'get',
-      url: `http://146.56.183.55:5050/user/searchuser/?keyword=${searchTerm}`,
+      url: `https://mandarin.api.weniv.co.kr/user/searchuser/?keyword=${searchTerm}`,
       headers: {
         Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',

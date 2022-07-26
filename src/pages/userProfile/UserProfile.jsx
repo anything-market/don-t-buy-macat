@@ -27,7 +27,7 @@ const UserProfile = () => {
       const getProfileData = async () => {
         await axios({
           method: 'get',
-          url: `http://146.56.183.55:5050/profile/${
+          url: `https://mandarin.api.weniv.co.kr/profile/${
             params.id === accountName ? accountName : params.id
           }`,
           headers: {
@@ -44,7 +44,7 @@ const UserProfile = () => {
         await axios({
           method: 'get',
           // 프로필페이지에서 표시되는 게시물은 30개까지입니다
-          url: `http://146.56.183.55:5050/post/${
+          url: `https://mandarin.api.weniv.co.kr/post/${
             params.id === accountName ? accountName : params.id
           }/userpost/?limit=30&skip=0`,
           headers: {

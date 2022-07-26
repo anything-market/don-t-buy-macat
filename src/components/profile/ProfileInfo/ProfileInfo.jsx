@@ -13,7 +13,7 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
     if (isFollowed) {
       axios({
         method: 'delete',
-        url: `http://146.56.183.55:5050/profile/${data.accountname}/unfollow`,
+        url: `https://mandarin.api.weniv.co.kr/profile/${data.accountname}/unfollow`,
         headers: {
           Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',
@@ -25,7 +25,7 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
     } else {
       axios({
         method: 'post',
-        url: `http://146.56.183.55:5050/profile/${data.accountname}/follow`,
+        url: `https://mandarin.api.weniv.co.kr/profile/${data.accountname}/follow`,
         headers: {
           Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',

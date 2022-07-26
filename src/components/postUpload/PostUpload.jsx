@@ -26,7 +26,7 @@ function PostUpload() {
   useEffect(() => {
     if (accountName) {
       axios({
-        url: `http://146.56.183.55:5050/profile/${accountName}`,
+        url: `https://mandarin.api.weniv.co.kr/profile/${accountName}`,
         method: 'GET',
         headers: {
           Authorization: `Bearer ${userToken}`,
@@ -73,7 +73,7 @@ function PostUpload() {
     formData.append('image', files[index]);
     try {
       const res = await axios.post(
-        `http://146.56.183.55:5050/image/uploadfile`,
+        `https://mandarin.api.weniv.co.kr/image/uploadfile`,
         formData,
       );
       return res.data['filename'];
@@ -89,11 +89,11 @@ function PostUpload() {
     const files = image;
     for (let index = 0; index < files.length; index++) {
       const imgurl = await imageUpload(files, index);
-      imageUrls.push(`http://146.56.183.55:5050/${imgurl}`);
+      imageUrls.push(`https://mandarin.api.weniv.co.kr/${imgurl}`);
     }
     try {
       const res = await axios({
-        url: `http://146.56.183.55:5050/post`,
+        url: `https://mandarin.api.weniv.co.kr/post`,
         method: 'post',
         headers: {
           Authorization: `Bearer ${userToken}`,

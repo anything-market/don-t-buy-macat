@@ -49,11 +49,14 @@ function SignIn() {
 
   // 다음버튼 누를시 서버에 post
   const sendDataToSetProfile = async function () {
-    const res = await axios.post('http://146.56.183.55:5050/user/emailvalid', {
-      user: {
-        email: email,
+    const res = await axios.post(
+      'https://mandarin.api.weniv.co.kr/user/emailvalid',
+      {
+        user: {
+          email: email,
+        },
       },
-    });
+    );
 
     if (res.data.message === '사용 가능한 이메일 입니다.') {
       setIsValidatedEmail(true);

@@ -61,10 +61,12 @@ export default function AdoptPost() {
         formData.append('image', Blob);
 
         const res = await axios.post(
-          'http://146.56.183.55:5050/image/uploadfiles',
+          'https://mandarin.api.weniv.co.kr/image/uploadfiles',
           formData,
         );
-        setUploadImg(`http://146.56.183.55:5050/${res.data[0].filename}`);
+        setUploadImg(
+          `https://mandarin.api.weniv.co.kr/${res.data[0].filename}`,
+        );
         //데이터 서버 전송 가능상태 true
         setValid({ ...isValid, uploadImg: true });
         resolve();
@@ -85,7 +87,7 @@ export default function AdoptPost() {
     try {
       const res = await axios
         .post(
-          'http://146.56.183.55:5050/product',
+          'https://mandarin.api.weniv.co.kr/product',
           {
             product: {
               itemName: `${itemName}`,
