@@ -10,6 +10,7 @@ export const UserProfileWrap = styled.main`
 export const UserPostWrap = styled.div`
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   background-color: ${(props) => props.theme.palette['white']};
 `;
 
@@ -31,8 +32,20 @@ export const UserPostBtnsWrap = styled.div`
   width: 100%;
   height: 44px;
   padding-right: 16px;
+  & > * {
+    cursor: pointer;
+  }
 `;
 
 export const ProfilePostCardWrap = styled.div`
   padding: 1.6rem 1.6rem 0 1.6rem;
+`;
+
+export const ProfilePostAlbumWrap = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  max-width: 39rem;
+  margin: 0 auto;
+  padding: 1.6rem 0;
 `;
