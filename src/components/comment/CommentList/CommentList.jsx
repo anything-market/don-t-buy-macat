@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { timeForToday } from '../../../utils/timeForToday';
 
 import {
   CommentListWrapper,
@@ -12,7 +13,6 @@ import {
 } from './commentList.style';
 
 function CommentList({ comments }) {
-  console.log(comments);
   return (
     <CommentListWrapper>
       <CommentListContainer>
@@ -23,7 +23,7 @@ function CommentList({ comments }) {
                 <ProfileImg src={data.author.image} />
                 <InformationBox>
                   <span>{data.author.username}</span>
-                  <small>{new Date(data.createdAt).toLocaleDateString()}</small>
+                  <small>{timeForToday(data.createdAt)}</small>
                 </InformationBox>
                 <CommentText>{data.content}</CommentText>
                 <Toggleimg />
