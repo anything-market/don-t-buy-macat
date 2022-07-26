@@ -34,7 +34,6 @@ export default function ValidationInput({
   };
 
   const handleOnChange = (e) => {
-    //최대값이 있을 경우 최대값보다 value의 길이가 길어질경우 value 저장하지 않음
     if (maxValue && maxValue < e.target.value.length) return;
 
     //가격은 따로 처리

@@ -8,17 +8,14 @@ const PostImgContainer = ({ image }) => {
     const parentUl = e.target.parentNode.parentNode.childNodes[0];
     const buttons = e.target.parentNode.childNodes;
 
-    //선택된 버튼에 인라인 색상 추가
     for (let i = 0; i < buttons.length; i++) {
       if (e.target.id === buttons[i].id) {
         e.target.setAttribute('style', 'background-color:#05704A');
       } else {
-        // buttons[i].classList.remove('current');
         buttons[i].setAttribute('style', 'background-color:#fff');
       }
     }
 
-    //선택된 버튼의 id에 따라 표시되는 이미지 변경
     if (e.target.id === 'slide-btn1') {
       parentUl.setAttribute('style', 'transform:translate(0px)');
     } else if (e.target.id === 'slide-btn2') {
@@ -28,7 +25,6 @@ const PostImgContainer = ({ image }) => {
     }
   };
 
-  // 이미지가 있는 경우에만 렌더하기
   if (image.length !== 0) {
     return (
       <S.ImgContainer>

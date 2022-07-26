@@ -13,14 +13,12 @@ const Follow = () => {
   const [followerData, setFollowerData] = useState();
   const [followingData, setFollowingData] = useState([]);
 
-  // get user token when component first mounted
   useEffect(() => {
     const userToken = localStorage.getItem('Access Token');
     setUserToken(userToken);
   }, []);
 
   useEffect(() => {
-    // followers 경로에 접속했다면 userData를 팔로워데이터로 초기화
     if (userToken && path.includes('followers')) {
       const getFollowerData = async () => {
         await axios({
@@ -44,7 +42,6 @@ const Follow = () => {
       };
       getFollowerData();
     }
-    // followings 경로에 접속했다면 userData를 팔로잉데이터로 초기화
     if (userToken && path.includes('followings')) {
       const getFollowingData = async () => {
         await axios({
@@ -74,7 +71,6 @@ const Follow = () => {
     <>
       <FollowHeader />
       <FollowContainer
-        // followerData가 있다면 data로 followerData를 전송, 그 외는 data로 followingData전송
         data={followerData ? followerData : followingData}
         followEmpty={followEmptyMessage}
         userToken={userToken}

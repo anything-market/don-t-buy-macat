@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { css } from 'styled-components';
 export const FollowBtn = styled.button`
   ${(props) =>
-    //size가 small일 경우
     props.size === 'small'
       ? css`
           &::after {
@@ -30,8 +29,7 @@ export const FollowBtn = styled.button`
                 `}
           padding: 0.7rem 1.2rem;
         `
-      : //size가 large일 경우
-        css`
+      : css`
           &::after {
             font-size: 1.4rem;
             ${(props) =>

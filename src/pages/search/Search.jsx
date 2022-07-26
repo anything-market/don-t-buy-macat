@@ -8,7 +8,6 @@ const Search = () => {
   const [userToken, setUserToken] = useState();
   const [searchData, setSearchData] = useState([]);
 
-  // get user token when component first mounted
   useEffect(() => {
     const userToken = localStorage.getItem('Access Token');
     setUserToken(userToken);
