@@ -33,15 +33,15 @@ export const PostImg = styled.img`
 export const ImgSliderBtnWrap = styled.div`
   position: absolute;
   display: flex;
-  gap: 6px;
+  gap: 0.7rem;
   left: 50%;
   bottom: 16px;
   transform: translateX(-50%);
 `;
 
 export const ImgSliderBtn = styled.button`
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   background-color: ${(props) => (props.index === 0 ? '#05704A' : '#fff')};
 `;

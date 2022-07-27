@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './PostImgContainer.style';
 
-const PostImgContainer = ({ image }) => {
+const PostImgContainer = ({ image, id }) => {
   const multipleImages = image && image.split(',').length > 1;
 
   const handleSliderBtn = (e) => {
@@ -33,13 +33,17 @@ const PostImgContainer = ({ image }) => {
             image.split(',').map((image) => {
               return (
                 <S.ImgItem key={Math.floor(Math.random() * 1000)}>
-                  <S.PostImg src={image} alt="" />
+                  <a href={`/post/${id}`}>
+                    <S.PostImg src={image} alt="" />
+                  </a>
                 </S.ImgItem>
               );
             })
           ) : (
             <S.ImgItem>
-              <S.PostImg src={image} alt="" />
+              <a href={`/post/${id}`}>
+                <S.PostImg src={image} alt="" />
+              </a>
             </S.ImgItem>
           )}
         </S.ImgList>
