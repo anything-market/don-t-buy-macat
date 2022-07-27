@@ -92,7 +92,7 @@ function SetProfile() {
 
   const signInHandler = async function () {
     try {
-      const res = await axios.post('https://mandarin.api.weniv.co.kr/user', {
+      await axios.post('https://mandarin.api.weniv.co.kr/user', {
         headers: {
           'Content-type': 'application/json',
         },
@@ -107,7 +107,7 @@ function SetProfile() {
             : 'https://mandarin.api.weniv.co.kr/1658886785881.png',
         },
       });
-      navigate('/home');
+      navigate('/login');
     } catch (error) {
       console.log(error);
       if (error.response.data.message === '이미 사용중인 계정 ID입니다.') {
