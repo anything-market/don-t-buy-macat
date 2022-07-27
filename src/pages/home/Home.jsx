@@ -37,12 +37,9 @@ const Home = () => {
     getFeedData();
   }, [userToken]);
 
-  if (!userFeedData) {
-    return <Loading />;
-  }
-
   return (
     <>
+      {!userFeedData && <Loading />}
       {userFeedData && userFeedData.length > 0 ? (
         <>
           <MainHeader />
