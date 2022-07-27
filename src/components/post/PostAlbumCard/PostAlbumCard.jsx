@@ -10,9 +10,7 @@ const PostAlbumCard = ({ data }) => {
         <S.AlbumCardLink href={`/post/${data.id}`}>
           <S.AlbumCardImg
             src={singleImage ? data.image : data.image.split(',')[0]}
-          >
-            {console.log(data)}
-          </S.AlbumCardImg>
+          ></S.AlbumCardImg>
         </S.AlbumCardLink>
       </S.AlbumCardLinkLi>
     );

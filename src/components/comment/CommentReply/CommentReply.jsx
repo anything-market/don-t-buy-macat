@@ -43,7 +43,6 @@ function CommentReply({ getComments, postId }) {
   const handleInput = (e) => {
     e.preventDefault;
     setComment(e.target.value);
-    console.log(e.target.value);
   };
 
   const changeButton = (e) => {

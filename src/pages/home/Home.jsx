@@ -37,12 +37,9 @@ const Home = () => {
     getFeedData();
   }, [userToken]);
 
-  if (!userFeedData) {
-    return <Loading />;
-  }
-
   return (
     <>
+      {!userFeedData && <Loading />}
       {userFeedData && userFeedData.length > 0 ? (
         <>
           <MainHeader />
@@ -53,15 +50,18 @@ const Home = () => {
           </S.PostWrap>
         </>
       ) : (
-        <S.FeedEmptyWrap>
-          <div>
-            <Logo />
-            <S.FeedEmptyTxt>유저를 검색해 팔로우 해보세요!</S.FeedEmptyTxt>
-            <a href="/search">
-              <S.Button src="/search">검색하기</S.Button>
-            </a>
-          </div>
-        </S.FeedEmptyWrap>
+        <>
+          <MainHeader />
+          <S.FeedEmptyWrap>
+            <div>
+              <Logo />
+              <S.FeedEmptyTxt>유저를 검색해 팔로우 해보세요!</S.FeedEmptyTxt>
+              <a href="/search">
+                <S.Button src="/search">검색하기</S.Button>
+              </a>
+            </div>
+          </S.FeedEmptyWrap>
+        </>
       )}
       <NavigationBar />
     </>
