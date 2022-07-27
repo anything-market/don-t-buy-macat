@@ -154,7 +154,7 @@ function PostUpload() {
               className="A11yHidden"
               ref={Upload_Input}
               type="file"
-              accept="image/*"
+              accept=".jpg, .gif, .png, .jpeg, .bmp, .tif, .heic"
               onChange={handleChangeFile}
             />
             <S.ImgUploadBtn
