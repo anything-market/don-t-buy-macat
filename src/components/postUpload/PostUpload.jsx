@@ -108,7 +108,7 @@ function PostUpload() {
       });
       console.log('포스트 업로드 성공');
       console.log(res);
-      navigate(`/profile/${accountName}`);
+      navigate('/home');
     } catch {
       (err) => console.log(err);
     }
