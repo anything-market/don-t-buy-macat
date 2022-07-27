@@ -135,7 +135,7 @@ export default function AdoptPost() {
           type="file"
           className="A11yHidden"
           id="fileInput"
-          accept="image/*"
+          accept=".jpg, .gif, .png, .jpeg, .bmp, .tif, .heic"
           ref={fileUploadBtn}
           onChange={handleParseImg}
         />

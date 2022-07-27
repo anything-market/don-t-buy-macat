@@ -53,7 +53,6 @@ function SetProfile() {
           formData,
         );
 
-        console.log(res.data);
         setProfileImage(
           `https://mandarin.api.weniv.co.kr/${res.data[0].filename}`,
         );
@@ -93,7 +92,7 @@ function SetProfile() {
 
   const signInHandler = async function () {
     try {
-      const res = await axios.post('https://mandarin.api.weniv.co.kr/user', {
+      await axios.post('https://mandarin.api.weniv.co.kr/user', {
         headers: {
           'Content-type': 'application/json',
         },
@@ -108,10 +107,8 @@ function SetProfile() {
             : 'https://mandarin.api.weniv.co.kr/1658886785881.png',
         },
       });
-      console.log(res.data);
-      navigate('/home');
+      navigate('/login');
     } catch (error) {
-      console.log(error);
       if (error.response.data.message === '이미 사용중인 계정 ID입니다.') {
         setUserIDWarningMessage('이미 사용중인 계정 ID입니다.');
       }
@@ -125,6 +122,7 @@ function SetProfile() {
       <S.ImageBox>
         <img
           src={preview ? preview : defaultProfilePhoto}
+          style={{ objectFit: 'cover' }}
           alt="프로필 사진 미리보기"
           className="defaultProfilePhoto"
         />
