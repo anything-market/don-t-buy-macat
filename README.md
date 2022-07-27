@@ -1,21 +1,22 @@
-<div align=center>
-
 # 🐾 유기묘 무료 분양 플랫폼 사지마켓
 
-<img src="https://images.unsplash.com/photo-1542741065-3c98eaf187b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80">
-<br/>
 
-</div>
+### [배포 URL]
 
-<br/>
+- URL: [https://dont-buy-ma-cat-a4a47.web.app/)
+- 계정
+  - 🧑🏻‍💻 `ID`: lovecat@lovecat.com
+  - 🔐 `PassWord`: lovecat
+
+<img src="https://user-images.githubusercontent.com/95600994/181194793-e7acf9af-4a0e-43cb-a8da-ce175648bb99.png">
 
 # :mega: 소개
 
 🐱 사지마켓은 전국의 지자체 유기동물 보호센터와 연계하여 운영되는 유기묘 무료 분양 플랫폼입니다.
 
-😿 코로나로 입양이 늘던 유기동물들이, 우리가 일상을 되찾은 이후 월평균 유기동물수가 다시 증가하고있습니다.
+😿 코로나로부터 일상을 되찾은 이후 월평균 유기동물수가 다시 증가하고있습니다.
 
-👥 우리는 턱없이 낮은 유기동물 입양률을 해결하기 위해 유기동물 보호소의 접근성을 높이는데 집중하고자 합니다.
+👥 우리는 턱없이 낮은 유기동물 입양률을 해결하기 위해 유기동물 보호소의 접근성을 높이는데 집중합니다.
 
 💪🏻 보호센터가 책정한 책임비는 재파양과 유기 등 악용 사례를 방지하기 위함이고, 유기묘 캠페인에 사용됩니다.
 
