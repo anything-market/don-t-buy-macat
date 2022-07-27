@@ -109,7 +109,6 @@ function SetProfile() {
       });
       navigate('/login');
     } catch (error) {
-      console.log(error);
       if (error.response.data.message === '이미 사용중인 계정 ID입니다.') {
         setUserIDWarningMessage('이미 사용중인 계정 ID입니다.');
       }
