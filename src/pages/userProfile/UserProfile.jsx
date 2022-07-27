@@ -35,7 +35,6 @@ const UserProfile = () => {
             'Content-type': 'application/json',
           },
         }).then((response) => {
-          console.log(response);
           setUserProfileData(response.data.profile);
         });
       };

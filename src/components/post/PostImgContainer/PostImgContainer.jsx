@@ -25,6 +25,10 @@ const PostImgContainer = ({ image, id }) => {
     }
   };
 
+  const onErrorImg = (e) => {
+    e.target.src = 'https://mandarin.api.weniv.co.kr/1658886785881.png';
+  };
+
   if (image && image.length !== 0) {
     return (
       <S.ImgContainer>
@@ -34,7 +38,7 @@ const PostImgContainer = ({ image, id }) => {
               return (
                 <S.ImgItem key={Math.floor(Math.random() * 1000)}>
                   <a href={`/post/${id}`}>
-                    <S.PostImg src={image} alt="" />
+                    <S.PostImg src={image} alt="" onError={onErrorImg} />
                   </a>
                 </S.ImgItem>
               );
@@ -42,7 +46,7 @@ const PostImgContainer = ({ image, id }) => {
           ) : (
             <S.ImgItem>
               <a href={`/post/${id}`}>
-                <S.PostImg src={image} alt="" />
+                <S.PostImg src={image} alt="" onError={onErrorImg} />
               </a>
             </S.ImgItem>
           )}

@@ -43,7 +43,6 @@ function CommentReply({ getComments, postId }) {
   const handleInput = (e) => {
     e.preventDefault;
     setComment(e.target.value);
-    console.log(e.target.value);
   };
 
   const changeButton = (e) => {
@@ -67,6 +66,7 @@ function CommentReply({ getComments, postId }) {
     }).then((response) => {
       console.log(response.data.result);
       setComment('');
+      setIsValid(false);
       getComments();
     });
   };
