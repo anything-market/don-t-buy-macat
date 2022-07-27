@@ -67,6 +67,7 @@ function CommentReply({ getComments, postId }) {
     }).then((response) => {
       console.log(response.data.result);
       setComment('');
+      setIsValid(false);
       getComments();
     });
   };
