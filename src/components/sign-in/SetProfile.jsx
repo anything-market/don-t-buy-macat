@@ -53,7 +53,6 @@ function SetProfile() {
           formData,
         );
 
-        console.log(res.data);
         setProfileImage(
           `https://mandarin.api.weniv.co.kr/${res.data[0].filename}`,
         );
@@ -108,7 +107,6 @@ function SetProfile() {
             : 'https://mandarin.api.weniv.co.kr/1658886785881.png',
         },
       });
-      console.log(res.data);
       navigate('/home');
     } catch (error) {
       console.log(error);
