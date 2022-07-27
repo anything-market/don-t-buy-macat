@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import UploadHeader from '../../components/header/UploadHeader/UploadHeader';
 import * as S from './adoptPost.style';
 import ValidationInput from './ValidationInput';
 import regex from './Regex';
 export default function AdoptPost() {
+  const navigate = useNavigate();
   //데이터 전송에 필요한 유저 토큰
   const [userToken, setUserToken] = useState('');
   //상태관리가 필요한 input 값
@@ -103,20 +105,11 @@ export default function AdoptPost() {
             },
           },
         )
-        .then(() => {
-          //서버 데이터 전송 후 상태값들 모두 초기화
-          setPreviewImg('');
-          setItemName('');
-          setPrice('');
-          setLink('');
-          setUploadImg('');
-          setPreviewImgError(false);
-          setValid({
-            uploadImg: false,
-            itemName: false,
-            price: false,
-            link: false,
-          });
+        .then((res) => {
+          const id = res.data.product.author.accountname;
+          (function () {
+            navigate(`/profile/${id}`);
+          })();
         });
     } catch (error) {
       console.error(error);
