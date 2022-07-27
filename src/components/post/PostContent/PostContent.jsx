@@ -28,9 +28,11 @@ const PostContent = (data) => {
   return (
     <S.PostContent>
       {data.data.content.length === 0 ? null : (
-        <S.PostTxt>{data.data.content}</S.PostTxt>
+        <Link to={`/post/${data.data.id}`}>
+          <S.PostTxt>{data.data.content}</S.PostTxt>
+        </Link>
       )}
-      <PostImgContainer image={data.data.image} />
+      <PostImgContainer image={data.data.image} id={data.data.id} />
       <S.PostIconsWrap>
         <HeartBtn
           userToken={userToken}

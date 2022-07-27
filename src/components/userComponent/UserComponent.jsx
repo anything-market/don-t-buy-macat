@@ -28,6 +28,10 @@ export default function UserComponent({
   //채팅 알림 표시
   // const [isRead, setIsRead] = useState(false);
 
+  const onErrorImg = (e) => {
+    e.target.src = 'https://mandarin.api.weniv.co.kr/1658886785881.png';
+  };
+
   return (
     <S.UserComponent
       marginbottom={
@@ -53,6 +57,7 @@ export default function UserComponent({
           small={
             path.includes('home') || path.includes('profile') ? 'true' : 'false'
           }
+          onError={onErrorImg}
         />
         {/* {!isRead && <S.NonRead />} */}
         <S.UserInfo>

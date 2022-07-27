@@ -32,6 +32,7 @@ export const ProfileImg = styled.img`
   width: ${({ small }) => (small ? '4.2em' : '5em')};
   height: ${({ small }) => (small ? '4.2em' : '5em')};
   border-radius: 50%;
+  object-fit: cover;
 `;
 
 export const UserInfo = styled.div`

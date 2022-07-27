@@ -32,6 +32,7 @@ export const ProfileImg = styled.img`
   border: 1px solid ${(props) => props.theme.palette['border']};
   border-radius: 50%;
   margin-bottom: 16px;
+  object-fit: cover;
 `;
 
 export const UserName = styled.strong`
