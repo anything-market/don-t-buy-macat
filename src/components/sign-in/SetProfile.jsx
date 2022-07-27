@@ -122,6 +122,7 @@ function SetProfile() {
       <S.ImageBox>
         <img
           src={preview ? preview : defaultProfilePhoto}
+          style={{ objectFit: 'cover' }}
           alt="프로필 사진 미리보기"
           className="defaultProfilePhoto"
         />
