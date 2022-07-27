@@ -43,12 +43,17 @@
 
 ### [협업 도구]
 
-<strong>문서화 도구</strong>
 - GitHub Wiki : 컨벤션 및 프로젝트 회의록 기록
 - Notion : 프로젝트 일정관리 및 팀 내 
-
-<strong>커뮤니케이션</strong>
 - Discord : 실시간 채팅 및 온라인 미팅
+
+### [기술블로그]
+<strong>트러블슈팅 및 기술구현시 난제(삽질) 기록</strong>
+
+- <a href="https://don-t-buy-macat.tistory.com/11">여러개 이미지 화면에 미리보기 구현</a></br>
+- <a href="https://don-t-buy-macat.tistory.com/8?category=949581">실시간으로 유효성 검사를 해주는 input 컴포넌트 구현기</a> </br>
+- <a href="https://don-t-buy-macat.tistory.com/12?category=949581">이젠, Nav바 만들 때 NavLink를 쓰자</a></br>
+- <a href="https://don-t-buy-macat.tistory.com/10?category=949580">0이 서버로 보내지지 않았던 엄청난 이유..!</a></br>
 
 ### [역할 분담]
 
@@ -80,13 +85,6 @@
 - 내 프로필 설정 페이지
 - 하단 네비게이션 바
 
-### [기술블로그]
-<strong>트러블슈팅 및 기술구현시 난제(삽질) 기록</strong>
-
-- <a href="https://don-t-buy-macat.tistory.com/11">여러개 이미지 화면에 미리보기 구현</a></br>
-- <a href="https://don-t-buy-macat.tistory.com/8?category=949581">실시간으로 유효성 검사를 해주는 input 컴포넌트 구현기</a> </br>
-- <a href="https://don-t-buy-macat.tistory.com/12?category=949581">이젠, Nav바 만들 때 NavLink를 쓰자</a></br>
-- <a href="https://don-t-buy-macat.tistory.com/10?category=949580">0이 서버로 보내지지 않았던 엄청난 이유..!</a></br>
 
 
 <h1> 💻 구현 기능 </h1>
