@@ -7,7 +7,6 @@ export default function UploadHeader({ id, isValid }) {
   const handleGoPrev = () => {
     navigate(-1);
   };
-  console.log(isValid);
   return (
     <BasicHeaderLayout>
       <button onClick={handleGoPrev}>
