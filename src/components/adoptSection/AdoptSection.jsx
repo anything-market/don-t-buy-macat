@@ -46,8 +46,10 @@ export default function AdoptSection({ accountName }) {
 
   //모달열기
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const handleOpenModal = () => {
-    setIsOpenModal(true);
+  const [postId, setPostId] = useState('');
+
+  const handlePostId = (itemId) => {
+    setPostId(itemId);
   };
 
   const handleCloseModal = () => {
@@ -61,7 +63,13 @@ export default function AdoptSection({ accountName }) {
             <S.SectionHeading>입양을 기다려요</S.SectionHeading>
             <S.AdoptList>
               {adoptData.map((item) => (
-                <S.AdoptListItem key={item.id} onClick={handleOpenModal}>
+                <S.AdoptListItem
+                  key={item.id}
+                  onClick={() => {
+                    setIsOpenModal(true);
+                    handlePostId(item.id);
+                  }}
+                >
                   <S.CatImage src={item.itemImage} />
                   <S.CatName>{item.itemName}</S.CatName>
                   <S.AdoptionFee>
@@ -76,7 +84,7 @@ export default function AdoptSection({ accountName }) {
       {isOpenModal && (
         <>
           <Modal handleCloseModal={handleCloseModal}>
-            <ProductModalContent />
+            <ProductModalContent postId={postId} />
           </Modal>
         </>
       )}
