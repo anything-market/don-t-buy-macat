@@ -7,7 +7,7 @@ import ChatModalContent from '../../modal/modalContent/ChatModalContent/ChatModa
 export default function ChatHeader({ name }) {
   const navigate = useNavigate();
   const handleGoPrev = () => {
-    navigate(-1);
+    navigate('/chats');
   };
   return (
     <BasicHeaderLayout>
