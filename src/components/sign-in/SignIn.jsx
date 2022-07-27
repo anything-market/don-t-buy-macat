@@ -30,7 +30,6 @@ function SignIn() {
       setIsValidatedEmail(true);
       setEmailMessage('');
     }
-    console.log('email :', isValidatedEmail);
   }, [email]);
 
   // password 인풋값이 변할때마다 email유효성검사 진행
@@ -44,7 +43,6 @@ function SignIn() {
       setPasswordMessage('');
       setIsValidatedPassword(true);
     }
-    console.log('password :', isValidatedPassword);
   }, [password]);
 
   // 다음버튼 누를시 서버에 post
