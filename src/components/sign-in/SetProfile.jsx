@@ -103,7 +103,9 @@ function SetProfile() {
           password: password,
           accountname: userID,
           intro: userIntro,
-          image: profileImage,
+          image: profileImage
+            ? profileImage
+            : 'https://mandarin.api.weniv.co.kr/1658886785881.png',
         },
       });
       console.log(res.data);
