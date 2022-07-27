@@ -19,7 +19,7 @@ export default function ProductModalContent() {
         <button>수정</button>
       </li>
       <li>
-        <button>보호소 웹사이트 방문하기</button>
+        <button>웹사이트에서 상품 보기</button>
       </li>
       {isOpenAlert && <PostDeleteAlert handleCloseAlert={handleCloseAlert} />}
     </>
