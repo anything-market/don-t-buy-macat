@@ -31,40 +31,24 @@
 | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Team%20leader](https://img.shields.io/badge/-Team%20leader-green) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Functional%20Design](https://img.shields.io/badge/Functional%20Design-f8b62d) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Design](https://img.shields.io/badge/-Design-orange) |                    ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Planning](https://img.shields.io/badge/-Planning-f67280)                    |
 <br/>
 <h1>⚒ 개발 환경</h1>
-
-### [기술]
 <div align="center">
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"> 
  <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"> 
 </div>
 
+### [기술]
+
 - FrontEnd : React, React-router, Hooks, Styled-components<br/>
 - BackEnd : 제공된 API 사용 <br/>
 
-### [기능]
-    - 🔐 인증
-        - 로그인
-        - 회원가입
-        - 회원 정보 수정
-        - 유효성 평가
+### [협업 도구]
 
-    - 🎁 상품
-        - 상품 목록 / 등록 / 수정 / 삭제
-        - 이미지 파일 업로드 / 수정 / 미리보기
-        - 유효성 평가
+<strong>문서화 도구</strong>
+- GitHub Wiki : 컨벤션 및 프로젝트 회의록 기록
+- Notion : 프로젝트 일정관리 및 팀 내 
 
-    - 🏞 게시글
-        - 게시글 목록 / 등록 / 수정 / 삭제
-        - 다중 이미지 파일 업로드 / 수정 / 미리보기
-
-    - 💬 댓글
-        - 댓글 등록 / 삭제
-
-    - 🔍 검색
-
-    - 👨‍🌾👩🏻‍🌾 follow / unfollow
-
-    - 💙 좋아요
+<strong>커뮤니케이션</strong>
+- Discord : 실시간 채팅 및 온라인 미팅
 
 ### [역할 분담]
 
@@ -96,6 +80,14 @@
 - 내 프로필 설정 페이지
 - 하단 네비게이션 바
 
+### 기술블로그 
+<strong>트러블슈팅 및 기술구현시 난제(삽질) 기록</strong>
+
+- <a href="https://don-t-buy-macat.tistory.com/11">여러개 이미지 화면에 미리보기 구현</a></br>
+- <a href="https://don-t-buy-macat.tistory.com/8?category=949581">실시간으로 유효성 검사를 해주는 input 컴포넌트 구현기</a> </br>
+- <a href="https://don-t-buy-macat.tistory.com/12?category=949581">이젠, Nav바 만들 때 NavLink를 쓰자</a></br>
+- <a href="https://don-t-buy-macat.tistory.com/10?category=949580">0이 서버로 보내지지 않았던 엄청난 이유..!</a></br>
+
 
 <h1> 💻 구현 기능 </h1>
 
@@ -110,4 +102,7 @@
 |                                                            4.홈화면                                                            |                                                           5.검색기능                                                           |
 | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
 | <img src="" width="300"/> | <img src="" width="300"/> |
+
+
+
 
