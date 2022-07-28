@@ -47,6 +47,10 @@ export const FormBox = styled.div`
     font-size: 1.4rem;
     margin-bottom: 1.6rem;
     border-bottom: 0.1rem solid ${(props) => props.theme.palette['border']};
+
+    :focus {
+      border-bottom: 0.1rem solid ${(props) => props.theme.palette['point']};
+    }
   }
 
   .message {
