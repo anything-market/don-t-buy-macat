@@ -3,7 +3,7 @@
 
 ### [배포 URL]
 
-- URL: [https://dont-buy-ma-cat-a4a47.web.app/)
+- URL: [https://dont-buyma-cat.web.app/)
 - 계정
   - 🧑🏻‍💻 `ID`: lovecat@lovecat.com
   - 🔐 `PassWord`: lovecat
