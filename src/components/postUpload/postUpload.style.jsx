@@ -17,6 +17,9 @@ export const PostUploadLegend = styled.legend``;
 
 export const PostUploadTextarea = styled.textarea`
   margin-top: 1.2rem;
+  overflow-y: auto;
+  min-height: 7em;
+  word-break: break-all;
 `;
 
 export const PostUploadLegendTxt = styled.h4``;
