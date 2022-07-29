@@ -67,11 +67,7 @@ const ProfileInfo = ({ userToken, data, isAuthorized }) => {
           </S.Follow>
           {isAuthorized ? (
             <S.ProfileBtnWrap>
-              <S.ProfileBtn
-                onClick={() => navigate(`/profile/${data.accountname}/edit`)}
-              >
-                프로필 수정
-              </S.ProfileBtn>
+              <S.ProfileBtn>프로필 수정</S.ProfileBtn>
               <S.ProfileBtn
                 adoptBtn={'true'}
                 onClick={() => navigate('/adoptPost')}

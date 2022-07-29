@@ -17,7 +17,6 @@ import { isLogin } from '../utils/isLogin';
 import { useState, useEffect } from 'react';
 import Splash from '../components/splash/Splash';
 import Error from '../components/error/Error';
-import EditUserProfile from './editprofile/EditUserProfile';
 
 function Pages() {
   const [loading, setLoading] = useState(false);
@@ -44,7 +43,6 @@ function MainPages() {
       <Route path="/home" element={<Home />}></Route>
       <Route path="/search" element={<Search />}></Route>
       <Route path="/profile/:id" element={<UserProfile />}></Route>
-      <Route path="/profile/:id/edit" element={<EditUserProfile />}></Route>
       <Route path="/upload" element={<PostUpload />}></Route>
       <Route path="/follow/:id/followers" element={<Follow />}></Route>
       <Route path="/follow/:id/followings" element={<Follow />}></Route>
