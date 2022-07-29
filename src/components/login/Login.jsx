@@ -38,33 +38,10 @@ function Login() {
         if (res.data.message === '이메일 또는 비밀번호가 일치하지 않습니다.') {
           setMessage('이메일 또는 비밀번호가 일치하지 않습니다.');
         } else {
-          try {
-            await axios
-              .get('https://mandarin.api.weniv.co.kr/user/checktoken', {
-                headers: {
-                  Authorization: `Bearer ${res.data.user.token}`,
-                  'Content-type': 'application/json',
-                },
-              })
-              .then((data) => {
-                if (data.data.isValid) {
-                  setMessage('');
-                  localStorage.setItem('Access Token', res.data.user.token);
-                  localStorage.setItem(
-                    'Account Name',
-                    res.data.user.accountname,
-                  );
-                  navigate('/home');
-                } else {
-                  alert('유효하지 않은 접근입니다');
-                }
-              })
-              .catch((error) => {
-                console.log(error);
-              });
-          } catch (error) {
-            console.log(error);
-          }
+          setMessage('');
+          localStorage.setItem('Access Token', res.data.user.token);
+          localStorage.setItem('Account Name', res.data.user.accountname);
+          navigate('/home');
         }
       } catch (error) {
         console.log(error);
