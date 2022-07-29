@@ -31,76 +31,67 @@
 | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Team%20leader](https://img.shields.io/badge/-Team%20leader-green) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Functional%20Design](https://img.shields.io/badge/Functional%20Design-f8b62d) | ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Design](https://img.shields.io/badge/-Design-orange) |                    ![FrontEnd](https://img.shields.io/badge/FrontEnd-3f97fb) ![Planning](https://img.shields.io/badge/-Planning-f67280)                    |
 <br/>
 <h1>⚒ 개발 환경</h1>
+
+### [기술]
 <div align="center">
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"> 
  <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"> 
 </div>
 
-### [기술]
-
 - FrontEnd : React, React-router, Hooks, Styled-components<br/>
 - BackEnd : 제공된 API 사용 <br/>
 
-### [협업 도구]
+### [기능]
+    - 🔐 인증
+        - 로그인
+        - 회원가입
+        - 회원 정보 수정
+        - 유효성 평가
 
-- GitHub Wiki : 컨벤션 및 프로젝트 회의록 기록
-- Notion : 프로젝트 일정관리 및 팀 내 
-- Discord : 실시간 채팅 및 온라인 미팅
+    - 🎁 상품
+        - 상품 목록 / 등록 / 수정 / 삭제
+        - 이미지 파일 업로드 / 수정 / 미리보기
+        - 유효성 평가
 
-### [기술블로그]
-<strong>트러블슈팅 및 기술구현시 난제(삽질) 기록</strong>
+    - 🏞 게시글
+        - 게시글 목록 / 등록 / 수정 / 삭제
+        - 다중 이미지 파일 업로드 / 수정 / 미리보기
 
-- <a href="https://don-t-buy-macat.tistory.com/11">여러개 이미지 화면에 미리보기 구현</a></br>
-- <a href="https://don-t-buy-macat.tistory.com/8?category=949581">실시간으로 유효성 검사를 해주는 input 컴포넌트 구현기</a> </br>
-- <a href="https://don-t-buy-macat.tistory.com/12?category=949581">이젠, Nav바 만들 때 NavLink를 쓰자</a></br>
-- <a href="https://don-t-buy-macat.tistory.com/10?category=949580">0이 서버로 보내지지 않았던 엄청난 이유..!</a></br>
+    - 💬 댓글
+        - 댓글 등록 / 삭제
+
+    - 🔍 검색
+
+    - 👨‍🌾👩🏻‍🌾 follow / unfollow
+
+    - 💙 좋아요
 
 ### [역할 분담]
 
-<strong>👩‍💻김시아</strong> - `성능최적화에 미친 자`
+## 김시아 - `성능최적화에 미친 자`
 
 - 검색 페이지
 - 홈 피드
 - 팔로우 페이지 (팔로우 및 좋아요 버튼 기능 구현) 
 - 사용자 프로필 페이지
 
-<strong>👩‍💻조윤희</strong> - `UX에 미친 자`
+## 조윤희 - `UX에 미친 자`
 
 - 프로젝트 디자인 총괄 (피그마)
 - 게시글 작성 페이지
 - 댓글 작성 페이지 
 - splash 페이지, 오류 페이지
 
-<strong>👩‍💻최수빈</strong> - `클린코드에 미친 자`
+## 최수빈 - `클린코드에 미친 자`
 
 - 입양 등록 페이지
 - 모달 컴포넌트
 - 사용자 프로필 페이지
 - 채팅 페이지 UI, top navigation component
 
-<strong>👩‍💻허지현</strong> - `버전관리에 미친 자`
+## 허지현 - `버전관리에 미친 자`
 
 - 로그인 페이지
 - 회원가입 페이지
 - 내 프로필 설정 페이지
 - 하단 네비게이션 바
-
-
-
-<h1> 💻 구현 기능 </h1>
-
-|                                                            0.splash                                                            |                                                           1.로그인                                                           |
-| :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-| <img src="" width="300"/> | <img src="" width="300"/> |
-
-|                                                            2.회원가입                                                            |                                                           3.프로필 설정                                                           |
-| :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-| <img src="" width="300"/> | <img src="" width="300"/> |
-
-|                                                            4.홈화면                                                            |                                                           5.검색기능                                                           |
-| :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-| <img src="" width="300"/> | <img src="" width="300"/> |
-
-
-
-
