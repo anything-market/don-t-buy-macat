@@ -112,6 +112,14 @@ function PostUpload() {
     }
   }
 
+  const deleteImg = (index) => {
+    const imgArr = image.filter((image, i) => i !== index);
+    const imgNameArr = imageUrl.filter((image, i) => i !== index);
+
+    setImgfile([...imgArr]);
+    setImageUrl([...imgNameArr]);
+  };
+
   return (
     <S.PostUploadWrapper
       method="POST"
@@ -138,13 +146,21 @@ function PostUpload() {
             type="text"
             onChange={handleChangeText}
             maxLength="200"
-            placeholder={'게시글 입력하기...'}
+            placeholder={'게시글을 입력해주세요...'}
           />
           <S.PostFormContainer>
             {imageUrl &&
-              imageUrl.map((index, key) => (
-                <S.PreviewImage key={key} src={index} alt="" />
-              ))}
+              imageUrl.map((image, i) => {
+                return (
+                  <S.Item key={i}>
+                    <S.PreviewImage key={i} src={image} alt="이미지 미리보기" />
+                    <S.ImageDeleteBtn
+                      type="button"
+                      onClick={() => deleteImg(i)}
+                    />
+                  </S.Item>
+                );
+              })}
             <S.UploadImg className="A11yHidden">
               게시글 이미지 업로드
             </S.UploadImg>
