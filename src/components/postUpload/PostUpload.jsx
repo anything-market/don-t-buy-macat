@@ -146,7 +146,7 @@ function PostUpload() {
             type="text"
             onChange={handleChangeText}
             maxLength="200"
-            placeholder={'게시글 입력하기...'}
+            placeholder={'게시글을 입력해주세요...'}
           />
           <S.PostFormContainer>
             {imageUrl &&
