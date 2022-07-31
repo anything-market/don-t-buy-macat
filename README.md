@@ -131,9 +131,27 @@ ReactDOM.createPortal(모달컴포넌트 , document.getElementById('modal’));
 
 - 삼항연산자를 사용하여 imageUrl.length를 확인하고 참과 거짓을 판별함. 4개 이상일 때는 alert 창을 띄우고 state에 추가하지 않음. 4개 미만일때는 `<S.ImgUploadBtn>`에서 ref로 input DOM에 접근하여 onChange 이벤트위임을 발생시킴
 
+```js
+<S.ImgUploadBtn
+  onClick={() =>
+    imageUrl.length === 3
+      ? alert('이미지는 3개까지만 업로드할 수 있습니다.')
+      : Upload_Input.current.click()
+  }
+/>
+```
+
 - 최대 3개의 이미지파일만 올릴 수 있는 설정을 마쳤다면 미리보기 구현을 위해 특별한 작업을 해야 함. 보안상의 이유로 자동으로 상대경로를 블러 처리를 해버리기 때문에 Web API 중 FileReader라는 객체를 사용하여 미리보기를 구현 함. image를 base64이미지들(문자열배열)로 바꾼 후, setState 상태에 담음
 
 - && 연산자 조건부 렌더링을 사용하여 base64이미지들(문자열배열)을 map으로 돌려 이미지 태그를 여러개 만들어주면 여러개 이미지가 미리보기로 띄워짐
+
+```js
+<S.PostFormContainer>
+  {imageUrl &&
+    imageUrl.map((index, key) => (
+      <S.PreviewImage key={key} src={index} alt="이미지 미리보기" />
+    ))}
+```
 
 </div>
 </details>
