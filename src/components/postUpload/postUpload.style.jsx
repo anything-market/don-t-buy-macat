@@ -55,6 +55,9 @@ export const PostFormContainer = styled.div`
   display: flex;
   width: 100%;
   padding-top: 1.2rem;
+  @media screen and (max-width: 420px) {
+    flex-direction: column;
+  }
 `;
 
 export const UploadImg = styled.h4``;
@@ -81,11 +84,14 @@ export const Item = styled.div`
 `;
 
 export const PreviewImage = styled.img`
-  position: relative;
   margin: 10px 0 0 15px;
   width: 200px;
   height: auto;
   border-radius: 10px;
+  @media screen and (max-width: 420px) {
+    width: 50%;
+    margin: 10px 0 0 0px;
+  }
 `;
 
 export const ImageDeleteBtn = styled.button`
@@ -95,4 +101,10 @@ export const ImageDeleteBtn = styled.button`
   width: 2.2rem;
   height: 2.2rem;
   background: url(${ImageDelete}) no-repeat center / contain;
+  @media screen and (max-width: 420px) {
+    right: 17rem;
+  }
+  @media screen and (max-width: 375px) {
+    right: 14.8rem;
+  }
 `;
