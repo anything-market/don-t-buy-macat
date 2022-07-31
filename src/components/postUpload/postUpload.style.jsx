@@ -74,7 +74,6 @@ export const ImgUploadBtn = styled.img.attrs({
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-  margin-right: 1.2rem;
   cursor: pointer;
 `;
 
