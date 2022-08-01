@@ -217,7 +217,7 @@ ReactDOM.createPortal(모달컴포넌트 , document.getElementById('modal’));
 
 - prettierrc 파일 추가하여 서로다른 프리티어 설정때문에 의미없는 커밋이 추가되거나 파일마다 코드 스타일이 바뀌지 않도록 함
 
-- 깃헙플로우를 베이스로 하여 프로젝트 규모에 맞게 브랜치 3개(feature, develop, main)를 이용하는 전략으로 수정. 추후에 배포를 위한 release브랜치 추가
+- 깃플로우를 베이스로 하여 프로젝트 규모에 맞게 브랜치 3개(feature, develop, main)를 이용하는 전략으로 수정. 추후에 배포를 위한 release브랜치 추가
 
 - 깃 커밋 템플릿을 global로 지정하여 커밋메세지를 정해진 규칙에 맞게 간편하게 작성할 수 있도록 하여 History 열람시 가독성을 높힘
 
