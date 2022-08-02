@@ -129,12 +129,12 @@ ReactDOM.createPortal(모달컴포넌트 , document.getElementById('modal’));
 
 - `<input type="file">`로 지정하고 useRef 훅을 사용하여 input에 못생긴 버튼을 이쁜 이미지 버튼으로 바꿈
 
-- 삼항연산자를 사용하여 imageUrl.length를 확인하고 참과 거짓을 판별함. 4개 이상일 때는 alert 창을 띄우고 state에 추가하지 않음. 4개 미만일때는 `<S.ImgUploadBtn>`에서 ref로 input DOM에 접근하여 onChange 이벤트위임을 발생시킴
+- 삼항연산자를 사용하여 imageUrl.length를 확인하고 참과 거짓을 판별함. imageUrl배열의 index가 3개를 넘으면 alert 창을 띄우고 state에 추가하지 않음.  imageUrl배열의 index가 3개 이하일때는 <S.ImgUploadBtn>에서 ref로 input DOM에 접근하여 onChange 이벤트위임을 발생시킴
 
 ```js
 <S.ImgUploadBtn
   onClick={() =>
-    imageUrl.length === 3
+    imageUrl.length >= 3
       ? alert('이미지는 3개까지만 업로드할 수 있습니다.')
       : Upload_Input.current.click()
   }
@@ -148,8 +148,8 @@ ReactDOM.createPortal(모달컴포넌트 , document.getElementById('modal’));
 ```js
 <S.PostFormContainer>
   {imageUrl &&
-    imageUrl.map((index, key) => (
-      <S.PreviewImage key={key} src={index} alt="이미지 미리보기" />
+    imageUrl.map((image, i) => (
+      <S.PreviewImage key={i} src={image} alt="이미지 미리보기" />
     ))}
 ```
 
