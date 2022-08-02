@@ -1,13 +1,16 @@
 import React from 'react';
 import CommentList from './CommentList/CommentList';
 import CommentReply from './CommentReply/CommentReply';
+import { CommentListBox } from './commentCard.style';
 
 function CommentCard({ postId, comments, getComments }) {
   return (
-    <div className="CommentCard">
-      <CommentList comments={comments} />
+    <>
+      <CommentListBox>
+        <CommentList comments={comments} />
+      </CommentListBox>
       <CommentReply getComments={getComments} postId={postId} />
-    </div>
+    </>
   );
 }
 
