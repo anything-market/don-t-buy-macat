@@ -2,7 +2,7 @@
 
 ## 배포 URL
 
-- URL: [https://dont-buyma-cat.web.app/)
+- URL: https://dont-buyma-cat.web.app/
 - 계정
   - `ID`: lovecat@lovecat.com
   - `PassWord`: lovecat
@@ -33,7 +33,6 @@
 | 팀원 | 김시아 | [Sia kim](https://github.com/mrbrightsiide)    | 성능최적화에 목숨건 자 · 기술문제 해결사        |
 | 팀원 | 조윤희 | [unidagit](https://github.com/unidagit)        | 못난UX 혐오자 · 디자인 및 피그마 제작           |
 | 팀원 | 허지현 | [Jihyun Heo](https://github.com/Koreanhamster) | 버전관리에 인생을 바친 자 · 기획 및 컨벤션 수립 |
-|      |
 
 <img src="https://media.discordapp.net/attachments/984426580141019232/1002212058953166879/cb7347be7d6695cb.jpg?width=2160&height=827">
 
@@ -93,6 +92,157 @@
 
 ## 핵심 기능
 
+<details>
+<summary style="font-size: 18px">모달 컴포넌트</summary>
+<div markdown="1">
+
+- 독립적인 모달 컴포넌트를 구현하기 위해 createPortal을 사용하여 부모 컴포넌트의 자식 요소가 아닌,다른 노드의 자식으로 렌더링을 시키도록 분리
+
+```html
+<!-- index.html -->
+<body>
+  <div id="root"></div>
+  <div id="modal"></div>
+  <!--이 요소의 자식 요소로 모달 컴포넌트를 넣어줍니다-->
+</body>
+```
+
+```js
+//modal.jsx
+ReactDOM.createPortal(모달컴포넌트 , document.getElementById('modal’));
+```
+
+- 모달의 열고 닫힘을 setState함수를 직접적으로 넘겨주지 않고 handleOpenModal, handleCloseModal로 명확하게 분리시켜준 후, 버튼을 클릭시 모달리 열리도록, 모달 컴포넌트 내부에서는 모달을 닫을 수 있도록 handler함수로 넘겨줌
+
+- setState함수로 직접 넘겨주면, 자식 요소가 부모 요소의 state를 변경가능하기 때문에, 리액트가 지향하는 단방향 데이터 흐름에 위배되기 때문에 handler함수로 넘겨주는 것이 좋음
+
+- 모달마다 다른 내용으로 이루어져있기 때문에, 모달 내용을 구성하는 컴포넌트들을 페이지별로 만들어줌
+
+- ModalBtn으로 감싼 요소가 모달의 내용을 구성할 수 있도록 children을 통해 모달에 모달내용 컴포넌트를 넘겨줌
+
+</div>
+</details>
+
+<details>
+<summary style="font-size: 18px">여러개의 이미지 미리보기</summary>
+<div markdown="1">
+
+- `<input type="file">`로 지정하고 useRef 훅을 사용하여 input에 못생긴 버튼을 이쁜 이미지 버튼으로 바꿈
+
+- 삼항연산자를 사용하여 imageUrl.length를 확인하고 참과 거짓을 판별함. 4개 이상일 때는 alert 창을 띄우고 state에 추가하지 않음. 4개 미만일때는 `<S.ImgUploadBtn>`에서 ref로 input DOM에 접근하여 onChange 이벤트위임을 발생시킴
+
+```js
+<S.ImgUploadBtn
+  onClick={() =>
+    imageUrl.length === 3
+      ? alert('이미지는 3개까지만 업로드할 수 있습니다.')
+      : Upload_Input.current.click()
+  }
+/>
+```
+
+- 최대 3개의 이미지파일만 올릴 수 있는 설정을 마쳤다면 미리보기 구현을 위해 특별한 작업을 해야 함. 보안상의 이유로 자동으로 상대경로를 블러 처리를 해버리기 때문에 Web API 중 FileReader라는 객체를 사용하여 미리보기를 구현 함. image를 base64이미지들(문자열배열)로 바꾼 후, setState 상태에 담음
+
+- && 연산자 조건부 렌더링을 사용하여 base64이미지들(문자열배열)을 map으로 돌려 이미지 태그를 여러개 만들어주면 여러개 이미지가 미리보기로 띄워짐
+
+```js
+<S.PostFormContainer>
+  {imageUrl &&
+    imageUrl.map((index, key) => (
+      <S.PreviewImage key={key} src={index} alt="이미지 미리보기" />
+    ))}
+```
+
+</div>
+</details>
+
+<details>
+<summary style="font-size: 18px">사용자 프로필 페이지</summary>
+<div markdown="1">
+
+```javascript
+  useEffect(() => {
+    if (userToken) {
+      const getProfileData = async () => {
+        await axios({
+          method: 'get',
+          url: `https://mandarin.api.weniv.co.kr/profile/${
+            params.id === accountName ? accountName : params.id
+          }`,
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+            'Content-type': 'application/json',
+          },
+        }).then((response) => {
+          setUserProfileData(response.data.profile);
+        });
+      };
+```
+
+- parmas(현재 접속중인 프로필 url의 사용자 아이디)와 accountName(현재 로그인한 사용자)이 같으면 내 프로필 정보를 가져옴. 그렇지 않으면 현재 접속중인 URL의 사용자 아이디에서 그 사용자의 프로필 데이터를 가져옴
+
+- 로컬스토리지에 저장된 accountName과, 현재 받아오고있는 사용자데이터의 accountname을 비교하여 isAuthorized상태를 설정함. isAuthorized상태에 따라 표시되는 프로필 화면이 다름. (내프로필 / 다른 사용자의 프로필)
+
+- 로컬스토리지는 사용자가 언제든 바꿀 수 있기 때문에 보안상 좋지 않아보여서😂 추후 isAuthorized 상태 설정하는 방식을 변경할 예정
+
+```javascript
+      const getPostData = async () => {
+        ...
+      };
+      getProfileData();
+      getPostData();
+    }
+  }, [params]);
+```
+
+- 다른 사용자의 프로필 페이지를 보다가 하단 네비바에서 ‘프로필’ 버튼을 클릭하면 내 프로필이 보이지 않고 이전의 프로필이 그대로 보이는 이슈가 있었음. 사용자 데이터를 불러오는 함수가 ‘userToken이 바뀔 때마다’ 실행되었기 때문. 따라서 의존성배열을 params(=현재 접속중인 url의 사용자 아이디)로 바꾸었습니다. url이 바뀔때마다 프로필 데이터를 가져오도록하여 문제를 해결함
+
+</div>
+</details>
+
+<br>
+
+## 트러블 슈팅
+
+### [프로젝트 시작 전 컨벤션 작업]
+
+<strong>어떤 문제가 있었나?</strong>
+
+- 프로젝트... 그냥 코딩만 하면 되는 줄 알았는데 아니였음. 각자 코딩해서 PR날린 코드는 작업파일 겹침, 각자 다른 프리티어 설정 및 VS Code 편집기 설정 등의 이유로 충돌이 일상이었음
+- 무작정 코딩을 시작하기 전에 어느정도 체계적인 컨벤션을 수립하는 것에 대한 필요성을 강하게 느낌
+
+<strong>어떻게 해결했나?</strong>
+
+- eslintrc.js파일 추가하고 프로젝트 성격에 맞게 커스텀. 안정적인 코드를 위해 var키워드 사용시 오류로 출력, != 와 == 대신 !== 와 === 사용, 사용하지 않는 변수사용이나 훅 임포트시 경고는 하되 오류는 출력되지 않도록 설정
+
+- prettierrc 파일 추가하여 서로다른 프리티어 설정때문에 의미없는 커밋이 추가되거나 파일마다 코드 스타일이 바뀌지 않도록 함
+
+- 깃플로우를 베이스로 하여 프로젝트 규모에 맞게 브랜치 3개(feature, develop, main)를 이용하는 전략으로 수정. 추후에 배포를 위한 release브랜치 추가
+
+- 깃 커밋 템플릿을 global로 지정하여 커밋메세지를 정해진 규칙에 맞게 간편하게 작성할 수 있도록 하여 History 열람시 가독성을 높힘
+
+- 깃헙에서의 PR템플릿, 이슈템플릿 등 적용하여 간편하게 형식에 맞는 글을 작성할 수 있도록 하고 가독성을 높힘. 특히 PR템플릿에 `어떤 부분에 리뷰어가 집중하면 좋을까요?` 추가하여 그부분을 중점으로 코드리뷰가 이루어질 수 있도록 함
+
+<br>
+
+<br>
+
+### [배포 전으로 돌리기 위한 Revert]
+
+<strong>어떤 문제가 있었나?</strong>
+
+- 작업하던 레포지토리 내에 그대로 firebase를 세팅하고 배포를 마친 후에, 작업용 레포지토리와 배포용 레포지토리를 분리하기로 결정함.
+- 배포할때 생긴 파일들이 있기 전으로, 즉 배포전으로 revert하고자 함.
+- 하지만 우리가 돌아가려는 배포 commit 이후에 병합 commit들이 포함되어있어서 충돌이 일어남.
+
+<strong>어떻게 해결했나?</strong>
+
+- CLI가 익숙치 않아 그래픽을 사용해서 revert하기로 함 -> Git Graph사용
+
+- 돌아가려는 커밋 이후에 배포 관련 파일을 수정한 커밋들이 존재하는데, 아예 그 파일들이 존재하지 않는 상태로 revert를 하려니 충돌이 일어난 것 -> 파일 삭제하고 commit후 revert 진행
+
+- 작업파일과 배포파일이 뒤섞여 commit 되어있는 상태여서 일어난 문제 -> 배포용 레포지토리와 작업용 레포지토리 분리의 중요성을 깨달음
+
 <br>
 
 # 👣프로젝트 기록들
@@ -142,7 +292,7 @@
 
   - 지현: 오픈 API이용한 소셜로그인 (카카오톡, 페이스북, 구글)
   - 수빈: 입양 등록 수정 · 모달 컴포넌트 코드최적화 및 선택
-  - 시아:
+  - 시아: 컴포넌트 최적화 및 비동기 로직 분리
   - 윤희: 게시물이미지 업로드 삭제기능 구현
 
 <br>
@@ -159,4 +309,5 @@
 
 <br>
 
-## 트러블 슈팅
+- CI/CD
+  - github action을 통한 자동 배포화
