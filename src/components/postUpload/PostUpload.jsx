@@ -173,7 +173,7 @@ function PostUpload() {
             />
             <S.ImgUploadBtn
               onClick={() =>
-                imageUrl.length === 3
+                imageUrl.length >= 3
                   ? alert('이미지는 3개까지만 업로드할 수 있습니다.')
                   : Upload_Input.current.click()
               }
