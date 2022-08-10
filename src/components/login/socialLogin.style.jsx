@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
 `;
@@ -22,7 +22,7 @@ export const ImgBox = styled.div`
   }
 `;
 
-export const LoginBox = styled.div`
+export const LoginBox = styled.section`
   position: absolute;
   bottom: 0;
   background-color: white;
@@ -60,7 +60,7 @@ export const List = styled.li`
   }
 `;
 
-export const Others = styled.div`
+export const Others = styled.ul`
   display: flex;
   justify-content: center;
   gap: 1rem;

@@ -10,7 +10,7 @@ import activeTabEdit from '../../assets/tab-icon-edit-color.svg.svg';
 import activeTabUser from '../../assets/tab-icon-user-color.svg.svg';
 import { NavLink } from 'react-router-dom';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   margin-top: auto;
   width: 100%;
   padding-top: 1rem;
