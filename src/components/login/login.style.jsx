@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   width: 390px;
   margin: 0 auto;
   display: flex;
@@ -29,7 +29,7 @@ export const StyledLink = styled(Link)`
   color: ${(props) => props.theme.palette['darkGray']};
 `;
 
-export const FormBox = styled.div`
+export const FormBox = styled.section`
   display: flex;
   flex-direction: column;
 
@@ -62,7 +62,7 @@ export const FormBox = styled.div`
   }
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
   margin-top: 1.6rem;
   background-color: ${(props) =>
     props.ableToClick === true

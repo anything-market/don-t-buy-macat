@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   width: 390px;
   margin: 0 auto;
   display: flex;
@@ -46,7 +46,7 @@ export const ImageBox = styled.div`
   }
 `;
 
-export const FormBox = styled.div`
+export const FormBox = styled.section`
   display: flex;
   flex-direction: column;
 
