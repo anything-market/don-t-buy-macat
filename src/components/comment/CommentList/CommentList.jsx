@@ -3,41 +3,32 @@ import React from 'react';
 import ModalBtn from '../../modal/ModalBtn/ModalBtn';
 import CommentModalContent from '../../modal/modalContent/CommentModalContent/CommentModalContent';
 import { timeForToday } from '../../../utils/timeForToday';
-
-import {
-  CommentListWrapper,
-  CommentListContainer,
-  CommentListLi,
-  ProfileImg,
-  InformationBox,
-  CommentText,
-  ModalBtnBox,
-} from './commentList.style';
+import * as S from './commentList.style';
 
 function CommentList({ comments }) {
   return (
-    <CommentListWrapper>
-      <CommentListContainer>
+    <S.CommentListWrapper>
+      <S.CommentListContainer>
         {comments &&
           comments.map((data) => {
             return (
-              <CommentListLi key={data.id}>
-                <ProfileImg src={data.author.image} />
-                <InformationBox>
+              <S.CommentListLi key={data.id}>
+                <S.ProfileImg src={data.author.image} />
+                <S.InformationBox>
                   <span>{data.author.username}</span>
                   <small>{timeForToday(data.createdAt)}</small>
-                </InformationBox>
-                <ModalBtnBox>
+                </S.InformationBox>
+                <S.ModalBtnBox>
                   <ModalBtn>
                     <CommentModalContent />
                   </ModalBtn>
-                </ModalBtnBox>
-                <CommentText>{data.content}</CommentText>
-              </CommentListLi>
+                </S.ModalBtnBox>
+                <S.CommentText>{data.content}</S.CommentText>
+              </S.CommentListLi>
             );
           })}
-      </CommentListContainer>
-    </CommentListWrapper>
+      </S.CommentListContainer>
+    </S.CommentListWrapper>
   );
 }
 

@@ -2,14 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import {
-  CommentReplyWrapper,
-  CommentReplyContainer,
-  ProfileImg,
-  CommentInput,
-  CommentSubmitButton,
-  ProfileImgBox,
-} from './commentReply.style';
+import * as S from './commentReply.style';
 
 function CommentReply({ getComments, postId }) {
   const [comment, setComment] = useState('');
@@ -19,10 +12,8 @@ function CommentReply({ getComments, postId }) {
   const [accountName, setAccountName] = useState('');
 
   useEffect(() => {
-    const userToken = localStorage.getItem('Access Token');
-    const accountName = localStorage.getItem('Account Name');
-    setUserToken(userToken);
-    setAccountName(accountName);
+    setUserToken(localStorage.getItem('Access Token'));
+    setAccountName(localStorage.getItem('Account Name'));
   }, []);
 
   useEffect(() => {
@@ -34,9 +25,13 @@ function CommentReply({ getComments, postId }) {
           Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',
         },
-      }).then((response) => {
-        setAuthorImg(response.data.profile.image);
-      });
+      })
+        .then((response) => {
+          setAuthorImg(response.data.profile.image);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }, [accountName]);
 
@@ -63,35 +58,39 @@ function CommentReply({ getComments, postId }) {
           content: `${comment}`,
         },
       },
-    }).then((response) => {
-      console.log(response.data.result);
-      setComment('');
-      setIsValid(false);
-      getComments();
-    });
+    })
+      .then((response) => {
+        console.log(response.data.result);
+        setComment('');
+        setIsValid(false);
+        getComments();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
-    <CommentReplyWrapper>
-      <CommentReplyContainer>
-        <ProfileImgBox>
-          <ProfileImg authorImg={authorImg} />
-        </ProfileImgBox>
-        <CommentInput
+    <S.CommentReplyWrapper>
+      <S.CommentReplyContainer>
+        <S.ProfileImgBox>
+          <S.ProfileImg authorImg={authorImg} />
+        </S.ProfileImgBox>
+        <S.CommentInput
           type="text"
           value={comment}
           placeholder="댓글 입력하기..."
           onChange={handleInput}
           onKeyUp={changeButton}
         />
-        <CommentSubmitButton
+        <S.CommentSubmitButton
           onClick={handleSubmit}
           disabled={isValid ? false : true}
         >
           게시
-        </CommentSubmitButton>
-      </CommentReplyContainer>
-    </CommentReplyWrapper>
+        </S.CommentSubmitButton>
+      </S.CommentReplyContainer>
+    </S.CommentReplyWrapper>
   );
 }
 
