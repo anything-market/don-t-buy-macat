@@ -1,9 +1,9 @@
-import { useNavigate } from 'react-router-dom';
-import React, { useEffect } from 'react';
 import axios from 'axios';
 import * as S from './postUpload.style';
-import { useRef, useState } from 'react';
 import UploadHeader from '../header/UploadHeader/UploadHeader';
+import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useRef, useState } from 'react';
 
 function PostUpload() {
   const Upload_Input = useRef();
@@ -17,10 +17,8 @@ function PostUpload() {
   const [authorImg, setAuthorImg] = useState('');
 
   useEffect(() => {
-    const userToken = localStorage.getItem('Access Token');
-    const accountName = localStorage.getItem('Account Name');
-    setUserToken(userToken);
-    setAccountName(accountName);
+    setUserToken(localStorage.getItem('Access Token'));
+    setAccountName(localStorage.getItem('Account Name'));
   }, []);
 
   useEffect(() => {
@@ -60,12 +58,9 @@ function PostUpload() {
     const reader = new FileReader();
     reader.readAsDataURL(Blob);
     e.target.value = '';
-    return new Promise((resolve) => {
-      reader.onload = () => {
-        setImageUrl((imageUrl) => [...imageUrl, reader.result]);
-        resolve();
-      };
-    });
+    reader.onload = () => {
+      setImageUrl((imageUrl) => [...imageUrl, reader.result]);
+    };
   };
 
   const imageUpload = async (files, index) => {
@@ -84,7 +79,8 @@ function PostUpload() {
     }
   };
 
-  async function createPost() {
+  async function createPost(e) {
+    e.preventDefault();
     const imageUrls = [];
     const files = image;
     for (let index = 0; index < files.length; index++) {
@@ -92,24 +88,28 @@ function PostUpload() {
       imageUrls.push(`https://mandarin.api.weniv.co.kr/${imgurl}`);
     }
     try {
-      const res = await axios({
-        url: `https://mandarin.api.weniv.co.kr/post`,
-        method: 'post',
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          'Content-type': 'application/json',
-        },
-        data: {
-          post: {
-            content: text,
-            image: imageUrls + '',
-          },
-        },
-      });
-      navigate(`/profile/${accountName}`);
+      const res = test(imageUrls);
+      res.then(navigate(`/profile/${accountName}`));
     } catch {
       (err) => console.log(err);
     }
+  }
+
+  async function test(imageUrls) {
+    await axios({
+      url: `https://mandarin.api.weniv.co.kr/post`,
+      method: 'post',
+      headers: {
+        Authorization: `Bearer ${userToken}`,
+        'Content-type': 'application/json',
+      },
+      data: {
+        post: {
+          content: text,
+          image: imageUrls + '',
+        },
+      },
+    });
   }
 
   const deleteImg = (index) => {
@@ -121,13 +121,7 @@ function PostUpload() {
   };
 
   return (
-    <S.PostUploadWrapper
-      method="POST"
-      onSubmit={(e) => {
-        e.preventDefault();
-        createPost(e);
-      }}
-    >
+    <S.PostUploadWrapper method="POST" onSubmit={(e) => createPost(e)}>
       <UploadHeader isValid={isValid} />
       <S.PostUploadFieldSet>
         <S.PostUploadLegend className="A11yHidden">
